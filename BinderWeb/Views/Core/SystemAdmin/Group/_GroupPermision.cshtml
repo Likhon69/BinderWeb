@@ -1,0 +1,29 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Group/GroupPermision.js")
+
+<div id="divGroupPermision">
+    <div class="divDetails">
+        <ul>
+            <li>
+                <label for="cmbApplicationForModule" class="">Application:</label>
+                <input id="cmbApplicationForModule" value=""/>
+            </li>
+        </ul>
+    </div>
+    <br />
+    
+    @Html.Partial("SystemAdmin/Group/_AccessControlPermision")
+    
+    @Html.Partial("SystemAdmin/Group/_ReportPermission")
+
+    <div class="clear"></div>
+
+    @Html.Partial("SystemAdmin/Group/_MenuPermision")
+    
+    @Html.Partial("SystemAdmin/Group/_StatePermision")
+    
+    @Html.Partial("SystemAdmin/Group/_ActionPermision")
+    
+    <div class="clear"></div>
+
+</div>

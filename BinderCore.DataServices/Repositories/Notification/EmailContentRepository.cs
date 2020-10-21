@@ -1,0 +1,24 @@
+﻿using BinderCore.DataServices.Base;
+using BinderCore.DataServices.Contracts.Notification;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Repository.Base;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderCore.DataServices.Repositories.Notification
+{
+    public class EmailContentRepository : BinderBaseRepository<EmailContent>, IEmailContentRepository
+    {
+        public EmailContentRepository(DbContext db) : base(db)
+        {
+
+        }
+
+        public EmailContent GetContentByTitleId(int emailTitleId)
+        {
+            return base.SingleOrDefault(s => s.EmailTitleId == emailTitleId);
+        }
+    }
+}

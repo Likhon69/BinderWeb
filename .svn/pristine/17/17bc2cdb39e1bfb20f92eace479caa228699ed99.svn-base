@@ -1,0 +1,25 @@
+﻿using BinderUtility;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderContractsWeb;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderServicesWeb
+{
+    public class OrderPaymentHistoryServices: BinderBaseServices,IOrderPaymentHistoryServices
+    {
+        private IOrderPaymentHistoryRepository _repository;
+        public OrderPaymentHistoryServices(IOrderPaymentHistoryRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public ICollection<OrderPaymentHistoryDto> GetOrderPaymentHistory()
+        {
+            return _repository.GetOrderPaymentHistory();
+        }
+    }
+}

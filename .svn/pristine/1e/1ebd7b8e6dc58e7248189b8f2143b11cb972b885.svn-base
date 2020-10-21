@@ -1,0 +1,25 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Group/GroupInfo.js")
+
+
+<div id="divGroupId">
+    <div class="divDetails">
+        <ul>
+            <li>
+                <label for="GroupName" class="lbl">Group Name:<span class="redstart">*</span></label>
+                <input type="hidden" id="hdnGroupId" value="0" />
+                <input type="text" id="txtGroupName" name="GroupName" maxlength="100" class="k-textbox" placeholder="Group name" required validationMessage="Please enter valid Group Name" />
+            </li>
+            <li>
+                <label for="IsDefult" class="lbl">Is Default:</label>
+                <input type="checkbox" id="chkIsDefault" name="IsDefult" class="chkBox"/>
+            </li>
+            <li>
+                <label for="Application" class="lbl">Application:</label>
+                <div id="dynamicCheckBoxForModule">
+                    
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

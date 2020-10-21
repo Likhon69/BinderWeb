@@ -1,0 +1,134 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Purpose Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/Client/client.js")
+
+<div class="mainDiv" style="text-align: center">
+
+    <h2>Purpose/Client</h2>
+
+
+    <div id="divTop" style="margin-bottom: 10px;">
+        <label style="width: 100px;">Status:</label>
+        <input id="cmbStatus" name="cmbStatus" />
+
+        <button id="btnNew" class="k-button" type="submit" onclick="AddNewClientClicked()">Add New Purpose/Client</button>
+    </div>
+    <div class="clear"></div>
+
+
+
+
+    <div id="DetailDiv" class="divDetails" style="display: none">
+
+
+
+                <div>
+                    <fieldset>
+                        <legend>Purpose/Client Information</legend>
+
+                        <div class="leftDiv">
+                            <ul>
+                                <li>
+                                    <input type="hidden" id="txtClientID" value="" />   
+@*                                    <input type="hidden" id="txtClientCode" value="" />*@
+                                    <label for="ClientName" class="lbl widthSize30_per">Purpose/Client Name:</label>
+                                    <input type="text" id="txtClientName" maxlength="100" name="ClientName" class="k-textbox"  />
+                                </li>
+                                <li>
+                                      <label for="ClientCode" class="lbl widthSize30_per">Purpose/Client Code:</label>
+                                    <input type="text" id="txtClientCode" name="ClientCode" class="k-textbox" placeholder="Purpose Code" />
+                                </li>
+                                <li>
+                                    <label for="txtEmail" class="lbl widthSize30_per">Email:</label>
+                                    <input type="email" id="txtEmail" maxlength="100" name="Email" class="k-textbox" placeholder="e.g. myname@example.net" />
+                                </li>
+                                <li>
+                                    <label for="IsMovement" class="lbl widthSize30_per">Is Movement:</label>
+                                    <input type="checkbox" id="chkIsMovement" name="IsMovement" class="k-checkbox" checked="checked" />
+                                </li>
+                                <li>
+                                    <label for="IsDefault" class="lbl widthSize30_per">Is Active:</label>
+                                    <input type="checkbox" id="chkIsActive" name="IsDefault" class="k-checkbox" checked="checked" />
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="rightDiv">
+                            <ul>
+                                <li>
+                                    <label for="txtAddress" class="lbl widthSize30_per">Address:</label>
+                                    <textarea id="txtAddress" maxlength="2000" name="Address" class="k-textbox" rows="4"></textarea>
+                                </li>
+                                <li>
+                                    <label for="txtPrimaryContact" class="lbl widthSize30_per">Primary Contact:</label>
+                                    <input type="text" id="txtPrimaryContact" maxlength="100" name="PrimaryContact" class="k-textbox" />
+                                </li>
+                                  <li>
+                                    <label for="ContactNo" class="lbl widthSize30_per">Contact No:</label>
+                                    <input type="text" id="txtContactNo" maxlength="100" name="ContactNo" class="k-textbox" />
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset>
+                        <legend>Contact Information</legend>
+
+                        <div id="ContactGrid"></div>
+                        @*<div class="clear"></div>*@
+
+                    </fieldset>
+                </div>
+
+                <div style="clear: both"></div>
+                <div id="buttonDiv" style="width: 100%; text-align: center">
+                    <ul>
+                        <li id="liButton">
+                            <button id="btnSave" class="k-button" type="submit" onclick="SubmitButtonClickEvent_Client()">Save</button>
+                            <button id="btnClearAll" class="k-button" onclick="Client_clearAll()">Clear</button>
+                            <button id="btnClose" class="k-button">Close</button>
+
+                        </li>
+                        <li class="status"></li>
+                    </ul>
+                </div>
+            @*</div>*@
+
+
+
+    </div>
+
+
+    
+    
+    
+    
+    
+@*    
+    <h2>Index</h2>
+    <form action="/StudentDtls" method="post"><div class="k-widget&#32;k-grid" id="GridParent" style="height:250px;"><div class="k-grid-header"><div class="k-grid-header-wrap"><table><colgroup><col style="width:30px" /><col style="width:90px" /><col style="width:90px" /><col style="width:90px" /></colgroup><tr><th class="k-header" data-field="studentclass" data-title="studentclass" scope="col"><input id='selectall' class='chkbx' type='checkbox' onclick='ToggleChkBox(this.checked);' /></th><th class="k-header" data-field="studentId" data-title="student&#32;Id" scope="col"><a class="k-link" href="/StudentDtls/Orders_Read?GridParent-sort=studentId-asc">student Id</a></th><th class="k-header" data-field="studentName" data-title="student&#32;Name" scope="col"><a class="k-link" href="/StudentDtls/Orders_Read?GridParent-sort=studentName-asc">student Name</a></th><th class="k-header" data-field="StudentBranch" data-title="Student&#32;Branch" scope="col"><a class="k-link" href="/StudentDtls/Orders_Read?GridParent-sort=StudentBranch-asc">Student Branch</a></th></tr></table></div></div><div class="k-grid-content" style="height:200px"><table><colgroup><col style="width:30px" /><col style="width:90px" /><col style="width:90px" /><col style="width:90px" /></colgroup><tbody><tr class="t-no-data"><td colspan="4"></td></tr></tbody></table></div><div class="k-pager-wrap&#32;k-grid-pager"><a class="k-link&#32;k-state-disabled" data-page="1" href="#" title="Go&#32;to&#32;the&#32;first&#32;page"><span class="k-icon&#32;k-i-seek-w">seek-w</span></a><a class="k-link&#32;k-state-disabled" data-page="0" href="#" title="Go&#32;to&#32;the&#32;previous&#32;page"><span class="k-icon&#32;k-i-arrow-w">arrow-w</span></a><ul class="k-pager-numbers&#32;k-reset"><li><span class="k-state-selected" data-page="1">1</span></li></ul><a class="k-link&#32;k-state-disabled" data-page="2" href="#" title="Go&#32;to&#32;the&#32;next&#32;page"><span class="k-icon&#32;k-i-arrow-e">arrow-e</span></a><a class="k-link&#32;k-state-disabled" data-page="1" href="#" title="Go&#32;to&#32;the&#32;last&#32;page"><span class="k-icon&#32;k-i-seek-e">seek-e</span></a><span class="k-pager-info&#32;k-label">No items to display</span></div></div><script>
+jQuery(function(){jQuery("#GridParent").kendoGrid({"columns":[{"title":"studentclass","width":"30px","template":"\u003cinput id=\u0027checkbox\u0027 onclick=\u0027grdChkBoxClick(this); \u0027 class=\u0027chkbxq\u0027 type=\u0027checkbox\u0027 /\u003e","field":"studentclass","sortable":false,"filterable":false,"encoded":true},{"title":"student Id","width":"90px","field":"studentId","filterable":false,"encoded":true},{"title":"student Name","width":"90px","field":"studentName","filterable":false,"encoded":true},{"title":"Student Branch","width":"90px","field":"StudentBranch","filterable":false,"encoded":true}],"pageable":{"buttonCount":10},"sortable":true,"selectable":"Multiple, Row","filterable":true,"resizable":true,"reorderable":true,"dataSource":{"transport":{"prefix":"","read":{"url":"/StudentDtls/Orders_Read"}},"pageSize":20,"page":1,"total":0,"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"type":"aspnetmvc-ajax","filter":[],"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"fields":{"studentId":{"type":"string"},"studentName":{"type":"string"},"StudentBranch":{"type":"string"},"studentclass":{"type":"number"}}}}}});});
+    
+    *@
+    
+
+    
+    
+    
+    
+
+
+
+<div id="ClientGrid"></div>
+
+<div class="clear"></div>
+</div>

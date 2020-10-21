@@ -1,0 +1,49 @@
+﻿
+
+<script src="~/Scripts/eAzolution/Reports/CommonReportParam.js"></script>
+
+<div class=" ">
+<h2 class="k-header">Dotted Line Member</h2>
+    <div class="divDetails">
+        <fieldset>
+            <legend>Dotted Line Member Info</legend>
+            
+            <div class="divDetails">
+
+                <div>                   
+                        <ul id="liIdentityPanelEmployeeParameter">
+                            <li>
+                                <b>Parameter</b>
+                                <div class="divDetails">
+                                    @Html.Partial("~/Views/Reports/CommonReportParam.cshtml")
+                                    <input type="hidden" id="hdnDottedLineGroupMappingId" value="0"/>
+                                    
+                                     <label for="GroupName" class="lbl widthSize9_per leftAlign">Search:</label>
+                                     <button id="btnLoad" class="k-button" value>
+                                        
+                                    <span class="k-icon k-i-search"></span>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    <br>
+                </div>
+                
+             <div>
+                        <ul id="liIdentityPanelEmployee">
+                            <li>
+                                <b>Employee</b>
+                                <div class="divDetails">
+                                    <div id="gvEmployeeDetails"></div>
+                                </div>
+                            </li>
+                        </ul>
+                   
+                </div>
+
+            </div>
+           
+           
+        </fieldset>
+    </div>
+</div>

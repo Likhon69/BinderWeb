@@ -1,0 +1,25 @@
+﻿using Binder.NotificationService.Contracts;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Binder.NotificationService.Base
+{
+    public abstract class BaseNotification : INotification
+    {
+
+        public BaseNotification()
+        {
+
+        }
+        public bool SentEmail()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SentSMS()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

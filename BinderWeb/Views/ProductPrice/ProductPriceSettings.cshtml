@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "ProductPriceSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/Binder/ProductPrice/DateProductPrice.js"></script>
+
+<script src="~/Binder/ProductPrice/DateProductPriceGrid.js"></script>
+<script src="~/Binder/ProductPrice/AddDateProductPrice.js"></script>
+
+
+
+<div class="container">
+
+    @await Html.PartialAsync("~/Views/ProductPrice/_DateProductPrice.cshtml")
+
+</div>
+

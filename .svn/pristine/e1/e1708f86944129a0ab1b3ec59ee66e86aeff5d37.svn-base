@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "DivisionManagerSettings";
+}
+<script src="~/Scripts/eAzolution/Core/HrAdmin/DivisionManager/DivisionManagerSettings.js"></script>
+<h2 class="k-header ">Division Manager Settings</h2>
+
+
+<div id="divDivisionManagerSettings">
+    <div class="leftDiv k-block">
+        
+        <h2 class="k-header">Division Manager Summary</h2>
+        @Html.Partial("HrAdmin/DivisionManager/DivisionManagerSummery")
+        
+    </div>
+
+    <div class="rightDiv divDetails k-block">
+ 
+            <h2 class="k-header">Division Manager Details</h2>
+          
+            @Html.Partial("HrAdmin/DivisionManager/DivisionManagerDetails")
+ 
+    </div>
+
+</div>
+<div class="clear"></div>

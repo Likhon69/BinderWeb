@@ -1,0 +1,17 @@
+﻿using Binder.NotificationService.Base;
+using Binder.NotificationService.Contracts;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Binder.NotificationService.Services
+{
+    public class OrderNotificationService : BaseNotification,IOrderNotificationService
+    {
+        public bool SentOrderConfirmationNotification()
+        {
+
+            return true;
+        }
+    }
+}

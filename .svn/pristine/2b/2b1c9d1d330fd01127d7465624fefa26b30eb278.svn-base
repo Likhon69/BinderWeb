@@ -1,0 +1,10 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Facility/FacilitySummary.js"></script>
+
+<div class="">
+    <div class="">
+
+        <div id="gridFacilitySummary"></div>
+
+    </div>
+</div>

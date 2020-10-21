@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Change User Id";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<script src="~/Scripts/eAzolution/Core/SystemAdmin/UserIdChange/UserIdChange.js"></script>
+<div class="mainDiv">
+    <div class="k-block ">
+        <div class="k-header">Upload User ID</div>
+
+        <div class="widthSize100_per">
+
+            <div class="widthSize70_per centerAlign">
+
+                <label id="uploadMsg"></label>
+                <input type="file" name="files" id="uploadUserId" />
+                <hr />
+                <button id="btnUploadUserId" class="k-button" type="button"> Upload </button>
+
+            </div>
+            <a href="../../DownloadTemplete/UserIdUpload.xlsx" style="text-decoration: none; color: blueviolet; font-weight: bold;" target="_blank">Download Upload User ID Template</a><br />
+
+        </div>
+
+    </div>
+    <div class="clear"></div>
+
+    <div class="clear"></div>
+    @*<div style="margin-bottom: 5px; margin-top: 5px;"></div>*@
+    <div id="DivUserIdChangeDataGrid" style="display: none">
+        @*<label style="background: rgb(130, 164, 130); width: 100px; text-align: center" id="labeltotal">Total(0)</label>
+            <label style="background: rgb(31, 227, 28); width: 100px; text-align: center" id="labelok">OK(0)</label>
+            <label style="background: rgb(255, 4, 8); width: 100px; text-align: center" id="labelnotFound">Not Found(0)</label>
+            <label style="background: rgb(215, 146, 192); width: 100px; text-align: center" id="labelnotSelected">Not Selected(0)</label>
+            <label style="background: rgb(221, 250, 103); width: 100px; text-align: center" id="labelkpiNotFound">KPI Not Found(0)</label>*@
+        <div id="gridUserIdInfo"></div>
+        <label class="widthSize45_per"></label>
+        <button id="btnSaveUserIdChangeData" class="k-button" type="button"> Save To Database </button>
+
+    </div>
+</div>
+@*<div id="divEmployeeLookupForAttendanceInformation">
+        <fieldset>
+            <legend>Employee Information</legend>
+            <div id="gridUserIdInfo"></div>
+        </fieldset>
+        <button id="btnSaveUploadEvaluationData" class="k-button" type="button"> Save To Database </button>btnSaveUserIdChangeData
+    </div>*@

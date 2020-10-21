@@ -1,0 +1,31 @@
+﻿using BinderCore.DataServices.Contracts.Notification;
+using BinderWeb.Repository.Base;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Repository.BinderWebContracts;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CommonUnitOfWork
+{
+    public interface IUnitOfWork : IDisposable
+    {
+
+        IBinderBaseRepository<TEntity> GetRepository<TEntity>() where TEntity : class;
+        IAddDateProductPriceApproveRepository ProductPrice { get; }
+        IAddDateProductPriceRepository ProductPriceTemp { get; }
+        IProductInformationRepository ProductInformation { get; }
+        IAddProductPriceHistoryRepository ProductPriceHistory { get; }
+        IDealerTypeRepository DealerType { get; }
+        IDealerWithLocationMappingRepository DealerWithLocationMapping { get; }
+        ILocationRepository Location { get; }
+        IUnitRepository Unit { get; }
+        IEmailContentRepository EmailContent { get; }
+        IMessageRepository Message { get; }
+        IEmailRepository Email { get; }
+        ISmsRepository SMS { get; }
+          
+
+        int Commit();
+    }
+}

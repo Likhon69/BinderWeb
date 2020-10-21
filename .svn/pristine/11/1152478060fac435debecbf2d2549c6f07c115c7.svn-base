@@ -1,0 +1,584 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+
+namespace BinderWeb.DatabaseContext.Entities
+{
+    public partial class BinderDBContext : DbContext
+    {
+        public BinderDBContext()
+        {
+        }
+
+        public BinderDBContext(DbContextOptions<BinderDBContext> options)
+            : base(options)
+        {
+        }
+
+        public virtual DbSet<AppUser> AppUser { get; set; }
+        public virtual DbSet<Attachment> Attachment { get; set; }
+        public virtual DbSet<BagType> BagType { get; set; }
+        public virtual DbSet<Bank> Bank { get; set; }
+        public virtual DbSet<BankBranch> BankBranch { get; set; }
+        public virtual DbSet<Branch> Branch { get; set; }
+        public virtual DbSet<Company> Company { get; set; }
+        public virtual DbSet<DealerInformation> DealerInformation { get; set; }
+        public virtual DbSet<DealerType> DealerType { get; set; }
+        public virtual DbSet<DealerWithLocationMapping> DealerWithLocationMapping { get; set; }
+        public virtual DbSet<EmailContent> EmailContent { get; set; }
+        public virtual DbSet<GroupMember> GroupMember { get; set; }
+        public virtual DbSet<GroupPermission> GroupPermission { get; set; }
+        public virtual DbSet<Groups> Groups { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<Message> Message { get; set; }
+        public virtual DbSet<MessageDetails> MessageDetails { get; set; }
+        public virtual DbSet<Module> Module { get; set; }
+        public virtual DbSet<OrderState> OrderState { get; set; }
+        public virtual DbSet<PaymentOrder> PaymentOrder { get; set; }
+        public virtual DbSet<PricingSlote> PricingSlote { get; set; }
+        public virtual DbSet<ProductInformation> ProductInformation { get; set; }
+        public virtual DbSet<ProductOrder> ProductOrder { get; set; }
+        public virtual DbSet<ProductPrice> ProductPrice { get; set; }
+        public virtual DbSet<ProductPriceHistory> ProductPriceHistory { get; set; }
+        public virtual DbSet<ProductPriceTemp> ProductPriceTemp { get; set; }
+        public virtual DbSet<SentEmail> SentEmail { get; set; }
+        public virtual DbSet<Smssent> Smssent { get; set; }
+        public virtual DbSet<TallyPoint> TallyPoint { get; set; }
+        public virtual DbSet<Unit> Unit { get; set; }
+        public virtual DbSet<UserOtp> UserOtp { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Wfaction> Wfaction { get; set; }
+        public virtual DbSet<Wfstate> Wfstate { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("User ID=sa;password=az@2010SE;Initial Catalog=BinderDB;Data Source=192.168.1.210\\SQL2012;Persist Security Info=False;Connection Timeout=1000;");
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Attachment>(entity =>
+            {
+                entity.Property(e => e.AttachmentFile)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<BagType>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.BagTypeName)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Bank>(entity =>
+            {
+                entity.Property(e => e.BankCode)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.BankName).HasMaxLength(150);
+            });
+
+            modelBuilder.Entity<BankBranch>(entity =>
+            {
+                entity.HasKey(e => e.BranchId);
+
+                entity.Property(e => e.Address).HasMaxLength(500);
+
+                entity.Property(e => e.BranchCode).HasMaxLength(50);
+
+                entity.Property(e => e.BranchName).HasMaxLength(150);
+            });
+
+            modelBuilder.Entity<Branch>(entity =>
+            {
+                entity.Property(e => e.BranchCode).HasMaxLength(50);
+
+                entity.Property(e => e.BranchDescription).HasMaxLength(2000);
+
+                entity.Property(e => e.BranchName)
+                    .IsRequired()
+                    .HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<Company>(entity =>
+            {
+                entity.Property(e => e.Address).HasMaxLength(1000);
+
+                entity.Property(e => e.CompanyCode).HasMaxLength(50);
+
+                entity.Property(e => e.CompanyName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CompanyTin).HasMaxLength(50);
+
+                entity.Property(e => e.Email).HasMaxLength(100);
+
+                entity.Property(e => e.ExpenseGl)
+                    .HasColumnName("ExpenseGL")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.Fax).HasMaxLength(50);
+
+                entity.Property(e => e.FullLogoPath).HasMaxLength(1000);
+
+                entity.Property(e => e.FullLogoPathForReport).HasMaxLength(1000);
+
+                entity.Property(e => e.GratuityStartDate).HasColumnType("date");
+
+                entity.Property(e => e.Phone).HasMaxLength(1000);
+
+                entity.Property(e => e.PrimaryContact).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<DealerInformation>(entity =>
+            {
+                entity.HasKey(e => e.DealerId);
+
+                entity.Property(e => e.Agrementfile)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.DealerCode)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DealerName)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmailAddress)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IsActive).HasColumnName("isActive");
+
+                entity.Property(e => e.MobileNo)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<DealerType>(entity =>
+            {
+                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+
+                entity.Property(e => e.DealerTypeName).HasMaxLength(250);
+
+                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<DealerWithLocationMapping>(entity =>
+            {
+                entity.HasOne(d => d.Dealer)
+                    .WithMany(p => p.DealerWithLocationMapping)
+                    .HasForeignKey(d => d.DealerId)
+                    .HasConstraintName("FK_DealerWithLocationMapping_DealerInformation");
+
+                entity.HasOne(d => d.Location)
+                    .WithMany(p => p.DealerWithLocationMapping)
+                    .HasForeignKey(d => d.LocationId)
+                    .HasConstraintName("FK_DealerWithLocationMapping_Branch");
+            });
+
+            modelBuilder.Entity<EmailContent>(entity =>
+            {
+                entity.HasIndex(e => e.EmailContentId)
+                    .HasName("IX_EmailContent")
+                    .IsUnique();
+
+                entity.Property(e => e.NotifcationBody).HasMaxLength(1000);
+
+                entity.Property(e => e.ParamDefination).HasMaxLength(500);
+
+                entity.Property(e => e.Smsbody)
+                    .HasColumnName("SMSBody")
+                    .HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<GroupMember>(entity =>
+            {
+                entity.HasKey(e => new { e.GroupId, e.UserId });
+
+                entity.Property(e => e.GroupOption).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GroupPermission>(entity =>
+            {
+                entity.HasKey(e => e.PermissionId);
+
+                entity.Property(e => e.Groupid).HasColumnName("GROUPID");
+
+                entity.Property(e => e.Parentpermission).HasColumnName("PARENTPERMISSION");
+
+                entity.Property(e => e.Permissiontablename)
+                    .HasColumnName("PERMISSIONTABLENAME")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Referenceid).HasColumnName("REFERENCEID");
+
+                entity.HasOne(d => d.Group)
+                    .WithMany(p => p.GroupPermission)
+                    .HasForeignKey(d => d.Groupid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_GroupPermission_Groups");
+            });
+
+            modelBuilder.Entity<Groups>(entity =>
+            {
+                entity.HasKey(e => e.GroupId);
+
+                entity.Property(e => e.GroupName).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<Menu>(entity =>
+            {
+                entity.Property(e => e.MenuId).HasColumnName("MenuID");
+
+                entity.Property(e => e.MenuName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.MenuPath).HasMaxLength(200);
+
+                entity.Property(e => e.ModuleId).HasColumnName("ModuleID");
+
+                entity.Property(e => e.Sororder).HasColumnName("SORORDER");
+
+                entity.Property(e => e.Todo).HasColumnName("TODO");
+            });
+
+            modelBuilder.Entity<Message>(entity =>
+            {
+                entity.Property(e => e.ArchiveTime).HasColumnType("datetime");
+
+                entity.Property(e => e.DeliveredTime).HasColumnType("datetime");
+
+                entity.Property(e => e.MessageDetails)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.MessageSubject)
+                    .IsRequired()
+                    .HasMaxLength(500);
+
+                entity.Property(e => e.MessagingDate).HasColumnType("datetime");
+
+                entity.Property(e => e.NotificationText).HasMaxLength(1000);
+
+                entity.Property(e => e.RedirectLink)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ReferenceDate).HasColumnType("date");
+
+                entity.Property(e => e.Smstext)
+                    .HasColumnName("SMSText")
+                    .HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<MessageDetails>(entity =>
+            {
+                entity.HasIndex(e => e.MessageDetailsId)
+                    .HasName("IX_MessageDetails");
+
+                entity.Property(e => e.EmailAddress)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ReadTime).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Message)
+                    .WithMany(p => p.MessageDetailsNavigation)
+                    .HasForeignKey(d => d.MessageId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_MessageDetails_Message");
+            });
+
+            modelBuilder.Entity<Module>(entity =>
+            {
+                entity.Property(e => e.ModuleId).ValueGeneratedNever();
+
+                entity.Property(e => e.ModuleName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<OrderState>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.StateName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<PaymentOrder>(entity =>
+            {
+                entity.HasKey(e => e.PaymentId);
+
+                entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.AttachmentFile)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.AttachmentId)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ChequeDate).HasColumnType("date");
+
+                entity.Property(e => e.ChequeNo)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DepositDate).HasColumnType("date");
+
+                entity.Property(e => e.PaymentDate).HasColumnType("datetime");
+
+                entity.Property(e => e.PaymentMethod)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Remarks).HasMaxLength(250);
+            });
+
+            modelBuilder.Entity<PricingSlote>(entity =>
+            {
+                entity.HasKey(e => e.SlotId);
+
+                entity.Property(e => e.FromTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ToTime).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<ProductInformation>(entity =>
+            {
+                entity.HasKey(e => e.ProductId);
+
+                entity.Property(e => e.ProductCode)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProductName).HasMaxLength(150);
+            });
+
+            modelBuilder.Entity<ProductOrder>(entity =>
+            {
+                entity.HasKey(e => e.OrderId);
+
+                entity.Property(e => e.OrderNo)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Orderdate).HasColumnType("datetime");
+
+                entity.Property(e => e.PickupDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Soc)
+                    .HasColumnName("SOC")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<ProductPrice>(entity =>
+            {
+                entity.Property(e => e.ApproveDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+
+                entity.Property(e => e.FirstSlotPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.PricingDate).HasColumnType("date");
+
+                entity.Property(e => e.ProductName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SecondSlotPrice).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<ProductPriceHistory>(entity =>
+            {
+                entity.HasKey(e => e.ProductPriceId);
+
+                entity.Property(e => e.ApproveDate).HasColumnType("datetime");
+
+                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+
+                entity.Property(e => e.FistSlotPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.PricingDate).HasColumnType("date");
+
+                entity.Property(e => e.ProductName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SecondSlotPrice).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<ProductPriceTemp>(entity =>
+            {
+                entity.HasKey(e => e.ProductPriceId);
+
+                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+
+                entity.Property(e => e.FirstSlotPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.PricingDate).HasColumnType("date");
+
+                entity.Property(e => e.SecondSlotPrice).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<SentEmail>(entity =>
+            {
+                entity.Property(e => e.Attachment).HasColumnType("ntext");
+
+                entity.Property(e => e.Body).IsUnicode(false);
+
+                entity.Property(e => e.CcAddress).HasMaxLength(500);
+
+                entity.Property(e => e.EmailFrom).HasMaxLength(250);
+
+                entity.Property(e => e.EmailTo).HasMaxLength(250);
+
+                entity.Property(e => e.MailCreateDate).HasColumnType("datetime");
+
+                entity.Property(e => e.MailSendDate).HasColumnType("datetime");
+
+                entity.Property(e => e.MenuId).HasColumnName("menuId");
+
+                entity.Property(e => e.Subject).HasMaxLength(1000);
+            });
+
+            modelBuilder.Entity<Smssent>(entity =>
+            {
+                entity.ToTable("SMSSent");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.DeliveryDateTime).HasColumnType("datetime");
+
+                entity.Property(e => e.MobileNumber).HasMaxLength(25);
+
+                entity.Property(e => e.RequestDateTime).HasColumnType("datetime");
+
+                entity.Property(e => e.SimNumber).HasMaxLength(25);
+
+                entity.Property(e => e.Smstext)
+                    .HasColumnName("SMSText")
+                    .HasMaxLength(1000);
+            });
+
+            modelBuilder.Entity<TallyPoint>(entity =>
+            {
+                entity.Property(e => e.Remarks).HasMaxLength(500);
+
+                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<Unit>(entity =>
+            {
+                entity.Property(e => e.UnitName).HasMaxLength(150);
+            });
+
+            modelBuilder.Entity<UserOtp>(entity =>
+            {
+                entity.Property(e => e.Email)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.GenerateTime).HasColumnType("datetime");
+
+                entity.Property(e => e.MobileNo)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SendingTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ValidToDate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<Users>(entity =>
+            {
+                entity.HasKey(e => e.UserId)
+                    .HasName("PK_User");
+
+                entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.EmployeeId).HasComment("EmployeeId As HrRecordId");
+
+                entity.Property(e => e.LastLoginDate).HasColumnType("datetime");
+
+                entity.Property(e => e.LastUpdateDate).HasColumnType("datetime");
+
+                entity.Property(e => e.LoginId).HasMaxLength(50);
+
+                entity.Property(e => e.Password).HasMaxLength(100);
+
+                entity.Property(e => e.Theme)
+                    .HasColumnName("THEME")
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.UserName).HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<Wfaction>(entity =>
+            {
+                entity.ToTable("WFAction");
+
+                entity.Property(e => e.WfactionId).HasColumnName("WFActionId");
+
+                entity.Property(e => e.ActionName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.EmailAlert).HasColumnName("EMAIL_ALERT");
+
+                entity.Property(e => e.SmsAlert).HasColumnName("SMS_ALERT");
+
+                entity.Property(e => e.WfstateId).HasColumnName("WFStateId");
+            });
+
+            modelBuilder.Entity<Wfstate>(entity =>
+            {
+                entity.ToTable("WFState");
+
+                entity.Property(e => e.WfstateId).HasColumnName("WFStateId");
+
+                entity.Property(e => e.StateName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            OnModelCreatingPartial(modelBuilder);
+        }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    }
+}

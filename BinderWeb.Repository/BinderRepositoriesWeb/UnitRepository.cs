@@ -1,0 +1,36 @@
+﻿using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Repository.Base;
+using BinderWeb.Repository.BinderWebContracts;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Repository.BinderWebRepositories
+{
+    public class UnitRepository:BinderBaseRepository<Unit>,IUnitRepository
+    {
+     
+        public UnitRepository(DbContext db) :base(db)
+        {
+            
+        }
+
+    
+
+        /*public IEnumerable<Unit> GetAllProductType()
+        {
+            string data = "";
+            try
+            {
+                data = string.Format(@"select ProductType.ProductTypeId,ProductType.ProductTypeName from ProductType");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return Kendo<Unit>.Combo.DataSource(data)
+        }*/
+    }
+}

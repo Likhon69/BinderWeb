@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Services.BinderContractsWeb;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+
+namespace BinderWeb.Controllers
+{
+    [Route("[controller]/[action]")]
+    public class ProductInformationController : Controller
+    {
+        private IProductInformationServices _productInformationServices;
+        private IMapper _mapper;
+        public ProductInformationController(IProductInformationServices productInformationServices, IMapper mapper)
+        {
+            _productInformationServices = productInformationServices;
+            _mapper = mapper;
+        }
+        [HttpGet]
+        public IActionResult AddProductInformation()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult AddProductInformation([FromBody]ProductInformation product)
+        {
+            /* var data =
+                 (ProductInformation)Newtonsoft.Json.JsonConvert.DeserializeObject(product, typeof(ProductInformation));*/
+            //var data = _mapper.Map<ProductInformation>(product);
+            var res = "";
+            if (ModelState.IsValid)
+            {
+                var isSucess = _productInformationServices.Add(product);
+                res = isSucess == true ? "Success" : "Failed";
+            }
+
+            return Json(res);
+        }
+    }
+}

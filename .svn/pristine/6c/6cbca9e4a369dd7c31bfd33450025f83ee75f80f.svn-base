@@ -1,0 +1,28 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Group/ReportPermission.js")
+<style>
+    
+    #divReportPermission {
+    border: 1px solid #666666;
+    float: left;
+    height: 200px;
+    margin-right: 5px;
+    width: 40%;
+        overflow: auto;
+}
+</style>
+<div id="divReportPermission" class="fieldDiv menuPermission leftAlign">
+
+    <div class="permissionHeaderDiv k-header">
+        <h3 class="permissionHeader">Customized Report Permission</h3>
+    </div>
+
+    <div id="reportPermissionContent" class="divDetails menuContent">
+        <ul>
+            <li>
+                <div id="checkboxReportPermission">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

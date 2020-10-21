@@ -1,0 +1,9 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/AttendenceRemarksSettings/AttendenceRemarksSummary.js"></script>
+
+
+    <div class="divDetails">
+        
+            <div id="gridAttendenceRemarksSummary"></div>
+        
+    </div>

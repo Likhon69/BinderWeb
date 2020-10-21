@@ -1,0 +1,15 @@
+﻿
+
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/RSMRegion/RSMRegionSettings.js")
+<div id="divRSMRegionSettings" class="divDetails">
+    <div id="divRsmRegionDetails" style="display: none" class="k-block">
+        <h3 class="k-header centerAlign">RSM Region Details</h3>
+                @Html.Partial("~/Views/Core/HrAdmin/RSMRegion/RSMRegionDetails.cshtml")
+    </div>
+    <div id="divRsmRegionSummary" class="k-block">
+        <h3 class="k-header centerAlign">RSM Region Summary</h3>
+            @Html.Partial("~/Views/Core/HrAdmin/RSMRegion/RSMRegionSummary.cshtml")
+    </div>
+</div>
+
+<div class="clear"></div>

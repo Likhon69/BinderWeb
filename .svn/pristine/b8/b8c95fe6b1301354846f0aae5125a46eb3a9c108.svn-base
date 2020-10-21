@@ -1,0 +1,16 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/BranchManagerSetting/BranchManagerSummary.js"></script>
+
+<div class="leftDiv widthSize60_per">
+    <fieldset class="k-content">
+
+        <legend class="k-fontSize[15]"> Branch Manager Settings Summary</legend>
+
+        <div id="BranchManagerSummaryDiv" class="divSummary">
+
+
+
+        </div>
+    </fieldset>
+
+
+</div>

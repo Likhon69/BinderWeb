@@ -1,0 +1,101 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderUtility.Common;
+using BinderWeb.Models;
+using BinderWeb.Models.Auth;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.IdentityModel.Tokens;
+
+namespace BinderWeb.Controllers
+{
+    public class AccountController : Controller
+    {
+        private IUsersService _usersService;
+        private readonly AppSettings _appSettings;
+
+        public AccountController(IUsersService usersService, IOptions<AppSettings> appSettings)
+        {
+            _usersService = usersService;
+            _appSettings = appSettings.Value;
+
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult SignOut()
+        {
+            HttpContext.SignOutAsync();
+            return View("login");
+
+        }
+
+        [HttpPost]
+        public IActionResult Authenticate([FromBody]AuthenticateModel model)
+        {
+
+            //  var user = _usersService.Authenticate(model.LoginId, model.Password);
+
+            var encrpPass = EncryptDecryptHelper.Encrypt(model.Password);
+            var user = _usersService.GetUserByLoginIdWithPassword(model.LoginId, encrpPass);
+            if (user == null)
+            {
+                return null;
+            }
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+
+            var loginClaims = new List<Claim>()
+            {
+                 new Claim(ClaimTypes.Name, user.LoginId.ToString()),
+                 new Claim(ClaimTypes.Sid, user.LoginId.ToString())
+            };
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(loginClaims),
+                Audience = "http://localhost:2738/",
+                Issuer = "http://localhost:34023/",
+
+                Expires = DateTime.UtcNow.AddDays(30),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            IdentityModelEventSource.ShowPII = true;
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            //user.Theme = tokenHandler.WriteToken(token);
+            var loginIdentity = new ClaimsIdentity(loginClaims, "cookieAuth");
+
+            var userPrincipal = new ClaimsPrincipal(new[] { loginIdentity });
+
+            HttpContext.SignInAsync("cookieAuth", userPrincipal);
+
+            var authUser = new AuthorizeUser { Username = user.UserName, LoginId = user.LoginId, Token = tokenHandler.WriteToken(token) };
+
+            if (authUser == null)
+            {
+                return BadRequest(new { message = "Username or password is incorrect" });
+            }
+            else
+            {
+                var result = authUser;
+                //HttpContext.Session.set("JWToken", authUser);
+                return Ok(result);
+            }
+
+        }
+
+
+    }
+}

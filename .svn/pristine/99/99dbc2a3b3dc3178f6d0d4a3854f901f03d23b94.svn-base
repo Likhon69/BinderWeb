@@ -1,0 +1,31 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Company/DepartmentSolution.js")
+
+<div class="">
+
+    <button id="btnAddDepartmentSol" class="k-button"><span class="k-icon k-i-plus"></span>Add New Department</button>
+
+    <div id="departmentDiv" class="displayNone">
+        @Html.Partial("~/Views/Core/HrAdmin/Department/_DepartmentDetails.cshtml")
+        @Html.Partial("~/Views/Core/HrAdmin/Department/_DepartmentSummary.cshtml")
+    </div>
+
+    <div id="divgridDepartmentSolution"></div>
+</div>
+
+
+<div style="display: none" id="divDepartmentToFacilityMap">
+    <div id="divgriDepartmentToFacilityMapSolution"></div>
+    <input type="hidden" id="hdnDepartmentFacilityId" value="0"/>
+    <div class="divDetails">
+        <ul>
+            <li class="centerAlign">
+                <button id="btnSaveDeptToFacilityMap" class="k-button" onclick=" departmentSolutionManager.SaveDepartmentFacilityMap(); "><span class="k-icon k-i-tick"></span>Save</button>&nbsp; &nbsp;
+                <button id="btnClearDeptToFacility" class="k-button" onclick=" departmentSolutionHelper.closeDeptFacilityPopUp(); "><span class="k-icon k-i-close"></span>Close</button>&nbsp; &nbsp;
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="divDepartmentToSectionMap" style="display: none">
+        @Html.Partial("SystemAdmin/Company/SectionSolution")
+</div>

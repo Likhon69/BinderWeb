@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Access Restriction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/AccessRestriction/AccessRestriction.js")
+<div class="mainDiv">
+    <h2 class="k-header centerAlign">Access Restriction</h2>
+    <div class="divDetails">
+        <div class="k-block">
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionParam")
+        </div>
+        
+       
+    </div>
+    <div id="divCompany" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Company Information</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionCompany")
+            
+        </div>
+        <br/>
+        <div class="k-block" style="display: none;">
+            <h2 class="k-header centerAlign">Employee Type</h2>
+            <div id="
+                 Type"></div>
+        </div>
+    </div>
+    <div id="divBranch" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Location Information</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionBranch")
+
+        </div>
+    </div>
+    <div id="divDivision" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Division Information</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionDivision")
+        </div>
+    </div>
+    <div id="divDepartment" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Department Information</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionDepartment")
+        </div>
+    </div>
+    <div id="divFunction" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Function Information</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionFunction")
+        </div>
+    </div>
+    <div id="divCostCenter" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Cost Center</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionCostCenter")
+        </div>
+    </div>
+    <div id="divFacility" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Facility</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionFacility")
+        </div>
+    </div>
+    <div id="divRsmRegion" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Rsm Region</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionRsmRegion")
+        </div>
+    </div>
+    <div id="divSection" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Section</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionSection")
+        </div>
+    </div>
+    <div id="divGrade" class="leftDiv widthSize19_per">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Grade</h2>
+            @Html.Partial("SystemAdmin/AccessRestriction/_AccessRestrictionGrade")
+        </div>
+    </div>
+   
+    <div class="clear"></div>
+
+</div>

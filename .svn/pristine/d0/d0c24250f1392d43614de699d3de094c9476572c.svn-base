@@ -1,0 +1,1477 @@
+﻿
+/*Company Information*/
+.leftDiv {
+    /*border: 1px solid black;*/
+    float: left;
+    padding: 5px;
+    width: 48%;
+}
+
+    .leftDiv .k-content {
+        border: 1px solid #014E18;
+    }
+
+.rightDiv {
+    /*border: 1px solid black;*/
+    float: right;
+    padding: 5px;
+    width: 48%;
+    /*border-radius:25px;*/
+}
+.leftchildDiv {
+    float: right;
+    padding: 5px;
+    width: 20%;
+}
+.rightDiv .k-content {
+    border: 1px solid #014E18;
+}
+
+.k-textbox {
+    width: 11.8em;
+    /*color: #003f59 !important;*/
+    color: black;
+}
+
+input[disabled='disabled'] {
+    xwidth: 11.8em;
+    xwidth: 17.4em;
+    color: black;
+}
+
+
+
+
+.divDetails {
+    /*border-radius:25px;*/
+}
+
+    .divDetails h3 {
+        font-weight: normal;
+        font-size: 1.4em;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .divDetails ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .divDetails li {
+        margin: 10px 0 0 0;
+    }
+
+    .divDetails label {
+        font-weight: normal;
+    }
+
+.lblTextArea {
+    vertical-align: top;
+}
+
+label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+.required {
+    font-weight: bold;
+}
+
+.accept, .status {
+    padding-left: 142px;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+span.k-tooltip {
+    margin-left: 6px;
+}
+
+.lbl {
+    width: 16%;
+    text-align: left;
+    font-weight: bold;
+}
+/*.lblTheme {
+    width:9%;
+    text-align:left;
+}*/
+/*.lblUser, .lblCompany {
+    width:20%;
+    text-align:left;
+}
+
+.lblUser, .lblCompany {
+    width:20%;
+    text-align:left;
+}*/
+
+.lbltAra {
+    vertical-align: top;
+}
+
+.tarea {
+    xwidth: 11.4em;
+    width: 15.6em;
+}
+
+.lblPermission {
+    padding-top: 5px;
+    text-align: left;
+}
+
+#divMenuPermission {
+    border: 1px solid #666666;
+    height: auto;
+    margin-right: 5px;
+    width: 32%;
+    float: left;
+}
+
+.permissionHeaderDiv {
+    background-color: #666666;
+    border: 1px solid #666666;
+    height: 25px;
+}
+
+.permissionHeader {
+    /*color: #FFFFFF;*/
+    margin: 2px 0;
+    text-align: center;
+}
+
+
+
+/*Blick UI*/
+
+div.growlUI {
+    background: url(check48.png) no-repeat 10px 10px;
+}
+
+    div.growlUI h1, div.growlUI h2 {
+        color: white;
+        padding: 5px 5px 5px 75px;
+        text-align: left;
+    }
+
+#divStatePermission {
+    border: 1px solid #666666;
+    height: auto;
+    margin-right: 5px;
+    width: 32%;
+    float: left;
+}
+
+#divActionPermission {
+    border: 1px solid #666666;
+    height: auto;
+    margin-right: 5px;
+    width: 32%;
+    float: left;
+}
+
+.alinkGroup {
+    text-decoration: none;
+    /*color: #ffffff;*/
+}
+
+.k-comboboxShift {
+    width: 11.4em;
+}
+
+.daysetLabels {
+    display: inline-block;
+    width: 35px;
+    padding-right: 5px;
+}
+
+.daysettextbox {
+    width: 150px;
+}
+
+.lblLS {
+    display: inline-block;
+    width: 70px;
+    text-align: left;
+}
+
+.holidaycontentleft {
+    xborder: 1px solid #333333;
+    xpadding: 10px;
+    width: 100%;
+}
+
+#Loadclaender table {
+    border: 1px solid #9DABCE;
+    border-collapse: separate;
+    font-size: 11px !important;
+    xmargin: 10px auto;
+}
+
+
+
+.loadclaenderth {
+    background-color: #BEC2BF;
+    font-size: 14px !important;
+    font-weight: bold;
+    height: 30px;
+    text-align: center;
+    width: 70px;
+}
+
+.loadclaendertd {
+    font-size: 14px !important;
+    font-weight: bold;
+    height: 30px;
+    text-align: center;
+    background-color: #C9D2DD;
+    width: 70px;
+}
+
+.cmbCalender {
+    font-size: 9px !important;
+    width: 69px;
+}
+
+
+/*Movement Popup*/
+#popupContact, #popupDayOff, #divAttendanceRequestPopup, #divMovementPopup {
+    display: none;
+    position: fixed;
+    _position: absolute; /* hack for internet explorer 6*/
+    height: 384px;
+    width: 408px;
+    background: #FFFFFF;
+    border: 5px solid #05920F;
+    z-index: 2;
+    xpadding: 12px;
+    font-size: 10px;
+}
+
+#divMovementPopup {
+    height: 275px;
+}
+
+    #popupContact h1, #popupDayOff h1, #divAttendanceRequestPopup h1, #divMovementPopup h1, #divWorkLogPopup h1 {
+        text-align: left;
+        color: #ffffff;
+        font-size: 22px !important;
+        font-weight: 700;
+        padding-bottom: 2px;
+        background-color: #05920F;
+        margin: 0;
+    }
+
+    #divMovementPopup .txtField {
+        width: 275px;
+    }
+
+.popDetails {
+    padding: 12px;
+}
+
+.loginInner {
+    padding-bottom: 5px;
+}
+
+    .loginInner label {
+        display: inline-block;
+        text-align: right;
+        width: 90px;
+    }
+
+#actionButtons, .actionButtons {
+    width: 100%;
+    text-align: center;
+}
+
+.dashboardHeader {
+    background-color: #EAEAEA;
+    color: #333333;
+    margin: 0;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+#divleaveApprove, #divApprove {
+    margin-top: 5px;
+}
+
+.redstart {
+    color: red;
+    font-weight: bold;
+}
+
+#divProfilePicture {
+    border: 2px solid #94c0d2;
+    xheight: 144px;
+    xwidth: 130px;
+    height: 172px;
+    width: 170px;
+    float: right;
+}
+
+.divProfilePicture {
+    border: solid 1px black;
+    xheight: 144px;
+    xwidth: 130px;
+    height: 172px;
+    width: 170px;
+    float: right;
+}
+
+.divLogoPicture {
+    border: solid 1px black;
+    xheight: 114px;
+    xwidth: 100px;
+    height: 145px;
+    width: 140px;
+    float: right;
+}
+
+.divSignatureImg {
+    border: 2px solid #94c0d2;
+    xheight: 144px;
+    xwidth: 130px;
+    height: 90px;
+    width: 170px;
+    float: right;
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+
+
+#divProfilePictureOperator {
+    border: 1px solid black;
+    float: right;
+    height: 184px;
+    width: 153px;
+    margin-right: 60px;
+}
+
+#imgProfilePicture {
+    width: 100%;
+    height: 100%;
+}
+
+.imgPicture {
+    width: 100%;
+    height: 100%;
+}
+
+#imgProfilePictureLicRes {
+    width: 100%;
+    height: 100%;
+}
+
+.dasbordLink {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+/*.chartAttendance {
+   
+    text-align: left;
+     width: 350px;
+    height: 300px;
+}*/
+.chartAttendance {
+    text-align: left;
+    width: 350px;
+    height: 300px;
+}
+
+#chartMyAttendanceMonth {
+    /*margin-top: 36px;*/
+}
+
+.dashboardBarchart {
+    width: 100%;
+    height: 200px;
+}
+
+.commonChart {
+    /*text-align: left;*/
+    width: 350px;
+    height: 300px;
+}
+
+.floatCenter {
+    float: left;
+    margin-left: 40%;
+}
+
+/* Display pie chart at SurveyAnswer grid (Which is not using now and backed up for further use) */
+.chartSurveyAnswer {
+    text-align: left;
+    width: 100%;
+    height: 200px;
+}
+
+    .chartSurveyAnswer .chartContainer {
+        /*margin-left: -50px;*/
+        /*width: 1000px;*/
+        border: medium none;
+    }
+
+    .chartSurveyAnswer #tdLeft {
+        display: none;
+    }
+
+    .chartSurveyAnswer #svgChart {
+        width: 100%;
+    }
+
+    .chartSurveyAnswer svg rect {
+        stroke-width: 0;
+    }
+/* End of pie chart properties*/
+
+/*Holiday Chart*/
+
+#HolidayChart table {
+    border-collapse: separate;
+    border: 1px solid #000000;
+    font-size: 11px;
+    width: 100%;
+}
+
+#Loadclaender td, #Loadclaender th {
+    width: 12%;
+    vertical-align: middle;
+    xbackground: url(../../Images/cells.png);
+    background-color: #c9d2dd;
+    color: #444;
+    position: relative;
+    text-align: center;
+}
+
+#HolidayChart td, #HolidayChart th {
+    width: 79px;
+    vertical-align: middle;
+    xbackground: url(../../Images/cells.png);
+    background-color: #BEC2BF;
+    color: #444;
+    position: relative;
+    text-align: center;
+}
+
+#HolidayChart th {
+    height: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+#Loadclaender th {
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px !important;
+    text-align: center;
+}
+
+#Loadclaender td:hover, th:hover {
+    background-position: 0px -81px;
+    color: #222;
+}
+
+#Loadclaender td.date_has_event {
+    background-position: 162px 0px;
+    color: white;
+}
+
+    #Loadclaender td.date_has_event:hover {
+        background-position: 162px -81px;
+    }
+
+#Loadclaender td.padding {
+    background: url(../../Images/calpad.jpg);
+}
+
+#Loadclaender td.today {
+    background-color: #6884af;
+    color: white;
+}
+
+    #Loadclaender td.today:hover {
+        background-position: 81px -81px;
+    }
+
+.cmbCalender {
+    width: 100%;
+    font-size: 9px;
+}
+
+.cmbHolidayCalender {
+    width: 23px;
+    font-size: 9px;
+}
+
+#HolidayChart td.redDay {
+    background-color: Red;
+}
+
+.calenderDayOff {
+    margin-left: 300px;
+    margin-top: -25px;
+}
+
+
+
+.lblOT {
+    color: Red;
+    display: inline-block;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.az-icon-pendingAttendance {
+    background-image: url("../../Images/flag.png") !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.az-icon-pendingApprovales {
+    background-image: url("../../Images/bellArrow.png") !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.az-icon-viewDetails {
+    background-image: url("../../Images/magnifier-equal.png") !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.az-icon-sendMsg {
+    background-image: url("../../Images/pencil--arrow.png") !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.az-icon-compose {
+    background-image: url("../../Images/email_compose.png") !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-decoration: none;
+    width: 35px;
+    height: 35px;
+}
+
+.az-icon-readMessage {
+    background-image: url("../../Images/read-message.png") !important;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+}
+
+#backgroundPopup {
+    background: none repeat scroll 0 0 #000000;
+    border: 1px solid #CECECE;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#divPendingMessage {
+    color: Red;
+}
+
+.customeRedRowGrid {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+.customePurpleRowGrid {
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+}
+
+.themeCss {
+    text-align: right;
+    height: 10px;
+    /*float: right;*/
+}
+
+#gray {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border: 1px solid red;
+    border: none;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+#blue {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border: 1px solid blue;
+    border: none;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+#green {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border: 1px solid green;
+    border: none;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+.themeButtonSize {
+    margin-top: 5px;
+    width: 30px;
+    height: 5px;
+    border: 0px;
+    /*border-radius: 25%;*/
+    cursor: pointer;
+}
+
+
+    .themeButtonSize:hover {
+        height: 20px;
+    }
+
+.themeSliderCss {
+}
+
+.displayNone {
+    display: none;
+}
+
+#themesPanelBar {
+    /*background-image: url("../../UIFramework/images/theme_editor.png")!important;
+    image-orientation: auto;
+     width: 200px;
+    height: 200px;*/
+}
+
+.themesPanelBarCss {
+    background-color: red;
+    width: 100px;
+}
+
+.HomeContentCss {
+    border: 0px solid black;
+}
+
+legend {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#licenseDetails {
+    xmargin-left: 50px;
+}
+
+.divCenter {
+    margin: auto;
+}
+
+.imageUpload {
+    border: solid 1px dimgray;
+    height: 160px;
+    xwidth: 30%;
+    float: left;
+    margin-top: 0px;
+    /*box-shadow: 10px 10px 5px #888888;*/
+}
+
+.imagepicture {
+    width: 100%;
+    height: 100%;
+}
+
+.k-widget .k-tooltip .k-tooltip-validation .k-invalid-msg {
+}
+
+.k-button-customized {
+    margin: 0 0.2em;
+    border-radius: 4px;
+    box-shadow: none;
+    background-color: #DAECF4;
+    border-color: #94C0D2;
+    color: #003F59;
+    background-image: none, linear-gradient(to bottom, #EAF4F9 0px, #DBECF4 100%);
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    cursor: pointer;
+    line-height: 1.66em;
+    border-style: solid;
+    border-width: 1px;
+    background-position: 0 center;
+    background-repeat: no-repeat;
+}
+
+    .k-button-customized:-moz-any(input) {
+        padding-bottom: 0.37em;
+        padding-top: 0.37em;
+    }
+
+.IsDisplay {
+    display: none;
+}
+
+.divblock {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+#slider img {
+    width: 100%;
+}
+
+
+#slider {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 2% 2% 2%;
+    border-radius: 0px;
+    margin-left: 2%;
+    /*height: 340px;*/
+}
+
+    #slider ul {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        /*height: 80%;*/
+        /*height: 80%;*/
+        list-style: none;
+    }
+
+        #slider ul li {
+            position: relative;
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 0;
+            /*width: 905px;*/
+            /*height: auto;*/
+            /*height: 80%;*/
+            background: #ccc;
+            text-align: center;
+            line-height: 300px;
+        }
+
+a.control_prev, a.control_next {
+    position: absolute;
+    top: 40%;
+    z-index: 999;
+    display: block;
+    padding: 4% 3%;
+    width: auto;
+    height: auto;
+    background: #2a2a2a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+    a.control_prev:hover, a.control_next:hover {
+        opacity: 1;
+        -webkit-transition: all 0.2s ease;
+    }
+
+a.control_prev {
+    border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+    right: 0;
+    border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+    position: relative;
+    margin: 10px auto;
+    width: 160px;
+    font-size: 18px;
+}
+
+#divRoster th label {
+    width: 100%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.divDetailsTemp ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.divDetailsTemp li {
+    margin: 5px 0 0 0;
+}
+
+.forgotPasswordTextColor {
+    color: white;
+}
+
+.numericTextBox {
+    width: 17.4em;
+}
+
+.attendanceParam {
+    border: solid 1px black;
+}
+
+.removeBullet {
+    list-style-type: none;
+}
+
+
+
+#newsOnFooter {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    /*background:#999;*/
+}
+
+/* IE 6 */
+* html #newsOnFooter {
+    position: absolute;
+    top: expression((0-(newsOnFooter.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+.newsHeadlines {
+    text-align: center;
+}
+
+.newsHeadlinesMarquee {
+    width: 90%;
+    text-decoration: none;
+    color: white;
+    float: right;
+    position: absolute;
+}
+
+@keyframes marquee {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+.newsHeadlineLink {
+    text-decoration: none;
+}
+
+#news_ticker {
+    background: #002b3b;
+    width: 99%;
+    height: 27px;
+    /*margin: 40px auto 0;*/
+    margin: -3px auto 25px;
+    overflow: hidden;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 4px;
+    position: relative;
+    -webkit-box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+}
+
+    #news_ticker .font-title {
+        float: left;
+        /*color: rgba(0,0,0,.8);
+	color: #001b25;*/
+        color: white;
+        background: #00425a;
+        padding: 6px;
+        /*padding:6px 10px 3px;*/
+        position: relative;
+        border-radius: 4px;
+        font-size: 12px;
+        -webkit-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2), 0px 1px 1px rgba(0,0,0,0.5);
+        -moz-box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2), 0px 1px 1px rgba(0,0,0,0.5);
+        box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2), 0px 1px 1px rgba(0,0,0,0.5);
+        background: rgb(0,75,103);
+        background: -moz-linear-gradient(top, rgba(0,75,103,1) 0%, rgba(0,53,72,1) 100%);
+        background: -webkit-linear-gradient(top, rgba(0,75,103,1) 0%,rgba(0,53,72,1) 100%);
+        background: -o-linear-gradient(top, rgba(0,75,103,1) 0%,rgba(0,53,72,1) 100%);
+        background: -ms-linear-gradient(top, rgba(0,75,103,1) 0%,rgba(0,53,72,1) 100%);
+        background: linear-gradient(top, rgba(0,75,103,1) 0%,rgba(0,53,72,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004b67', endColorstr='#003548',GradientType=0 );
+    }
+
+    #news_ticker ul {
+        float: left;
+        padding-left: 20px;
+        -webkit-animation: ticker 10s cubic-bezier(1, 0, .5, 0) infinite;
+        -moz-animation: ticker 10s cubic-bezier(1, 0, .5, 0) infinite;
+        -ms-animation: ticker 10s cubic-bezier(1, 0, .5, 0) infinite;
+        animation: ticker 10s cubic-bezier(1, 0, .5, 0) infinite;
+    }
+
+        #news_ticker ul:hover {
+            -webkit-animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -ms-animation-play-state: paused;
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+li {
+    line-height: 26px;
+}
+
+#NewsHeadline li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#news_ticker a {
+    color: #f4f4e6;
+    color: rgba(244, 244, 230, 0.97);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+@-webkit-keyframes ticker {
+    0% {
+        margin-top: 0;
+    }
+
+    25% {
+        margin-top: -26px;
+    }
+
+    50% {
+        margin-top: -52px;
+    }
+
+    75% {
+        margin-top: -78px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+@-moz-keyframes ticker {
+    0% {
+        margin-top: 0;
+    }
+
+    25% {
+        margin-top: -26px;
+    }
+
+    50% {
+        margin-top: -52px;
+    }
+
+    75% {
+        margin-top: -78px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+@-ms-keyframes ticker {
+    0% {
+        margin-top: 0;
+    }
+
+    25% {
+        margin-top: -26px;
+    }
+
+    50% {
+        margin-top: -52px;
+    }
+
+    75% {
+        margin-top: -78px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes ticker {
+    0% {
+        margin-top: 0;
+    }
+
+    25% {
+        margin-top: -26px;
+    }
+
+    50% {
+        margin-top: -52px;
+    }
+
+    75% {
+        margin-top: -78px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+
+
+
+.noti_Container {
+    position: relative; /* This is crucial for the absolutely positioned element */
+    /*border:1px solid blue;*/ /* This is just to show you where the container ends */
+    width: 28px;
+    /*height:32px;*/
+    float: right;
+    display: inline;
+    margin: 5px 25px;
+}
+
+.chat_Container {
+    position: relative; /* This is crucial for the absolutely positioned element */
+    /*border:1px solid blue;*/ /* This is just to show you where the container ends */
+    width: 0;
+    /*height:32px;*/
+    float: right;
+    display: inline;
+    margin: 5px 25px;
+}
+
+
+.noti_Container .noti_bubble {
+    position: absolute; /* This breaks the div from the normal HTML document. */
+    top: -6px;
+    right: -3px;
+    padding: 1px 4px 1px 2px;
+    background-color: red; /* you could use a background image if you'd like as well */
+    color: white;
+    font-weight: bold;
+    font-size: 0.85em;
+    /* The following is CSS3, but isn't crucial for this technique to work. */
+    /* Keep in mind that if a browser doesn't support CSS3, it's fine! They just won't have rounded borders and won't have a box shadow effect. */
+    /* You can always use a background image to produce the same effect if you want to, and you can use both together so browsers without CSS3 still have the rounded/shadow look. */
+    border-radius: 30px;
+    box-shadow: 1px 1px 1px gray;
+}
+
+.chat_Container .chat_bubble {
+    position: absolute; /* This breaks the div from the normal HTML document. */
+    top: -6px;
+    right: -32px;
+    padding: 1px 4px 1px 2px;
+    background-color: red; /* you could use a background image if you'd like as well */
+    color: white;
+    font-weight: bold;
+    font-size: 0.85em;
+    /* The following is CSS3, but isn't crucial for this technique to work. */
+    /* Keep in mind that if a browser doesn't support CSS3, it's fine! They just won't have rounded borders and won't have a box shadow effect. */
+    /* You can always use a background image to produce the same effect if you want to, and you can use both together so browsers without CSS3 still have the rounded/shadow look. */
+    border-radius: 30px;
+    box-shadow: 1px 1px 1px gray;
+}
+
+.notiDetails {
+    border: 1px solid #fcc;
+    background-color: #fee;
+    display: none;
+    position: absolute;
+    padding: 3px;
+    float: right;
+    width: 2%;
+}
+
+.minicart {
+    width: 300px;
+    display: none;
+    background-color: #0A3151;
+    opacity: 0.8;
+    position: absolute;
+    z-index: 9999;
+    margin-left: -275px;
+    /*margin-top:30px;*/
+    overflow: scroll;
+}
+
+
+.minicart {
+    height: 300px;
+    padding: 0px;
+    /*background: -webkit-linear-gradient(90deg, #7E4B80 5%, #FFCFF1 100%);
+    background: -moz-linear-gradient(90deg, #7E4B80 5%, #FFCFF1 100%);
+    background: -ms-linear-gradient(90deg, #7E4B80 5%, #FFCFF1 100%);
+    background: linear-gradient(180deg, white 5%, #94c0d2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFCFF1', endColorstr='#7E4B80');*/
+    background: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 7px 2px 10px 0px #616161;
+    -moz-box-shadow: 7px 2px 10px 0px #616161;
+    box-shadow: 7px 2px 10px 0px #616161;
+}
+
+    .minicart:after {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 270px;
+        /*float: right;*/
+        border-style: solid;
+        border-width: 0 14px 15px;
+        border-color: #cfffed transparent;
+        display: block;
+        width: 0;
+        z-index: 1;
+    }
+
+.stateBackground {
+    background-color: #13688c;
+    border-width: 1px;
+    color: white;
+    border-radius: 4px;
+    padding: 0.16666em 0.3333em 0.16666em 0.25em;
+}
+
+.notiImage {
+    background-image: url("../../Images/chat.png") !important;
+    background-repeat: repeat;
+}
+
+.messageImage {
+}
+
+.uploadFile {
+    margin-top: 100px;
+    padding: 10px 10px 10px 10px;
+}
+
+.spnTotalNetPayout {
+    font-weight: bold;
+    font-size: 14px;
+    color: #0a3151;
+    float: right;
+    clear: both;
+}
+
+
+/*header*/
+
+
+.HeaderLeft {
+    width: 30%;
+    float: left;
+    position: absolute;
+}
+
+.HeaderMiddle {
+    width: 45%;
+    text-align: center;
+    float: left;
+    margin-left: 26%;
+}
+
+.HeaderRight{
+    width: 23%;
+    float: right;
+    text-align: right;
+}
+.HeaderRightorg{
+    width: 22%;
+    float: right;
+    text-align: right;
+}
+.responsive-image {
+    max-width: 100%;
+    height: 101px;
+}
+
+.HeaderDescription {
+    bottom: 0;
+    margin-top: 7%;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.AssemblyProduct {
+    color: #FFFFFF;
+    font-size: 30px !important;
+    margin-bottom: 0;
+    margin-right: 2%;
+    margin-top: 5%;
+}
+
+.AssemblyVersion {
+    color: #FFFFFF;
+    margin-right: 15px;
+    font-size: 10px;
+    margin-top: 25%;
+    text-align: right;
+}
+
+.productImage {
+    float: right;
+    margin-top: 0%;
+}
+
+.companyImage {
+    margin-top: 5%;
+    margin-left:3%;
+	   width: 180px;
+}
+
+.circleImage {
+    border-radius: 50%;
+    /*margin-left: 30%;*/
+    margin-top: 1%;
+    width: 60px;
+    height: 60px !important;
+    margin: auto;
+}
+
+.profilePicMargin {
+    margin-top: 1%;
+}
+
+
+/*header style end*/
+
+/*Login panel*/
+#panel_contents {
+    width: 100%;
+}
+
+#panel {
+    width: 70%;
+}
+
+.login {
+    width: 40%;
+    margin: 10% auto 10%;
+}
+/*login panel end*/
+
+/*slider style*/
+#content {
+    width: 72%;
+}
+
+
+@media (max-width: 800px) {
+    .HeaderDescription {
+        margin-top: 10%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .AssemblyProduct {
+        margin-top: 10%;
+        font-size: 15px !important;
+    }
+
+    .AssemblyVersion {
+        font-size: 8px;
+        margin-top: 30%;
+        text-align: right;
+    }
+
+    .productImage {
+        float: right;
+        margin-top: -30%;
+    }
+
+    .welcomeLabel {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .HeaderDescription {
+        margin-top: 10%;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .AssemblyProduct {
+        margin-top: 20%;
+        font-size: 12px !important;
+    }
+
+    .AssemblyVersion {
+        font-size: 6px;
+        margin-top: 60%;
+        text-align: right;
+    }
+
+    .productImage {
+        float: right;
+        margin-top: -30%;
+    }
+
+    .companyImage {
+        margin-top: 30%;
+    }
+
+    .welcomeLabel {
+        font-size: 5px;
+    }
+
+    .login ul {
+        margin-left: -20%;
+    }
+
+    .login {
+        width: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .login {
+        width: 80%;
+    }
+
+        .login ul {
+            margin-left: -11%;
+        }
+}
+
+img {
+    /*vertical-align: middle;*/
+}
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    display: block;
+    max-width: 60%;
+    /*height: auto;*/
+}
+
+.img-rounded {
+    border-radius: 6px;
+}
+
+.img-thumbnail {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    padding: 4px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.notification-bar {
+    overflow: hidden;
+    background-color: #fff;
+    top: 37%;
+    width: 100%;
+    height: 39px;
+    border: 1px solid #fec81d;
+    border: 1px solid rgb(254, 200, 29);
+    /*-webkit-box-shadow: 9px 5px 6px 1px #ecd747;
+-ms-box-shadow: 9px 5px 6px 1px #ecd747;
+box-shadow: 9px 5px 6px 1px #ecd747;*/
+}
+
+.toMessage {
+}
+
+.meMessage {
+    float: right;
+    background-color: blue;
+    color: white;
+    font-size: 14px;
+    padding: 1px;
+}
+
+
+/*.table-style table {
+    border-collapse: collapse;
+}
+
+.table-style table, td, th {
+    border: 1px solid black;
+}*/
+.news-title-color {
+    color: rgb(255, 236, 27);
+    color: #ffec1b;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+.k-editor .k-table, .k-table td {
+    outline: 0;
+    border: 1px solid black !important;
+}
+
+.k-editor .k-table {
+    width: 100%;
+    border-spacing: 0;
+    margin: 0 0 1em;
+}

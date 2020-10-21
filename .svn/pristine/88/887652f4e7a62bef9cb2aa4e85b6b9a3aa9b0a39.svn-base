@@ -1,0 +1,63 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/RSMRegion/RSMRegionDetails.js")
+
+
+<div id="divRSMRegionDetailsInfo" class="divDetails">
+
+    <ul>
+        <li>
+            <input type="hidden" id="hdnRSMRegionId" value="0" />
+            <input type="hidden" id="hdnRSMManagerHrRecordId" value="0" />
+            <input type="hidden" id="hdnSalesManagerHrRecordId" value="0" />
+            <label class="lbl widthSize30_per">Region Code:</label>
+            <input type="text" id="txtRSMRegionCode" name="RSM Region Code" class="k-textbox" placeholder="RSM Region Code" required="required" />
+        </li>
+        <li>
+            <label class="lbl widthSize30_per">Region Name:</label>
+            <input type="text" id="txtRSMRegionName" name="RSM Region Name" class="k-textbox" placeholder="RSM Region Name" required="required" />
+        </li>
+        <li>
+            <label class="lbl widthSize30_per">RSM ID:</label>
+            <input type="text" id="txtRSMRegionManager" name="RSM Region Manager" class="k-textbox" placeholder="RSM Region Manager" />
+            <button id="btnSearchRsmManager" class="k-button"><span class="k-icon k-i-search"></span></button>
+        </li>
+        <li>
+            <label class="lbl widthSize30_per">RSM Details:</label>
+            <span id="spnRSMManager" style="font-weight: bold"></span>
+        </li>
+        <li style="overflow:hidden" class="displayNone" id="liAddiRSM">
+            <label class="lbl widthSize30_per">Additional RSM ID:</label>
+            <input id="msRSMRegionManager" name="Additional RSM Region Manager" style="margin-left: 22%; display: none !important" />
+        </li>
+        <li>
+            <label class="lbl widthSize30_per">SM ID:</label>
+            <input type="text" id="txtSalesManager" name="Sales Manager" class="k-textbox" placeholder="Sales Manager" />
+            <button id="btnSearchSalesManager" class="k-button"><span class="k-icon k-i-search"></span></button>
+        </li>
+        <li>
+            <label class="lbl widthSize30_per">SM Details:</label>
+            <span id="spnSalesManager" style="font-weight: bold"></span>
+        </li>
+
+        <li>
+            <label class="lbl widthSize30_per">Is Active:</label>
+            <input type="checkbox" id="chkRSMRegionIsActive" name="Is Active" class="k-checkbox" />
+        </li>
+    </ul>
+
+</div>
+
+<div id="" class="divDetails">
+    <ul>
+        <li class="centerAlign">
+            <button id="btnSaveRSMRegion" class="k-button" onclick="RSMRegionDetailsManager.SaveRSMRegion();">Save</button>&nbsp; &nbsp;
+            <button id="btnClearRSMRegion" class="k-button" onclick="RSMRegionDetailsHepler.clearRSMRegion();">Clear</button>&nbsp; &nbsp;
+            <button id="btnCloseRSMRegion" class="k-button" onclick="RSMRegionDetailsHepler.HideRsmRegionDetails();">Back</button>&nbsp; &nbsp;
+
+        </li>
+    </ul>
+</div>
+
+
+
+
+

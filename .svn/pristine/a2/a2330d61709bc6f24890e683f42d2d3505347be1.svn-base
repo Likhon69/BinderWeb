@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "PSO Location Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/PSOLocation/PSOLocationSettings.js")
+
+<br/>
+
+<div id="divPSOLocationSettings" class="divDetails">
+    <div class="rightDiv">
+        <fieldset>
+            <legend>PSO Location Details</legend>
+            <div class="">
+                @Html.Partial("HrAdmin/PSOLocation/PSOLocationDetails")
+            </div>
+        </fieldset>
+
+    </div>
+    <div class="leftDiv">
+        <fieldset>
+            <legend>PSO Location Summary</legend>
+            @Html.Partial("HrAdmin/PSOLocation/PSOLocationSummary")
+        </fieldset>
+    </div>
+</div>
+
+<div class="clear"></div>

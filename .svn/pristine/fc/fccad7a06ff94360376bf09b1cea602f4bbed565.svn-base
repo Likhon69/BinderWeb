@@ -1,0 +1,40 @@
+﻿ 
+
+<div class="rightDiv widthSize34_per">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">User Details</legend>
+
+        <div id="tabstrip">
+            <ul>
+                <li class="k-state-active">
+                    User Info
+                </li>
+                <li>
+                    Group Membership
+                </li>
+                
+            </ul>
+            <div>
+                
+                @await Html.PartialAsync("_UserInfo.cshtml")
+            </div>
+            <div>
+                @await Html.PartialAsync("_GroupMembership.cshtml")
+            </div>
+            
+
+        </div>
+
+        <div class="divDetails">
+            <ul>
+                <li class="accept">
+                    <button id="btnSave" class="k-button" type="submit">Save</button> &nbsp;&nbsp;
+
+                    <button id="btnClearAll" class="k-button" onclick="userDetailsHelper.clearUserForm()">Clear</button>
+                </li>
+                <li class="status">
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+</div>

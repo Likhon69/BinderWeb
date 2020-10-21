@@ -1,0 +1,12 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Company/DesignationSolution.js")
+<div class="">
+
+    <button id="btnAddNewDesignation" class="k-button"><span class="k-icon k-i-plus"></span>Add New Designation</button>
+
+    <div id="designationDiv" class="displayNone">
+        @Html.Partial("~/Views/Core/HrAdmin/Designation/_DesignationDetails.cshtml")
+        @Html.Partial("~/Views/Core/HrAdmin/Designation/_DesignationSummary.cshtml")
+    </div>
+
+    <div id="divgridDesignationSolution"></div>
+</div>

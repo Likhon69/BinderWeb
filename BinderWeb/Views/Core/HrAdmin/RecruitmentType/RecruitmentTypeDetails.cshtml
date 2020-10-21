@@ -1,0 +1,36 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/RecruitmentType/RecruitmentTypeDetails.js"></script>
+
+<div class="rightDiv">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]"> Recruitment Type Setting </legend>
+
+        <div id="RecruitmentTypeDetailsDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <input id="hdnRecruitmentTypeId" type="hidden" />
+                    <label class="lbl widthSize20_per">Recruitment Type Code:</label>
+                    <input type="text" class="k-textbox" id="txtRecruitmentTypeCode" name="RecruitmentTypeCode" required="required" />
+
+                </li>
+                <li>
+                    <label class="lbl widthSize20_per">Recruitment Type Name:</label>
+                    <input id="txtRecruitmentTypeName" type="text" class="k-textbox" required="required" />
+                </li>
+
+                <li>
+                    <label for="Status" class="lbl widthSize20_per">Status:</label>
+                    <input type="checkbox" id="chkstatus" name="Status" class="k-checkbox" />
+                </li>
+
+                <li class="accept">
+                    <button id="btnSave" class="k-button" type="submit">Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClear" class="k-button">Clear</button>
+                </li>
+                <li class="status"></li>
+
+            </ul>
+        </div>
+    </fieldset>
+</div>

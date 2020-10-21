@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Services.BinderContractsWeb;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers
+{
+
+    public class DateProductPriceApproveUnApproveController : BaseApiController
+    {
+
+        private readonly IDateProductPriceApproveUnApproveServices _dateProductPriceApproveUnApproveServices;
+        private readonly IAddDateProductPriceApproveServices _addDateProductPriceApproveServices;
+        public DateProductPriceApproveUnApproveController(IDateProductPriceApproveUnApproveServices dateProductPriceApproveUnApproveServices, IAddDateProductPriceApproveServices addDateProductPriceApproveServices)
+        {
+            _dateProductPriceApproveUnApproveServices = dateProductPriceApproveUnApproveServices;
+            _addDateProductPriceApproveServices = addDateProductPriceApproveServices;
+        }
+       [HttpPost]
+        public IActionResult DateProductPriceSearch(ProductPriceParam param)
+        {
+
+
+            return Ok(_dateProductPriceApproveUnApproveServices.DateProductPriceSearch(param));
+        }
+
+        [HttpPost]
+        public IActionResult AddDateProductPriceApprove(List<int> listProduct)
+        {
+            
+            return Ok(_addDateProductPriceApproveServices.AddProductPriceApprove(listProduct));
+        }
+    }
+}

@@ -1,0 +1,37 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/NatureOfAction/Disciplinary_NatureOfAction.js")
+
+<div id="divMainNatureOfAction">
+    <div class="leftDiv widthSize48_per">
+        <div id="gridNatureOfActionSummary">
+        </div>
+    </div>
+    <div class="leftDiv widthSize48_per">
+        <div id="gridNatureOfActionDetails" class="divDetails">
+            <ul>
+                <li>
+                    <label for="NatureOfAction" class="lbl widthSize25_per">Nature Of Action:<span class="redstart">*</span></label>
+                    <input type="text" id="txtNatureOfAction" name="NatureOfAction" placeholder="Nature Of Action" class="k-textbox" required validationmessage="Insert Nature Of Action" />
+                    <input type="hidden" id="hdnNatureOfActionId" value="0" />
+                </li>
+                <li>
+                    <label for="NatureOfActionIsActive" class="lbl widthSize25_per">Is Active:<span class="redstart">*</span></label>
+                    <input type="checkbox" id="chkNatureOfActionIsActive" name="NatureOfActionIsActive" />
+                </li>
+                <li class="liNatureOfActionStatus">
+                </li>
+            </ul>
+
+        </div>
+        <div id="" class="divDetails">
+            <ul>
+                <li class="centerAlign">
+                    <button id="btnSaveNatureOfAction" class="k-button" onclick="disciplinary_NatureOfActionManager.SaveNatureOfActionDetails(); ">Save</button>&nbsp; &nbsp;
+                    <button id="btnClearNatureOfAction" class="k-button" onclick="disciplinary_NatureOfActionHelper.ClearNatureOfActionDetails(); ">Clear</button>&nbsp; &nbsp;
+                    @*<button id="btnCloseNatureOfActionPopupDetails" class="k-button" onclick="disciplinary_NatureOfActionHelper.CloseAddNewCategoryPopup(); ">Close</button>*@&nbsp; &nbsp;
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

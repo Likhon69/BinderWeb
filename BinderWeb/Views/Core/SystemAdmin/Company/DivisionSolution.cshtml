@@ -1,0 +1,38 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Company/DivisionSolution.js")
+<div class="">
+
+    <button id="btnAddDivisionSol" class="k-button"><span class="k-icon k-i-plus"></span>Add New Division</button>
+
+    <div id="divisionDiv" class="displayNone">
+        <input type="hidden" id="hdnDivisionDeptId" value="0" />
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Division Details</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Division/DivisionDetails.cshtml")
+            </fieldset>
+        </div>
+
+        <div class="leftDiv">
+            <fieldset>
+                <legend>Division Summary</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Division/DivisionSummary.cshtml")
+            </fieldset>
+        </div>
+
+        <div style="display: none" id="divDivisionToDepartmentMap">
+            <div id="divgridDivisionToDepartmentMapSolution"></div>
+
+            <div class="divDetails">
+                <ul>
+                    <li class="centerAlign">
+                        <button id="btnSaveDivisionToDeptMap" class="k-button" onclick=" DivisionSolutionManager.SaveDivisionDepartmentMap(); "><span class="k-icon k-i-tick"></span>Save</button>&nbsp; &nbsp;
+                        <button id="btnClearDivisionToDept" class="k-button" onclick=" DivisionSolutionHelper.closeDivisionDeptPopUp(); "><span class="k-icon k-i-close"></span>Close</button>&nbsp; &nbsp;
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="divgridDivisionSolution"></div>
+</div>
+

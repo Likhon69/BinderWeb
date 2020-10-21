@@ -1,0 +1,32 @@
+﻿
+using AutoMapper;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Repository.BinderWebContracts;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderWebContracts;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderWebServices
+{
+    public class OrderRequestServices : BinderBaseServices<ProductOrder>, IOrderRequestServices
+    {
+        private readonly IMapper _mapper;
+
+        public OrderRequestServices(IOrderRequestRepository repository, IMapper mapper) : base(repository)
+        {
+            _mapper = mapper;
+        }
+
+        public bool OrderRequest(OrderRequestDto request)
+        {
+            var data = _mapper.Map<ProductOrder>(request);
+            data.StateId = 1;
+            data.Orderdate = DateTime.Now;
+            data.TotalPrice = request.Quantity * request.UnitPrice;
+            return base.Add(data);
+        }
+    }
+}

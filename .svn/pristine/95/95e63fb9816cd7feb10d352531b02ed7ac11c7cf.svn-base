@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BinderWeb.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers
+{
+   
+    public class ProductPriceController : BaseApiController
+    {
+        [HttpPost]
+       public IActionResult GenerateProductPrice(ProductPriceParam param)
+        {
+            return Ok();
+        }
+    }
+}

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Hospital Information Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/HospitalInformation/HospitalInformationSettings.js")
+
+<div class="mainDiv">
+    <div class="leftDiv">
+        @Html.Partial("HrAdmin/HospitalInformation/_HospitalInformationSummary")
+    </div>
+    <div class="rightDiv">
+        @Html.Partial("HrAdmin/HospitalInformation/_HospitalInformationDetails")
+    </div>
+</div>
+

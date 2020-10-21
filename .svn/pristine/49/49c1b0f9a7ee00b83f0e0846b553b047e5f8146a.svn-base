@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Email Notification Config";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/EmailNotificationConfig/EmailNotificationConfigSettings.js"></script>
+
+
+<div class="mainDiv">
+
+    <h2 class="k-header centerAlign">Email Notification Configuration</h2>
+    <button id="btnSaveNotificationConfig" class="k-button k-i-gear">Update</button>
+
+    <div id="gridEmailNotificationConfig"></div>
+
+    <div id="divMappingPopUp" class="displayNone">
+        @Html.Partial("../Core/HrAdmin/EmailNotificationConfig/_MappingWithCompanyAndBranch")
+    </div>
+
+</div>
+
+
+

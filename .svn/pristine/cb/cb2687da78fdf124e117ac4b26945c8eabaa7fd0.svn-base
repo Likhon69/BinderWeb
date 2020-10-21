@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="3.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BaseUnitOfWork\CommonUnitOfWork.csproj" />
+    <ProjectReference Include="..\BinderCore.DataServices\BinderCore.DataServices.csproj" />
+    <ProjectReference Include="..\BinderCore.Models\BinderCore.Models.csproj" />
+    <ProjectReference Include="..\BinderWeb.DatabaseContext\BinderWeb.DatabaseContext.csproj" />
+    <ProjectReference Include="..\BinderWeb.Models\BinderWeb.Models.csproj" />
+  </ItemGroup>
+
+</Project>

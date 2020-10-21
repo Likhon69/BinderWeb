@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "EmailContentSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/eAzolution/Common/Kendo.Common.DataSource.js"></script>
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/EmailConfiguration/EmailContentSettings.js"></script>
+<br />
+<br />
+<div class="mainDiv">
+  
+    @*<label class="lbl widthSize10_per">Content Type:</label>
+    <input id="ddlContentType"/>*@
+    <label class="lbl widthSize10_per">Notification Type:</label>
+     <input id="cmbNotificationType" />
+    @*<button id="btnAddEmail" class="k-button" type="button">Add New Email</button>*@
+    <div class="k-block" id="divEmailSummary">
+        <div class="k-header">Email Content List</div>
+        <div id="gridEmailContent">
+
+        </div>
+    </div>
+
+    <div class="k-block displayNone" id="divEmailContent" >
+
+        <h2 class="k-header">Email Content Settings</h2>
+         
+        <div class="divDetails">
+
+            <ul>
+                <li>
+                    <input type="hidden" id="hdnEmailContentId" value="0" />
+                  
+                </li>
+                <li>
+                    <label class="lbl">Email Title:</label>
+                    <input id="txtEmailTitle" type="text" class="k-textbox" required="" style="width: 500px;" />
+                </li>
+                <li>
+                    <label class="lbl">Email Subject:</label>
+                    <input id="txtEmailSubject" type="text" class="k-textbox" style="width: 500px;" />
+                </li>
+                
+                <li>
+                    <label class="lbl">SMS Content:</label>
+                    <input id="txtSMSBody" type="text" class="k-textbox" style="width: 1000px;" />
+                </li>
+               
+                @*<li>
+                    <label class="lbl">Email Attachment:</label>
+                    <input id="fileEmailAttachment" type="file" class="k-upload" name="files" />
+                </li>*@
+                <li>
+                    <label class="lbl">Email Status:</label>
+                    <input id="chkStatus" type="checkbox"   />
+                </li>
+                <li>
+                    <label class="lbl">Email Body:</label>
+                    <h3 class="k-header" >Params:<span id="spnParam"></span></h3>
+                    <textarea id="editorBody" style="height:500px;min-height: 300px;width:80%" cols="13" rows="50"></textarea>
+
+                </li>
+                <li class="centerAlign">
+                    <button type="button" class="k-button" id="btnSaveEmail">Save Changes</button>
+                    <button type="button" id="btnCloseEmail" class="k-button">Close</button>
+                </li>
+
+            </ul>
+            <div class="clear"></div>
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+

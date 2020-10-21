@@ -1,0 +1,50 @@
+﻿using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderContractsWeb;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderServicesWeb
+{
+    public class ProductInformationServices : BinderBaseServices, IProductInformationServices
+    {
+        private IProductInformationRepository _repository;
+        public ProductInformationServices(IProductInformationRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public string AddProductInformation(ProductInformation product)
+        {
+            if (product.ProductId == 0)
+            {
+                _repository.Add(product);
+            }
+            else
+            {
+                _repository.Update(product);
+
+            }
+            bool isSucess = _repository.SaveChanges();
+            if (isSucess)
+            {
+                return "Success";
+            }
+            else
+            {
+                return "Failed";
+            }
+        }
+
+        public GridEntity<ProductInformationVm> GetProductInfoSummary(GridOptions options)
+        {
+            return _repository.GetProductInfoSummary(options);
+        }
+
+
+    }
+}

@@ -1,0 +1,108 @@
+﻿using BinderCore.DataServices.SystemAdmin.Contracts;
+using BinderCore.Models.SystemAdmin;
+using BinderCore.Services.Base;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderCore.Services.SystemAdmin.Services
+{
+    public class UsersService : CoreBaseServices<Users>, IUsersService
+    {
+        IUsersRepository _repository = null;
+        public UsersService(IUsersRepository repository) : base(repository)
+        {
+            _repository = repository;
+        }
+
+        public List<GroupMember> GetGroupMemberByUserId(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+        public Users GetUserByEmailAddress(string emailaddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByEmployeeId(int hrRecordId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserById(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByLoginId(string loginId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByLoginIdForForgetPass(string loginId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserDetailsByEmployeeId(string employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GridEntity<UsersDto> GetUserSummary(GridOptions options)
+        {
+            return _repository.GetUserSummary(options);
+        }
+
+        public string ResetPassword(int companyId, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveDataToMainTable()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveUser(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveUserIdToTempTbl(string importFilePath, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateTheme(Users user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateUser(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUserStatus(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateUserWithPassword(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        UsersDto IUsersService.GetUserById(int userId)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

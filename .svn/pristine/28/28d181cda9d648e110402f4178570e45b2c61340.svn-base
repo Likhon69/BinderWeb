@@ -1,0 +1,20 @@
+﻿using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderContractsWeb;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderServicesWeb
+{
+    public class ProductInformationServices:BinderBaseServices<ProductInformation>,IProductInformationServices
+    {
+        private IProductInformationRepository _repository;
+        public ProductInformationServices(IProductInformationRepository repository) :base(repository)
+        {
+            _repository = repository;
+        }
+    }
+}

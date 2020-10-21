@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "MenuSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+  <script src="~/Core/Menu/MenuSettings.js"></script>
+
+
+<div class="mainDiv">
+    <h2 class="k-header">Menu Settings</h2>
+
+    @await Html.PartialAsync("~/Views/Menu/_MenuInformation.cshtml")
+
+    <div class="clear"></div>
+</div>
+

@@ -1,0 +1,10 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/Language/_LanguageSummary.js"></script>
+
+<div class="leftDiv">
+    <fieldset class="k-content">
+
+        <legend class="k-fontSize[15]"> Language Summary </legend>
+
+        <div id="LanguageSummaryDiv" class="divSummary"></div>
+    </fieldset>
+</div>

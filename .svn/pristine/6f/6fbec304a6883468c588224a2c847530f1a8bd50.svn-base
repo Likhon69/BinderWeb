@@ -1,0 +1,151 @@
+﻿using BinderCore.DataServices.SystemAdmin.Contracts;
+using BinderCore.Models.SystemAdmin;
+using BinderCore.Services.Base;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models;
+using BinderWeb.Models.Auth;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+
+namespace BinderCore.Services.SystemAdmin.Services
+{
+    public class UsersService : CoreBaseServices, IUsersService
+    {
+        IUsersRepository _repository = null;
+        private readonly AppSettings _appSettings;
+        public UsersService(IUsersRepository repository, IOptions<AppSettings> appSettings)  
+        {
+            _repository = repository;
+            _appSettings = appSettings.Value;
+        }
+
+
+
+        public List<GroupMember> GetGroupMemberByUserId(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        public Users GetUserByEmailAddress(string emailaddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByEmployeeId(int hrRecordId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserById(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByLoginId(string loginId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByLoginIdForForgetPass(string loginId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserDetailsByEmployeeId(string employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GridEntity<UsersDto> GetUserSummary(GridOptions options)
+        {
+            return _repository.GetUserSummary(options);
+        }
+
+        public string ResetPassword(int companyId, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveDataToMainTable()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveUser(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveUserIdToTempTbl(string importFilePath, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateTheme(Users user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateUser(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUserStatus(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateUserWithPassword(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        UsersDto IUsersService.GetUserById(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<Users> _users = new List<Users>()
+        {
+            new Users{UserId = 1,UserName = "test",Password="test" }
+        };
+        public AuthorizeUser Authenticate(string LoginId, string password)
+        {
+            var user = _repository.Single(c => c.LoginId == LoginId && c.Password == password);
+            if(user == null)
+            {
+                return null;
+            }
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                     new Claim(ClaimTypes.Name, user.LoginId.ToString())  ,
+                    new Claim(ClaimTypes.Sid, user.LoginId.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddDays(30),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authnetication")), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            IdentityModelEventSource.ShowPII = true;
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            //user.Theme = tokenHandler.WriteToken(token);
+
+            return new AuthorizeUser { Username = user.UserName, LoginId = user.LoginId, Token = tokenHandler.WriteToken(token) };
+            
+        }
+    }
+}

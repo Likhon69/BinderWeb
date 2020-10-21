@@ -1,0 +1,45 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/PSOLocation/PSOLocationDetails.js")
+
+
+<div id="divPSOLocationDetailsInfo" class="divDetails">
+
+    <ul>
+        <li>
+            <input type="hidden" id="hdnPSOLocationId" value="0" />
+            <label class="lbl widthSize25_per">PSO Location Code:</label>
+            <input type="text" id="txtPSOLocationCode" name="PSOLocation Code" class="k-textbox" placeholder="PSO Location Code" required="required" />
+        </li>
+        <li>
+
+            <label class="lbl widthSize25_per">PSO Location Name:</label>
+            <input type="text" id="txtPSOLocationName" name="PSOLocation Name" class="k-textbox" placeholder="PSO Location Name" required="required"/>
+        </li>
+        <li>
+
+            <label class="lbl widthSize25_per">DSM Location Code:</label>
+            <input type="text" id="txtDSMLocationCode" name="DSMLocation Code" class="k-textbox" placeholder="DSM Location Code" required="required" />
+        </li>
+
+        <li>
+            <label class="lbl widthSize25_per">Is Active:</label>
+            <input type="checkbox" id="chkPSOLocationIsActive" name="Is Active" class="k-checkbox" />
+        </li>
+    </ul>
+
+</div>
+
+<div id="" class="divDetails">
+    <ul>
+        <li class="centerAlign">
+            <button id="btnSavePSOLocation" class="k-button" onclick="PSOLocationDetailsManager.SavePSOLocation();">Save</button>&nbsp; &nbsp;
+            <button id="btnClearPSOLocation" class="k-button" onclick="PSOLocationDetailsHepler.clearPSOLocation();">Clear</button>&nbsp; &nbsp;
+            @*<button id="btnClosePSOLocation" class="k-button" onclick="PSOLocationDetailsHepler.clickEventForclosePSOLocationButton();">Close</button>&nbsp; &nbsp;*@           
+        </li>
+    </ul>
+</div>
+
+
+
+
+

@@ -1,0 +1,2 @@
+﻿<script src="~/Scripts/eAzolution/Core/SystemAdmin/AccessRestriction/AccessRestrictionGrid.js"></script>
+<div id="gridGrade"></div>

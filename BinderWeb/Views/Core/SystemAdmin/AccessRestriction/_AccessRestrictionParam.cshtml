@@ -1,0 +1,59 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/AccessRestriction/AccessRestrictionParam.js")
+
+<ul>
+    <li>
+        <label for="Restriction" class="lbl widthSize25_per rightAlign">Restriction Type</label>
+        <input id="ddlRestrictionType" name="Restriction" required="required" />
+
+    </li>
+    <li>
+        <div id="divAccessRestriction">
+            <div id="divGroup" class="displayNone">
+                <label for="Group" class="lbl rightAlign">Group</label>
+                <input id="dlGroup" name="Group" placeholder="Select Group" validationmessage="Please Select Group" required="required" />
+            </div>
+
+            <div id="divEmployee" class="displayNone">
+                <label for="EmployeeCode" class="lbl widthSize25_per rightAlign">Employee ID<span class="redstart">*</span></label>
+                <input type="text" name="EmployeeCode" class="k-textbox" id="txtEmployeeCode" placeholder="Enter Employee Code" required validationmessage="Please enter Employee Code" />
+                <button type="button" id="btnSearch" class="k-button" value=""><span class="k-icon k-i-search"></span></button>
+                <input type="hidden" id="hdnHrRecordId" value="0" />
+                <br/>
+                <label class="lbl widthSize10_per"><b>Employee Name:</b></label>
+                <label class="lbl widthSize20_per" id="lblEmployeeName"></label>
+                <label class="lbl widthSize10_per"><b>Company Name :</b></label>
+                <label class="lbl widthSize20_per" id="lblCompanyName"></label>
+                <label class="lbl widthSize10_per"><b>Branch Name :</b></label>
+                <label class="lbl widthSize20_per" id="lblBranchName"></label>
+                <br/>
+                <label class="lbl widthSize10_per"><b>Department Name:</b></label>
+                <label class="lbl widthSize20_per" id="lblDepartmentName"></label>
+                <label class="lbl widthSize10_per"><b>Designation Name:</b></label>
+                <label class="lbl widthSize20_per" id="lblDesignation"></label>
+                <label class="lbl widthSize10_per"><b>Division Name:</b></label>
+                <label class="lbl widthSize20_per" id="lblDivision"></label>
+
+            </div>
+
+
+           
+            <hr />
+        </div>
+    </li>
+    @*<li>
+        <label class="lbl widthSize10_per">Employee Name:</label>
+        <label class="lbl widthSize20_per" id="lblEmployeeName"></label>
+        <label class="lbl widthSize10_per">Company Name : </label>
+        <label class="lbl widthSize20_per" id="lblCompanyName"></label>
+        <label class="lbl widthSize10_per">Branch Name : </label>
+        <label class="lbl widthSize20_per" id="lblBranchName"></label>
+    </li>*@
+    <li>
+        <div class="centerAlign">
+            <button type="button" id="btnSaveAccessRestriction" class="k-button" value="">Save Changes</button>
+            <button type="button" id="btnClearAccessRestriction" class="k-button" value="">Clear</button>
+        </div>
+       
+    </li>
+    <li class="status"></li>
+</ul>

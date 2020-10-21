@@ -1,0 +1,3 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/DivisionManager/DivisionManagerSummery.js"></script>
+
+<div id="gridDivisionManagerMap"></div>

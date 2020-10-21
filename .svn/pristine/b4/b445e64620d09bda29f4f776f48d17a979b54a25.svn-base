@@ -1,0 +1,24 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/HospitalInformation/HospitalInformationDetails.js")
+
+<div id="divHospitalInformationDetails" class="divDetails">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">Hospital Information Details</legend>
+        <ul>
+            <li>
+                <input type="hidden" id="hdnHospitalInformation" value="0"/>
+                <label for="HospitalName" class="required lbl widthSize20_per">Hospital Name:<span class="redstart">*</span></label>
+                <input type="text" name="HospitalName" class="k-textbox" id="txtHospitalName" placeholder="Please write Hospital Name" required="required" validationmessage="Please write Hospital Name"/>
+
+            </li>
+            <li>
+                <label for="Status" class="required lbl widthSize20_per">Status:</label>
+                <input type="checkbox" id="chkStatus" name="Status"/>
+            </li>
+            <li class="accept">
+                <button id="btnSave" type="button" class="k-button">Save</button>
+                &nbsp;&nbsp;
+                <button id="btnClear" type="button" class="k-button">Clear</button>
+            </li>
+        </ul>
+    </fieldset>
+</div>

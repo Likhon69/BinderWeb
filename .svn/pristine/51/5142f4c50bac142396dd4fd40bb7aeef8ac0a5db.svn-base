@@ -1,0 +1,13 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/CostCentre/CostCentreSummary.js")
+
+<div class="">
+  
+    <fieldset class="k-content">
+        <legend>Cost Centre Summary</legend>
+        <div class="rightAlign">  <button id="btnAddNew" class="k-button rightAlign" type="submit">Add New</button></div>
+       
+        <div class="" id="CostCentreSummaryDiv">
+            <div id="gridCostCentre"></div>
+        </div>
+    </fieldset>
+</div>

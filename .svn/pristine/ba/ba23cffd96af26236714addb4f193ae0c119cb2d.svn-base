@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@*<script src="~/Binder/Product/ProductInfoDetails.js"></script>*@
+
+<!-- Default form login -->
+<div class="rightDiv">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]"> Products Details</legend>
+
+        <div id="ProductInformationDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <input id="hdnProductsId" Type="hidden" value="0" />
+                </li>
+                <li>
+                    <label class="lbl widthSize20_per">Product Name:</label>
+                    <input type="text" class="k-textbox" id="txtProductName" name="ProductName" title="Please Select Your Name" required="required" />
+
+
+                </li>
+
+
+                <li>
+                    <label class="lbl widthSize20_per">Product Code:</label>
+                    <input type="text" class="k-textbox" id="txtProductCode" name="ProductCode" title="Please Select Your Name" required="required" />
+
+                </li>
+
+
+
+                <li>
+                    <label for="txtProductUnitName" class="lbl widthSize20_per">Unit Name:</label>
+                    <input id="txtProductUnitName" required title="Please enter valid ProductType Name" />
+
+                </li>
+                <li class="accept">
+                    <button id="btnSave" class="k-button" type="submit">Submit</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button">Clear All</button>
+                </li>
+                <li class="status"></li>
+
+
+
+
+
+
+
+
+            </ul>
+
+
+        </div>
+
+
+    </fieldset>
+
+</div>
+<!-- Default form login -->

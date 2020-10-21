@@ -1,0 +1,36 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/Language/_LanguageDetails.js"></script>
+
+<div class="rightDiv">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]"> Language Setting </legend>
+
+        <div id="LanguageDetailsDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <input id="hdnLanguageId" type="hidden" />
+                    <label class="lbl widthSize20_per">Language Code:</label>
+                    <input type="text" class="k-textbox" id="txtLanguageCode" name="LanguageCode" required="required" />
+
+                </li>
+                <li>
+                    <label class="lbl widthSize20_per">Language Name:</label>
+                    <input id="txtLanguageName" type="text" class="k-textbox" required="required" />
+                </li>
+
+                <li>
+                    <label for="Status" class="lbl widthSize20_per">Status:</label>
+                    <input type="checkbox" id="chkstatus" name="Status" class="k-checkbox" />
+                </li>
+
+                <li class="accept">
+                    <button id="btnSave" class="k-button" type="submit">Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClear" class="k-button">Clear</button>
+                </li>
+                <li class="status"></li>
+
+            </ul>
+        </div>
+    </fieldset>
+</div>

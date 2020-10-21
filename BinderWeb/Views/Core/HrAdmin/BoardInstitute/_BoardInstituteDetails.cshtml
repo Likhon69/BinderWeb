@@ -1,0 +1,28 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/BoardInstitute/BoardInstituteDetails.js"></script>
+<div class="rightDiv">
+    <div id="certificateTypeDetailsDiv" class="divDetails">
+        <fieldset class="k-content">
+            <legend class="k-fontSize[15]">Board/Institute Details</legend>
+
+            <ul>
+                <li>
+                    <input type="hidden" id="hdnBoardInstituteId" value="0" />
+                    <label for="txtBoardInstituteName" class="required lbl widthSize25_per">Board/Institute :<span class="redstart">*</span></label>
+                    <input type="text" id="txtBoardInstituteName" name="txtBoardInstituteName" class="k-textbox" maxlength="50" placeholder="Certificate Type Name" required validationmessage="Please enter Board/Institute Name" />
+                </li>
+               
+                <li>
+                    <label for="txtIsActive" class="lbl widthSize25_per">Is Active:</label>
+                    <input type="checkbox" id="txtIsActive" name="IsActive" class="k-checkbox" />
+                </li>
+                <li class="accept" style="margin-left: 15px;">
+                    <button id="btnSave" class="k-button" type="submit">Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button">Clear All</button>
+                </li>
+                <li class="status"></li>
+            </ul>
+        </fieldset>
+    </div>
+</div>
+@*@Html.Partial("~/Views/Core/HrAdmin/DegreeType/DegreeTypeSetup.cshtml")*@

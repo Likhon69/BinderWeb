@@ -1,0 +1,41 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Division/DivisionDetails.js"></script>
+
+
+<div id="divDivisionDetailsInfo" class="divDetails">
+
+    <ul>
+        <li>
+            <input type="hidden" id="hdnDivisionId" value="0" />
+            <label>Division Code:</label>
+            <input type="text" id="txtDivisionCode" name="Division Code" class="k-textbox" placeholder="Division Code" required="required" />
+        </li>
+        <li>
+
+            <label>Division Name:</label>
+            <input type="text" id="txtDivisionName" name="Division Name" class="k-textbox" placeholder="Division Name" required="required" />
+        </li>
+
+        <li>
+            <label>Is Active:</label>
+            <input type="checkbox" id="chkDivisionIsActive" name="Is Active" class="k-checkbox" />
+        </li>
+    </ul>
+
+</div>
+
+<div id="" class="divDetails">
+    <ul>
+        <li class="centerAlign">
+            <button id="btnSaveDivision" class="k-button" onclick="DivisionDetailsManager.SaveDivision();"><span class="k-icon k-i-tick"></span>Save</button>&nbsp; &nbsp;
+            <button id="btnClearDivision" class="k-button" onclick="DivisionDetailsHepler.clearDivision();">Clear</button>&nbsp; &nbsp;
+            <button id="btnCloseDivision" class="k-button" onclick="DivisionDetailsHepler.clickEventForcloseDivisionButton();"><span class="k-icon k-i-close"></span>Close</button>&nbsp; &nbsp;
+            
+        </li>
+    </ul>
+</div>
+
+
+
+
+

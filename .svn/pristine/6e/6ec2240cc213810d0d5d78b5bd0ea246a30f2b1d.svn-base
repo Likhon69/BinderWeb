@@ -1,0 +1,13 @@
+﻿using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Repository.Base;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Repository.BinderWebContracts
+{
+    public interface IUserDetailsRepository:IBinderBaseRepository<UserDetailsDto>
+    {
+        UserDetailsDto GetUserDetails(string loginId);
+    }
+}

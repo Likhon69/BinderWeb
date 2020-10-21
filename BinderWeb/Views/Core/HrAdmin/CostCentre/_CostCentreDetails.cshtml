@@ -1,0 +1,87 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/CostCentre/CostCentreDetails.js")
+
+<div>
+    <fieldset class="k-content">
+        <legend>Cost Centre Details</legend>
+        <div id="CCostCentreDetailsDiv" class="divDetails">
+
+            <ul>
+                @*<li>
+                    
+                    <label for="CompanyNameDetails" class="lbl widthSize20_per rightAlign">Company Name:<span class="redstart">*</span></label>
+                    <input type="text" id="cmbCompanyNameDetails" name="CompanyNameDetails" validationmessage="Please Select Company" required="required" />
+                    &nbsp;&nbsp;&nbsp;
+                   
+                    <label for="IsCostCentreCompany" class="lbl widthSize15_per ccentre rightAlign">Is Cost Centre</label>
+                    <input type="checkbox" id="chkIsCostCentreCompany" name="IsCostCentreCompany" class="k-checkbox ccentre" />
+
+                </li>
+                <li>
+                    <label for="BranchNameDetails" class="lbl widthSize20_per rightAlign ">Branch Name:</label>
+                    <input type="text" id="cmbBranchDetails" name="BranchNameDetails" />
+                    &nbsp;&nbsp;&nbsp;
+                     <label for="IsCostCentreBranch" class="lbl widthSize15_per ccentre rightAlign">Is Cost Centre</label>
+                    <input type="checkbox" id="chkIsCostCentreBranch" name="IsCostCentreBranch" class="k-checkbox ccentre" />
+                </li>
+
+                <li>
+                    <label for="DepartmentNameDetails" class="lbl widthSize20_per rightAlign">Department Name:</label>
+                    <input type="text" id="cmbDepartmentNameDetails" name="DepartmentNameDetails" />
+                    &nbsp;&nbsp;&nbsp;
+                  <label for="IsCostCentreDepartment" class="lbl widthSize15_per ccentre rightAlign">Is Cost Centre</label>
+                    <input type="checkbox" id="chkIsCostCentreDepartment" name="IsCostCentreDepartment" class="k-checkbox ccentre" />
+                </li>*@
+                <li>
+                    <input type="hidden" name="name" id="hdnCostCentreId" value="0" />
+                    <label for="CostCentreName" class="lbl widthSize20_per rightAlign">Cost Centre Name:<span class="redstart">*</span></label>
+                    <input type="text" id="txtCostCentreName" class="k-textbox" name="CostCentreName" required validationmessage="Please Enter Cost Centre Name" />
+                </li>
+                <li>
+                    <label for="CostCentreCode" class="lbl widthSize20_per rightAlign">Cost Centre Code:<span class="redstart">*</span></label>
+                    <input type="text" id="txtCostCentreCode" class="k-textbox" name="CostCentreCode" required validationmessage="Please Enter Cost Centre Code" />
+                </li>
+                <li>
+                    <label for="ParentCostCentreName" class="lbl widthSize20_per rightAlign">Parent Cost Centre:</label>
+                    <input type="text" id="cmbParentCostCentre" name="ParentCostCentreName" />
+                </li>
+                <li>
+                    <label for="SJV_Number" class="lbl widthSize20_per rightAlign">SJV Number:</label>
+                    <input type="text" id="txtSJV_Number" name="SJV_Number" class="k-textbox" />
+                </li>
+                <li>
+                    <label for="ChiledCostRatio" class="lbl widthSize20_per rightAlign">Chiled Cost Ratio:</label>
+                    <input type="text" id="txtChiledCostRatio" name="ChiledCostRatio" class="k-textbox" />
+                </li>
+                <li>
+                    <label for="CrossCentreDescription" class="lbl widthSize20_per rightAlign">Description:</label>
+                    <textarea type="address" id="txtCrossCentreDescription" maxlength="2000" name="CrossCentreDescription" class="k-textbox"></textarea>
+                </li>
+                <li>
+                    <label for="IsActive" class="lbl widthSize20_per rightAlign">Is Active</label>
+                    <input type="checkbox" id="chkIsActive" name="IsActive" class="k-checkbox" />
+                </li>
+
+
+            </ul>
+
+
+
+            <div class="clear"></div>
+
+            <div class="leftAlign">
+                <ul>
+                    <li class="accept">&nbsp;&nbsp;
+                    <button id="btnSave" class="k-button" type="submit">Save</button>
+                        &nbsp;&nbsp;
+                    <button id="btnClose" class="k-button" onclick="">Close</button>
+
+                    </li>
+                    <li class="status"></li>
+                </ul>
+            </div>
+
+        </div>
+</fieldset>
+
+</div>
+

@@ -1,0 +1,33 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/SimNumberSettings/SimNumberDetails.js"></script>
+
+<div id="divSimNumber" class="divDetails">
+
+
+    <div id="divSimNumberDetails" class="divDetails">
+
+        <ul>
+            <li>
+                <input type="hidden" id="hdnSimNumberId" value="0"/>
+            </li>
+            <li>
+                <label for="SimNumber">Sim Number:</label>
+                <input type="text" id="txtSimNumber" class="k-textbox" name="SimNumber" placeholder="Insert Sim Number name" required="required"/>
+            </li>
+            <li>
+                <label for="chkSimNumberIsActive">Is Active:</label>
+                <input type="checkbox" id="chkSimNumberIsActive" class="k-checkbox" name="Is Active"/>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="divDetails">
+        <ul>
+            <li class="centerAlign">
+                <button id="btnSaveSimNumber" class="k-button" onclick="SimNumberDetailsManager.SaveSimNumberDetails();">Save</button>&nbsp;&nbsp;
+                <button id="btnClearSimNumber" class="k-button" onclick="SimNumberDetailsHelper.clearSimNumberDetails();">Clear</button>&nbsp;&nbsp;
+            </li>
+        </ul>
+    </div>
+</div>

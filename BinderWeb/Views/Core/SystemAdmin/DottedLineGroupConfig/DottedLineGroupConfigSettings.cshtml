@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Dotted Line Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/eAzolution/Core/SystemAdmin/DottedLineGroupConfig/DottedLineGroupConfigSettings.js"></script>
+ 
+<script src="~/Scripts/eAzolution/Core/SystemAdmin/DottedLineGroupConfig/DottedLineMemberSummary.js"></script>
+<div class="mainDiv">
+
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">
+            Dotted Line Group Settings
+        </legend>
+
+        <div id="divMainDivForDottedLineGroupSettings" class="maindiv">
+            <div id="tabstrip">
+                <ul>
+                    <li class="k-state-active" id="liGroup">
+                        Group
+                    </li>
+                    <li id="liMember">
+                        Member
+                    </li>
+
+                </ul>
+                <div>
+                    @Html.Partial("SystemAdmin/DottedLineGroupConfig/_DottedLineGroup")
+                </div>
+                <div>
+                    @Html.Partial("SystemAdmin/DottedLineGroupConfig/_DottedLineMember")
+                </div>
+
+
+
+
+            </div>
+
+            <div class="divDetails">
+                <ul>
+                    <li class="accept">
+                        <button id="btnSave" class="k-button" type="submit">Save</button> &nbsp;&nbsp;
+                        <button id="btnClearAll" class="k-button">Clear</button>
+                    </li>
+                    <li class="status">
+                    </li>
+                </ul>
+            </div>
+            <br /><br />
+        </div>
+    </fieldset>
+
+
+    <div class="clear"></div>
+</div>
+
+<div id="divAddDottedLineNewGroup" class="displayNone k-block centerAlign">
+    @Html.Partial("SystemAdmin/DottedLineGroupConfig/_AddDottedLineNewGroup")
+</div>

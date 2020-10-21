@@ -1,0 +1,51 @@
+﻿using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderContractsWeb;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderServicesWeb
+{
+    public class DealerInformationServices : BinderBaseServices, IDealerInformationServices
+    {
+        private IDealerInformationRepository _repository;
+        public DealerInformationServices(IDealerInformationRepository repository)
+        {
+            _repository = repository;
+        }
+        public string AddDealerInformation(DealerInformation entity)
+        {
+
+            string res = "";
+            try
+            {
+                if (entity.DealerId == 0)
+                {
+                    _repository.Add(entity);
+                }
+                else
+                {
+                    _repository.Update(entity);
+                }
+                
+                res = "Success";
+                _repository.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                res = ex.Message;
+            }
+            return res;
+        }
+
+        public GridEntity<DealerInformationVm> GetDealerInfo(GridOptions options)
+        {
+            return _repository.GetDealerInfo(options);
+        }
+    }
+}

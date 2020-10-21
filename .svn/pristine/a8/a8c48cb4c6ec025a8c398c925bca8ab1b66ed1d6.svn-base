@@ -1,0 +1,76 @@
+﻿using AutoMapper;
+using BinderUtility;
+using BinderUtility.Common;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Repository.BinderWebContracts;
+using BinderWeb.Services.BinderContractsWeb;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BinderWeb.Services.BinderServicesWeb
+{
+    public class TallySearchServices : ITallySearchServices
+    {
+        private ITallySearchRepository _repository;
+        private IMapper _mapper;
+        private IOrderRequestRepository _orderRequestRepository;
+        public TallySearchServices(ITallySearchRepository repository, IMapper mapper, IOrderRequestRepository orderRequestRepository)
+        {
+            _repository = repository;
+            _mapper = mapper;
+
+            _orderRequestRepository = orderRequestRepository;
+        }
+        public ICollection<TallySearchDto> GetTallySearch(SocDto soc)
+        {
+            return _repository.GetTallySearch(soc);
+        }
+
+        public GridEntity<TallyPointDto> GetTallySummary(GridOptions options)
+        {
+            return _repository.GetTallySummary(options);
+        }
+
+        public string PostQuantity(TallyPointDto tally)
+        {
+
+            
+            string res = "";
+            int stateId = 0;
+            if (tally.BalanceQty == 0)
+            {
+                stateId = OrderState.DELIVERY_COMPLETED;
+            }
+            else
+            {
+                stateId = OrderState.PARTIAL_DELIVERY;
+
+            }
+
+            var data = _mapper.Map<TallyPoint>(tally);
+            try
+            {
+                var order = _orderRequestRepository.SingleOrDefault(c => c.OrderId == tally.OrderId);
+
+                order.StateId = stateId;
+                _orderRequestRepository.Update(order);
+
+
+                _repository.Add(data);
+                _repository.SaveChanges();
+                _orderRequestRepository.SaveChanges();
+                res = "Succes";
+            }
+            catch (Exception ex)
+            {
+                res = ex.Message;
+            }
+            return res;
+           
+        }
+    }
+}

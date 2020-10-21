@@ -1,0 +1,98 @@
+﻿$(document).ready(function () {
+
+
+    OrderPaymentHistoryHelper.GenerateProductsGrid();
+});
+
+var OrderPaymentHistoryManager = {
+    gridDataSource: function () {
+
+
+        var gridDataSource = new kendo.data.DataSource({
+            type: "json",
+            serverPaging: true,
+
+            serverSorting: true,
+
+            serverFiltering: true,
+
+            allowUnsort: true,
+
+            pageSize: 5,
+
+            transport: {
+                read: {
+                    url: binderApi+'/OrderPayment/GetOrderPaymentHistory',
+
+                    type: "POST",
+
+
+                    dataType: "json",
+
+                    contentType: "application/json; charset=utf-8"
+                },
+
+                parameterMap: function (options) {
+
+                    return JSON.stringify(options);
+
+                }
+            },
+            schema: {
+               // data: "Items", total: "TotalCount"
+            }
+        });
+        return gridDataSource;
+    }
+
+};
+var OrderPaymentHistoryHelper = {
+
+    GenerateProductsGrid: function () {
+        debugger;
+        $("#GetOrderPaymentHistoryList").kendoGrid({
+            dataSource: OrderPaymentHistoryManager.gridDataSource(),
+            pageable: {
+                refresh: true,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true
+            },
+            xheight: 450,
+            filterable: true,
+            sortable: true,
+            columns: OrderPaymentHistoryHelper.OrderPaymentHistoryColumns(),
+            editable: false,
+            navigatable: true,
+            selectable: "row"
+
+            //selectable: false
+
+        });
+    },
+    OrderPaymentHistoryColumns: function () {
+        return columns = [
+            //{ field: "ProductsId", hidden: true },
+            //{ field: "ProductName", title: "ProductName", width: 50 },
+            //{ field: "ProductModelName", title: " Model", width: 50, sortable: false },
+            { field: "Orderdate", title: "Order Date", width: 100, template: "#=  kendo.toString(kendo.parseDate(Orderdate),'dd-MMM-yyyy') #" },
+            { field: "PickupDate", title: "Pickup Date", width: 100, template: "#=  kendo.toString(kendo.parseDate(PickupDate),'dd-MMM-yyyy') #" },
+            { field: "UnittPrice", title: "Unit Price", width: 100 },
+            { field: "TotalPrice", title: "Total Price", width: 100 },
+            { field: "Quantity", title: "Quantity", width: 100 },
+            { field: "OrderNo", title: "Order No", width: 100 },
+            { field: "SOC", title: "SOC", width: 100 },
+            { field: "ChequeDate", title: "Cheque Date", width: 100, template: "#=  kendo.toString(kendo.parseDate(ChequeDate),'dd-MMM-yyyy') #" },
+            { field: "PaymentDate", title: "Payment Date", width: 100, template: "#=  kendo.toString(kendo.parseDate(PaymentDate),'dd-MMM-yyyy') #" },
+            { field: "DepositDate", title: "Deposit Date", width: 100, template: "#=  kendo.toString(kendo.parseDate(DepositDate),'dd-MMM-yyyy') #" },
+            { field: "ChequeNo", title: "Cheque No", width: 100 },
+            { field: "PaymentMethod", title: "Payment Method", width: 100 },
+            {
+                field: "Edit", title: "Confirm", filterable: false, width: 80,
+                template: '<button type="button" class="k-button k-primary" value="Confirm" id="undo" onClick="TallySocSearchGridHelper.PopUp()" >Confirm</button>', sortable: false
+            }
+
+
+        ];
+    }
+}

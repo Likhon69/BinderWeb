@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Facility Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Facility/FacilitySettings.js"></script>
+
+<div id="divFacilitySettings" class="divDetails">
+    <div>
+        <div class="leftDiv">
+            <fieldset>
+                <legend><span=></span=> Summary</legend>
+                @Html.Partial("HrAdmin/Facility/FacilitySummary")
+            </fieldset>
+        </div>
+
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Facility Details</legend>
+                @Html.Partial("HrAdmin/Facility/FacilityDetails")
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>

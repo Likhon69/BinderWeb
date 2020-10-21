@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Services.BinderContractsWeb;
+using BinderWebApi.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
+
+namespace BinderWebApi.Controllers
+{
+
+    public class DealerController : BaseApiController
+    {
+        private IDealerInformationServices _dealerInformationServices;
+        private IUsersService _userService;
+        private IDealerTypeServices _dealerTypeServices;
+        private ILocationServices _locationServices;
+        private IHostEnvironment _env;
+        private IMapper _mapper;
+        public DealerController(IDealerInformationServices dealerInformationServices, IDealerTypeServices dealerTypeServices, IHostEnvironment env, IMapper mapper, ILocationServices locationServices, IUsersService usersService)
+        {
+            _dealerInformationServices = dealerInformationServices;
+            _dealerTypeServices = dealerTypeServices;
+            _env = env;
+            _mapper = mapper;
+            _locationServices = locationServices;
+            _userService = usersService;
+        }
+
+
+        [HttpPost]
+        public IActionResult AddDealerInformtion(DealerInformationVm entity)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var id = User.Identity.Name;
+                var user = _userService.GetUserByLoginId(id);
+                entity.CreatedBy = user.UserId;
+                entity.UpdatedBy = user.UserId;
+
+
+                return Ok(_dealerInformationServices.AddDealerInformation(entity));
+
+            }
+            return BadRequest();
+
+        }
+
+        [HttpGet]
+        public IActionResult GetDealerType()
+        {
+            return Ok(_dealerTypeServices.GetDealerType());
+        }
+
+        [HttpPost]
+        public IActionResult GetDealerInfo(GridOptions options)
+        {
+            return Ok(_dealerInformationServices.GetDealerInfo(options));
+        }
+
+        [HttpPost]
+        public IActionResult GetLocationList(GridOptions options)
+        {
+            return Ok(_locationServices.GetLocation(options));
+        }
+
+        [HttpGet]
+        public IActionResult GetDealerLocationMapping(int dealerId)
+        {
+            return Ok(_dealerInformationServices.GetDealerLocationMapping(dealerId));
+        }
+        [HttpGet]
+        public IActionResult GetDealers()
+        {
+            return Ok(_dealerInformationServices.GetDealers());
+        }
+    }
+}

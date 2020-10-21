@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "GetOtp";
+}
+
+<h1>GetOtp</h1>
+
+<form method="post" asp-action="Sendotp" asp-controller="Home">
+    <input type="submit" value="Generate" />
+    <div>
+        @TempData["otp"]
+    </div>
+</form>

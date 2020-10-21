@@ -1,0 +1,34 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Facility/FacilityDetails.js"></script>
+
+<div id="divFacilityDetails" class="divDetails">
+
+    <ul>
+        <li>
+            <input type="hidden" id="hdnFacilityId" value="0" />
+        </li>
+        <li>
+            <label for="txtFacilityCode">Facility Code :</label>
+            <input type="text" id="txtFacilityCode" class="k-textbox" name="FacilityCode" placeholder="Insert facility code" required="required" />
+        </li>
+        <li>
+            <label for="txtFacilityName">Facility Name :</label>
+            <input type="text" id="txtFacilityName" class="k-textbox" name="FacilityName" placeholder="Insert facility name" required="required" />
+        </li>
+        <li>
+            <label for="chkFacilityIsActive">Is Active:</label>
+            <input type="checkbox" id="chkFacilityIsActive" class="k-checkbox" name="Is Active" />
+        </li>
+    </ul>
+</div>
+
+<div class="divDetails">
+    <ul>
+        <li class="centerAlign">
+            <button id="btnSaveFacility" class="k-button" onclick="FacilityDetailsManager.SaveFacilityDetails();"><span class="k-icon k-i-tick"></span>Save</button>&nbsp;&nbsp;
+            <button id="btnClearFacility" class="k-button" onclick="FacilityDetailsHelper.clearFacilityDetails();">Clear</button>&nbsp;&nbsp;
+            <button id="btnCloseFacility" class="k-button" onclick="FacilityDetailsHelper.clickEventForcloseFacilityButton()"><span class="k-icon k-i-close"></span>Close</button>
+        </li>
+    </ul>
+</div>
+

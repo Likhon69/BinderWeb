@@ -1,0 +1,8 @@
+F:\Binder\BinderUtility\bin\Release\netcoreapp3.0\BinderUtility.deps.json
+F:\Binder\BinderUtility\bin\Release\netcoreapp3.0\BinderUtility.dll
+F:\Binder\BinderUtility\bin\Release\netcoreapp3.0\BinderUtility.pdb
+F:\Binder\BinderUtility\obj\Release\netcoreapp3.0\BinderUtility.csprojAssemblyReference.cache
+F:\Binder\BinderUtility\obj\Release\netcoreapp3.0\BinderUtility.AssemblyInfoInputs.cache
+F:\Binder\BinderUtility\obj\Release\netcoreapp3.0\BinderUtility.AssemblyInfo.cs
+F:\Binder\BinderUtility\obj\Release\netcoreapp3.0\BinderUtility.dll
+F:\Binder\BinderUtility\obj\Release\netcoreapp3.0\BinderUtility.pdb

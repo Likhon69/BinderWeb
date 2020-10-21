@@ -1,0 +1,16 @@
+﻿using Binder.NotificationService.Base;
+using Binder.NotificationService.Model;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Binder.NotificationService.Contracts
+{
+    public interface IUserNotificationService
+    {
+        bool SentOtp(OtpMessageDto obj);
+        void SendPasswordChangedAcknowledge(UserOtp userOtp, int dealerId);
+    }
+}

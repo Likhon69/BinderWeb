@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "AddProductInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script src="~/Binder/Product/ProductInfoSettings.js"></script>
+
+
+<div class="mainDiv">
+    <h2 class="text-info">Add New Products</h2>
+    @Html.Partial("~/Views/Shared/_ProductsinfoDetails.cshtml")
+  
+    <div class="clear"></div>
+</div>
+
+
+

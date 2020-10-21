@@ -1,0 +1,63 @@
+﻿$(document).ready(function () {
+    // create DatePicker from input HTML element
+    $("#datepickerFrom").kendoDatePicker();
+
+    $("#datepickerTo").kendoDatePicker();
+
+    $("#btnGenerate").click(function () {
+
+        DateProductPriceInformationManager.DateProductPrice();
+    });
+    $("#btnSave").click(function () {
+
+        AddDateProductPriceManager.AddDateProductPrice();
+    });
+    DateProductPriceGridHelper.GenerateDateProductPriceGrid();
+});
+
+
+var DateProductPrice = "";
+
+var DateProductPriceInformationManager = {
+
+    DateProductPrice: function () {
+        if (DateProductPriceHelper.ValidateDateProductPriceInfoForm()) {
+            var objDateProductPrice = DateProductPriceHelper.CreateDateProductPriceObject();
+            var objDateProductPriceInfo = objDateProductPrice;
+            var jsonParam = objDateProductPriceInfo;
+            var serviceUrl = binderApi + "/ProductPrice/GenerateProductPrice";
+            AjaxManager.Post(serviceUrl, jsonParam, function (response) {
+                DateProductPriceGridHelper.GenerateDateProductPriceGrid(response);
+            }, function (error) {
+
+            });
+        }
+    }
+};
+
+var DateProductPriceHelper = {
+
+    CreateDateProductPriceObject: function () {
+        var objDateProductPrice = new Object();
+
+        objDateProductPrice.DatePickerFrom =kendo.toString($("#datepickerFrom").data('kendoDatePicker').value(),"MM/dd/yyyy");
+
+        objDateProductPrice.DatePickerTo = kendo.toString($("#datepickerTo").data('kendoDatePicker').value(), "MM/dd/yyyy");
+        objDateProductPrice.FirstSlotPrice = $("#firstSlotPrice").val();
+        objDateProductPrice.SecondSlotPrice = $("#secondSlotPrice").val();
+        return objDateProductPrice;
+    },
+
+    ValidateDateProductPriceInfoForm: function () {
+        var data = [];
+        var validator = $("#datePickerDiv").kendoValidator().data("kendoValidator"),
+            status = $(".status");
+        if (validator.validate()) {
+            status.text("").addClass("valid");
+            return true;
+        } else {
+            status.text("oops! There is invalid data in the form.").addClass("invalid");
+            return false;
+        }
+    }
+};

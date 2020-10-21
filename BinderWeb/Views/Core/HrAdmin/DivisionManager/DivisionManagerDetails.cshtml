@@ -1,0 +1,56 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/DivisionManager/DivisionManagerDetails.js"></script>
+
+<div id="divDivisionDetailsInfo" class="divDetails">
+
+    <ul>
+        <li>
+            <input type="hidden" id="hdnDivisionManagerMapId" value="0" />
+            <input type="hidden" id="hdnHrrecordId" value="0" />
+
+            <label class="lbl">Division:</label>
+            <input type="text" id="cmbDivision" name="Division "  placeholder="Division" required="required" />
+        </li>
+
+        <li>
+
+            <label class="lbl">Employee Id:</label>
+            <input type="text" id="txtEmployeeId" name="Employee Id" class="k-textbox" placeholder="Employee Id" required="required" />
+            <button id="btnSearchEmployee" class="k-button" onclick="DivisionManagerDetailsManager.GetEmployeeInfoByEmployeeId();"><span class="k-icon k-i-search"></span></button>
+        </li>
+ 
+
+        <li>
+
+            <label class="lbl">Employee Name:</label>
+            <input type="text" id="txtEmployeeName" name="Employee Name" class="k-textbox" placeholder="Employee Name" disabled="disabled"/>
+        </li>
+
+        <li>
+
+            <label class="lbl">Effective Date:</label>
+            <input type="text" id="txtEffectiveDate" name="Effective Date"  placeholder="Effective Date" required="required" />
+        </li>
+
+        <li>
+
+            <label class="lbl">End Date:</label>
+            <input type="text" id="txtEndDate" name="End Date"  placeholder="End Date" required="required" />
+        </li>
+
+        <li>
+            <label class="lbl">Is Active:</label>
+            <input type="checkbox" id="chkDivisionManagerIsActive" name="Is Active" class="k-checkbox" />
+        </li>
+    </ul>
+
+</div>
+<div id="" class="divDetails">
+    <ul>
+        <li class="centerAlign">
+            <button id="btnSaveDivisionManager" class="k-button" onclick="DivisionManagerDetailsManager.SaveDivisionMappingInfo();"><span class="k-icon k-i-tick"></span>Save</button>&nbsp; &nbsp;
+            <button id="btnClearDivision" class="k-button" onclick="DivisionManagerDetailsHelper.clearDivisionMapDetails();">Clear</button>&nbsp; &nbsp;
+           
+
+        </li>
+    </ul>
+</div>

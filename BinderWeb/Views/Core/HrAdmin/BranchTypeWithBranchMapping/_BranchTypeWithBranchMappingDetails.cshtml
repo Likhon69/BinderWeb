@@ -1,0 +1,50 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/BranchTypeWithBranchMapping/_BranchTypeWithBranchMappingDetails.js"></script>
+<script src="~/Scripts/eAzolution/Core/HrAdmin/BranchTypeWithBranchMapping/BranchTypeChargeSummaryGrid.js"></script>
+
+
+<div class="rightDiv widthSize35_per">
+    <fieldset class="k-block">
+        <legend class="k-header">
+            Branch Type With Branch
+        </legend>
+
+        <div id="BranchTypeWithBranchMappingDetailsDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <label for="BranchType" class="lbl widthSize30_per">Branch Type:<span class="redstart">*</span></label>
+                    <input type="hidden" id="hdnBranchMappingId" value="0" />
+                    <input id="txtBranchType"  required title="Please enter valid BranchType" />
+                    <button id="btnAddBranchType" class="k-button" type="submit" ><span class="k-icon k-i-plus"></span>Add</button>
+
+                </li>
+                <li>
+                    <label for="BranchName" class="lbl widthSize30_per">Branch Name:<span class="redstart">*</span></label>
+                    <input type="text" id="txtBranchName" name="BranchName"  required title="Please enter valid Branch Name" />
+                </li>
+
+
+                <li class="accept">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="btnSaveBranchTypeMapping" class="k-button" type="submit"><span class="k-icon k-i-save"></span>Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button">Clear</button>
+                </li>
+                <li class="status"></li>
+            </ul>
+        </div>
+       
+        <div class="k-block  displayNone" id="divBranchTypeChargePopUp">
+            <div>
+                <button id="btnSaveBranchTypeCharge" class="k-button" type="submit"><span class="k-icon k-i-save"></span>Save/Update</button>
+            </div>
+            <div >
+               
+                <div id="divBranchTypeChargeGrid"></div>
+            </div>
+            
+
+        </div>
+
+        <div class="clear"></div>
+    </fieldset>
+</div>

@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using AutoMapper;
+using BinderWeb.Models;
+using BinderWeb.Models.Auth;
+using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Services.BinderWebContracts;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+
+namespace BinderAppsApi.Controllers.MobileApi
+{
+
+
+    public class UserController : BaseApiController
+    {
+        private IUserDetailsServices _userDetailsServices;
+        private IMapper _mapper;
+        public UserController(IUserDetailsServices userDetailsServices, IMapper mapper)
+        {
+            _userDetailsServices = userDetailsServices;
+            _mapper = mapper;
+
+        }
+
+        [HttpGet]
+        public UserDetailsDto GetUserDetails(string loginId)
+        {
+            var data = _userDetailsServices.GetUserDetails(loginId);
+
+            return data;
+        }
+
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(AuthorizeUser), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [HttpPost("/token")]
+        public IActionResult Authenticate([FromBody]AuthenticateModel model)
+        {
+            var user = _userDetailsServices.Authenticate(model.LoginId, model.Password);
+
+            if (user == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+
+            return Ok(user);
+        }
+    }
+}

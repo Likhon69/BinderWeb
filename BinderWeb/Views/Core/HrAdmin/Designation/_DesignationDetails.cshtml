@@ -1,0 +1,55 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/Designation/DesignationDetails.js")
+
+<div class="rightDiv">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">
+            Designation Details
+        </legend>
+
+        <div id="designationDetailsDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <label for="DesignationCode" class="required lbl widthSize22_per">Designation Code:<span class="redstart">*</span></label>
+                    <input type="hidden" id="hdnDesignationId" value="0"/>
+                    <input type="text" id="txtDesignationCode" name="DesignationCode" class="k-textbox" maxlength="5" placeholder="Designation Code" required validationmessage="Please enter Designation Code"/>
+                </li>
+                <li>
+                    <label for="DesignationName" class="required lbl widthSize22_per">Designation Name:<span class="redstart">*</span></label>
+                    <input type="text" id="txtDesignationName" name="DesignationName" class="k-textbox" placeholder="Designation Name" required validationmessage="Please enter Designation Name"/>
+                </li>
+                <li>
+                    <label for="Label" class="required lbl widthSize22_per">Sequence:<span class="redstart">*</span></label>
+                    <input type="number" id="txtSortOrder" name="Label" placeholder="Sequence" required validationmessage="Please enter Sequence"/>
+                </li>
+                <li>
+                    <label for="ParentDesignationName" class="required lbl widthSize22_per">Parent Designation:</label>
+                    <input type="text" id="cmbParentDesignationName" name="ParentDesignationName"/>
+                </li>
+                <li>
+                    <label for="cmbDesigType" class="required lbl widthSize22_per">Type:</label>
+                    <input id="cmbDesigType" required="required"/>
+                    <button id="btnDesignationType" class="k-button" onclick=""><span class="k-icon k-i-plus"></span></button>
+                </li>
+                <li>
+                    <label class="lbl widthSize22_per">Is Active:</label>
+                    <input type="checkbox" id="chkIsActiveDesignation" name="IsActive" class="k-checkbox"/>
+                </li>
+                <li class="accept" style="padding-left: 138px">
+                    <button id="btnSaveDesignation" class="k-button" type="submit" onclick=" designationDetailsManager.SaveDesignationInformation() "><span class="k-icon k-i-tick"></span>Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAllDesignation" class="k-button" onclick="designationDetailsHelper.clearDesignationForm() ">Clear</button>
+                </li>
+                <li class="status"></li>
+            </ul>
+        </div>
+    </fieldset>
+</div>
+
+<div id="designationTypePopup" style="display:none">
+    <label for="txtDesigType" class="required lbl widthSize22_per">Type Name:</label>
+    <input type="text" id="txtDesigType" class="k-textbox" name="DesigType"/>
+    <button id="btnDesignationTypeAdd" class="k-button" onclick="">Add</button>
+    <button id="btnDesignationTypeClose" class="k-button" onclick="">Close</button>
+
+</div>

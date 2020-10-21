@@ -1,0 +1,52 @@
+﻿using BinderUtility;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BinderCore.DataServices.Base
+{
+    public class CoreBaseRepository<T> : ICoreBaseRepository<T> where T : class
+    {
+        protected DbContext _db;
+       
+        public CoreBaseRepository(DbContext db)
+        {
+            _db = db;
+           
+        }
+        public DbSet<T> Table
+        {
+            get { return _db.Set<T>(); }
+        }
+        public virtual bool Add(T entity)
+        {
+            Table.Add(entity);
+            return _db.SaveChanges() > 0;
+        }
+
+        public virtual ICollection<T> GetAll()
+        {
+            return Table.ToList();
+        }
+
+        public virtual T GetById(int id)
+        {
+            return Table.Find(id);
+
+        }
+
+        public virtual bool Remove(T entity)
+        {
+            Table.Remove(entity);
+            return _db.SaveChanges() > 0;
+        }
+
+        public virtual bool Update(T entity)
+        {
+            _db.Entry(entity).State = EntityState.Modified;
+            return _db.SaveChanges() > 0;
+        }
+    }
+}

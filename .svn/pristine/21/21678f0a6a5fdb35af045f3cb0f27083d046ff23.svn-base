@@ -1,0 +1,33 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Discipline/DisciplineDetails.js"></script>
+<div class="rightDiv">
+    <div id="certificateTypeDetailsDiv" class="divDetails">
+        <fieldset class="k-content">
+            <legend class="k-fontSize[15]">Discipline Details</legend>
+
+            <ul>
+                <li>
+                    <input type="hidden" id="hdDisciplineId" value="0" />
+                    <label for="txtDisciplineName" class="required lbl widthSize25_per">Discipline (Group/Subject) :<span class="redstart">*</span></label>
+                    <input type="text" id="txtDisciplineName" name="CertificateTypeName" class="k-textbox" maxlength="50" placeholder="Certificate Type Name" required validationmessage="Please enter Discipline (Group/Subject) Name" />
+                </li>
+                <li>
+                    <label for="cmbDegree" class="lbl widthSize25_per">Degree Type:</label>
+                    <input id="cmbDegree" name="DegreeType" required validationmessage="Please enter Degree" />
+                 @*   <button id="btnAddNewDegreeType" class="k-button" type="button"> + </button>*@
+                </li>
+                <li>
+                    <label for="txtIsActive" class="lbl widthSize25_per">Is Active:</label>
+                    <input type="checkbox" id="txtIsActive" name="IsActive" class="k-checkbox" />
+                </li>
+                <li class="accept" style="margin-left: 15px;">
+                    <button id="btnSave" class="k-button" type="submit">Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button">Clear All</button>
+                </li>
+                <li class="status"></li>
+            </ul>
+        </fieldset>
+    </div>
+</div>
+@*@Html.Partial("~/Views/Core/HrAdmin/DegreeType/DegreeTypeSetup.cshtml")*@

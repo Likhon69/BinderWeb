@@ -1,0 +1,30 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Menu/MenuInformation.js")
+<div class="">
+    <div id="tabstrip">
+            <ul>
+                <li class="k-state-active">
+                    Menu Settings
+                </li>
+                <li>
+                    Menu Sorting
+                </li>
+            </ul>
+            <div>
+                
+                @Html.Partial("SystemAdmin/Menu/_MenuSummary")
+                @Html.Partial("SystemAdmin/Menu/_MenuDetails")
+                
+                <div class="clear"></div>
+                
+            </div>
+            <div>
+                @Html.Partial("SystemAdmin/Menu/_MenuSorting")
+                <div class="clear"></div>
+            </div>
+           
+
+    </div>
+    
+    
+</div>

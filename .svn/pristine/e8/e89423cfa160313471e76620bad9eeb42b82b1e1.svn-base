@@ -1,0 +1,87 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/BranchManagerSetting/BranchManagerDetails.js"></script>
+
+<div class="rightDiv widthSize38_per">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]"> Branch Manager Setting </legend>
+
+        <div id="BranchManagerSettingDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <input id="hdnBranchManagerId" type="hidden"/>
+                </li>
+                <li>
+                    <label for="cmbDivisionName" class="lbl widthSize20_per">Division Name:</label>
+                    <input id="cmbDivisionName" required title="Please enter valid Division Name" />
+
+                </li>
+                <li>
+                    <label for="cmbRegionName" class="lbl widthSize20_per">Region Name:</label>
+                    <input id="cmbRegionName" required title="Please enter valid Region Name" />
+
+                </li>
+                <li>
+                    <label for="cmbAreaName" class="lbl widthSize20_per">Area Name:</label>
+                    <input id="cmbAreaName" required title="Please enter valid Area Name" />
+
+                </li>
+                <li>
+                    <label for="cmbBranchName" class="lbl widthSize20_per">Branch Name:</label>
+                    <input id="cmbBranchName" required title="Please enter valid Branch Name" />
+
+                </li>
+
+                <li>
+                    
+                        <label for="EmployeeId" class="lbl widthSize20_per">Employee ID</label>
+                        <input type="hidden" id="hdnHrRecordId" /> 
+                        <input type="text" name="SearchByEmployeeId" class="k-textbox " id="txtSearchByEmployeeId" placeholder="Enter Employee Id to Search" />
+                        <button type="button" id="btnSearch" class="k-button" value=""><span class="k-icon k-i-search"></span></button>
+                    <div id="SearchBranchManagerDiv">
+                          
+                        <label for="EmployeeName" class="lbl widthSize20_per">Employee Name </label>
+                         <input id="lblEmployeeName" class="k-textbox" disabled="disabled" />
+
+                    </div>
+                    
+                </li>
+                
+                <li>
+
+                    <label for="EffectiveDate" class="lbl widthSize20_per">Effective Date:</label>
+                    <input type="text" id="txtEffectiveDate" name="EffectiveDate" placeholder="Effective From" required="required" />
+
+                </li>
+                <li>
+
+                    <label for="EndDate" class="lbl widthSize20_per">End Date:</label>
+                    <input type="text" id="txtEndDate" name="EndDate" placeholder="End Date" />
+
+                </li>
+                <li>
+                    <label for="IsManager" class="lbl widthSize20_per">Is Manager:</label>
+                    <input type="checkbox" id="chkIsManager" name="IsManager" class="k-checkbox" />
+                </li>
+
+                <li>
+                    <label for="IsActive" class="lbl widthSize20_per">Is Active:</label>
+                    <input type="checkbox" id="chkIsActive" name="IsActive" class="k-checkbox" />
+                </li>
+
+                <li class="accept">
+                    <button id="btnSave" class="k-button" type="submit">Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button">Clear All</button>
+                </li>
+                <li class="status"></li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </fieldset>
+
+</div>

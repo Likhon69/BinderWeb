@@ -1,0 +1,65 @@
+﻿using AutoMapper;
+using Binder.NotificationService.Base;
+using Binder.NotificationService.Contracts;
+using Binder.NotificationService.Model;
+using BinderCore.DataServices.Contracts.Notification;
+using BinderCore.Models.Message;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using CommonUnitOfWork;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Binder.NotificationService.Services
+{
+    public class UserNotificationService : BaseNotification, IUserNotificationService
+    {
+        IEmailContentRepository _contentRepository;
+
+        public UserNotificationService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+        {
+
+        }
+
+        public bool SentOtp(OtpMessageDto obj)
+        {
+            var messgeg = BuildOTPMessage(obj);
+          return  base.SentMessage(messgeg);
+        }
+
+        internal MessageEntityDto BuildOTPMessage(OtpMessageDto delar)
+        {
+            MessageEntityDto message = null;
+            int nextApproverId = 0;
+            int emailTitleId = 201;
+
+
+            EmailContent emailContent   = _contentRepository.GetContentByTitleId(emailTitleId);
+
+            if (emailContent.EmailBody != null)
+            {
+
+                string body = string.Format(emailContent.EmailBody, delar.LoginId);
+
+                message = new MessageEntityDto();
+
+                message.FromHrRecordId = 1;
+                message.ToMessageDetails = base.BuildToMessageDetails(delar.DealerId);
+                //message.CcMessageDetails = BuildCcMessageDetails();
+                message.MessageSubject = string.Format(emailContent.EmailSubject);
+                message.MessageDetails = body;
+                message.MessagingDate = DateTime.Now;
+                message.ReferenceId = delar.DealerId;
+                message.ReferenceType = 1;
+                //  message.MenuId = _messageService.MenuId;
+                message.ModuleId = 1;
+                message.RedirectLink = "";
+                message.ReferenceDate = delar.GenerateTime;
+                message.EmailTitleId = emailContent.EmailContentId;
+                message.EmailNotificationTypeId = 2;
+            }
+            return message;
+        }
+    }
+}

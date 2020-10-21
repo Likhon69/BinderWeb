@@ -1,0 +1,76 @@
+﻿$(document).ready(function () {
+    $("#btnSave").click(function () {
+
+        ProductInformationManager.AddProductInformation();
+    });
+    $("#btnClearAll").click(function () {
+        ProductInformationHelper.clearProductsForm();
+    });
+});
+
+var ProductName = "";
+var ProductInformationManager = {
+
+    AddProductInformation: function () {
+
+        if (ProductInformationHelper.ValidateProductsInfoForm()) {
+            var objProducts = ProductInformationHelper.CreateProductsObject();
+            var objProductsInfo = objProducts;
+            var jsonParam = objProductsInfo;
+            var serviceUrl = "https://localhost:44325/api/Product/AddProductInformation/";
+            debugger;
+            AjaxManager.Post(serviceUrl, jsonParam, function (response) {
+
+            }, function (error) {
+
+            });
+        }
+
+
+    }
+};
+
+var ProductInformationHelper = {
+
+
+
+
+    CreateProductsObject: function () {
+        debugger;
+        var objProducts = new Object();
+        objProducts.ProductId = $("#hdnProductsId").val();
+        objProducts.ProductName = $("#txtProductName").val();
+        // objProducts.ProductModel = $("#txtProductModel").val();
+        objProducts.ProductCode = $("#txtProductCode").val();
+        //objProducts.ProductPrice = $("#txtProductPrice").val();
+        // objProducts.Gender = $('input[name="rdoGender"]:checked').val();
+        //objProducts.ProductTypeId = $("#txtProductTypeName").data("kendoComboBox").value();
+        //objProducts.SectionId = $("#SectionDrop").data("kendoDropDownList").value();
+        //objProducts.IsActive = $("#chkIsActive").is(':checked') == true ? 1 : 0;
+
+        //var ProductModelObj = ProductInformationHelper.CreateDetails();
+        //objProducts.ProductModel = ProductModelObj;
+
+        return objProducts;
+    },
+
+
+
+    ValidateProductsInfoForm: function () {
+        var data = [];
+
+        var validator = $("#ProductInformationDiv").kendoValidator().data("kendoValidator"),
+            status = $(".status");
+        if (validator.validate()) {
+            status.text("").addClass("valid");
+            return true;
+        } else {
+            status.text("Oops! There is invalid data in the form.").addClass("invalid");
+            return false;
+        }
+    }
+
+
+
+
+};

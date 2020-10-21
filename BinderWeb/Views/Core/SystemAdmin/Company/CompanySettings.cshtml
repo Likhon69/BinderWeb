@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "SBU Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Company/Company.js")
+
+
+<div class="mainDiv">
+    <h2 class="k-header centerAlign">Strategic  Business Unit (SBU)/Company Information</h2>
+
+    <div id="divSbuCompanySummary" class="">
+        @Html.Partial("SystemAdmin/Company/CompanySummary")
+    </div>
+    <div id="divsbucompanyMappingDetails" class="" style="display: none">
+        <div id="tabPublishCompanySettings">
+            <ul>
+
+                <li class="k-state-active" id="tab1">Company Information</li>
+                <li id="divBranchSummary">Location/Branch Mapping</li>
+                <li id="divDivisionSummary">Division Mapping</li>
+                <li id="divDepartmentSummary">Department Mapping</li>
+                <li id="divFacilitySummary">Facility Section Mapping</li>
+                <li id="divDesignationSummary">Designation Mapping</li>
+            </ul>
+                <div>
+                    @Html.Partial("SystemAdmin/Company/CompanyDetails")
+                    <div class="clear"></div>
+                </div>
+            <div>
+                @Html.Partial("SystemAdmin/Company/BranchSolution")
+
+                <div class="clear"></div>
+            </div>
+            <div>
+                @Html.Partial("SystemAdmin/Company/DivisionSolution")
+
+                <div class="clear"></div>
+            </div>
+            <div>
+                @Html.Partial("SystemAdmin/Company/DepartmentSolution")
+                <div class="clear"></div>
+            </div>
+            <div>
+                @Html.Partial("SystemAdmin/Company/FacilitySolution")
+
+                <div class="clear"></div>
+            </div>
+            <div>
+                @Html.Partial("SystemAdmin/Company/DesignationSolution")
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="divDetails">
+            <ul>
+                <li class="accept centerAlign">
+                    <button id="btnSaveCompany" class="k-button" type="submit" onclick="companyDetailsManager.SaveCompany()"><span class="k-icon k-i-tick"></span>Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAllCompanyInfo" class="k-button" onclick=" companyDetailsHelper.clearCompanyForm() ">Clear</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAllCompanyInfo" class="k-button" onclick="companyDetailsHelper.closeSbuCompanyDetails();"><span class="k-icon k-i-close"></span>Close</button>
+                </li>
+                <li class="status"></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+<div class="clear"></div>
+</div>
+

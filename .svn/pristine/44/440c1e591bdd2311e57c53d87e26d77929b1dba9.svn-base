@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "AddProductInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script src="~/Binder/Product/ProductInformation.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<div class="rightDiv">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]"> Products Details</legend>
+
+        <div id="ProductInformationDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <input id="hdnProductsId" Type="hidden" value="0" />
+                </li>
+                <li>
+                    <label class="lbl widthSize20_per">Product Name:</label>
+                    <input type="text" class="k-textbox" id="txtProductName" name="ProductName" title="Please Select Your Name" required="required" />
+
+
+                </li>
+               
+
+                <li>
+                    <label class="lbl widthSize20_per">Product Code:</label>
+                    <input type="text" class="k-textbox" id="txtProductCode" name="ProductCode" title="Please Select Your Name" required="required" />
+
+                </li>
+
+
+                <li>
+                    <div id="ProductModelDetailsDiv">
+
+                    </div>
+                </li>
+                <li class="accept">
+                    <button id="btnSave" class="k-button" type="submit">Submit</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button">Clear All</button>
+                </li>
+                <li class="status"></li>
+
+
+
+
+
+
+
+
+            </ul>
+
+
+        </div>
+
+
+    </fieldset>
+
+</div>
+
+
+

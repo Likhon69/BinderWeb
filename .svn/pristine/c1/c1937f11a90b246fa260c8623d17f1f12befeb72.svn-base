@@ -1,0 +1,202 @@
+﻿using Binder.NotificationService.Contracts;
+using BinderCore.DataServices.Contracts.Notification;
+using BinderWeb.DatabaseContext.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Linq;
+using BinderCore.Models.Message;
+using AutoMapper;
+using CommonUnitOfWork;
+
+namespace Binder.NotificationService.Base
+{
+    public abstract class BaseNotification : INotification
+    {
+        //ISmsRepository _smsRepository;
+        //IEmailRepository _emailRepository;
+        IMapper _mapper;
+        // IMessageRepository _messageRepository;
+        IUnitOfWork _unitOfWork;
+        public BaseNotification(IUnitOfWork unitOfWork, IMapper mapper)
+        {
+            //_smsRepository = smsRepository;
+            //_emailRepository = emailRepository;
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
+            //_messageRepository = messageRepository;
+        }
+        public bool SentEmail()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SentSMS()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal List<MessageDetails> BuildCcMessageDetails(List<int> hrRecordIds)
+        {
+            var ccList = new List<MessageDetails>();
+            foreach (var hrRecordId in hrRecordIds)
+            {
+                var cc = new MessageDetails
+                {
+                    HrRecordId = hrRecordId,
+                    DestinationType = 2
+                };
+                ccList.Add(cc);
+            }
+
+            return ccList;
+        }
+        internal List<MessageDetails> BuildCcMessageDetails(int hrRecordId)
+        {
+            var ccList = new List<MessageDetails>();
+
+            var cc = new MessageDetails
+            {
+                HrRecordId = hrRecordId,
+                DestinationType = 2
+            };
+            ccList.Add(cc);
+
+
+            return ccList;
+        }
+
+        internal bool SentMessage(MessageEntityDto messageDto)
+        {
+            try
+            {
+
+
+                var objMsg = _mapper.Map<Message>(messageDto);
+
+
+
+                // _messageRepository.SaveChanges();
+
+
+
+                var objSms = BuildSMSObject(messageDto);
+                var objEmail = BuilEmailObject(messageDto);
+
+                _unitOfWork.Message.Add(objMsg);
+                var id = _unitOfWork.Commit();
+
+                _unitOfWork.Email.Add(objEmail);
+                _unitOfWork.SMS.Add(objSms);
+                // _smsRepository.SaveChanges();
+                //_emailRepository.SaveChanges();
+                _unitOfWork.Commit();
+
+
+                return true;
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+            return false;
+
+        }
+
+        private SentEmail BuilEmailObject(MessageEntityDto messageDto)
+        {
+            var obj = new SentEmail();
+            obj.Body = messageDto.MessageDetails;
+            obj.Subject = messageDto.MessageSubject;
+            obj.EmailTo = GetEmailAddress(messageDto.ToMessageDetails);
+            obj.CcAddress = GetEmailAddress(messageDto.CcMessageDetails);
+            obj.Status = 0;
+            obj.MailCreateDate = DateTime.Now;
+            obj.RefId = messageDto.MessageId;
+            obj.TryCount = 0;
+            obj.SentEmailId = 0;
+            obj.Attachment = "";
+            obj.EmailFrom = "";
+
+
+            return obj;
+
+        }
+
+        private string GetEmailAddress(List<MessageDetailsDto> toMessageDetails)
+        {
+            string ids = "";
+
+            if (toMessageDetails != null && toMessageDetails.Any())
+            {
+                foreach (MessageDetailsDto item in toMessageDetails)
+                {
+                    var dealer = _unitOfWork.DealerInformation.GetById(item.HrRecordId);
+
+                    ids += dealer.EmailAddress + ",";
+                }
+                if (ids != "")
+                {
+                    ids = ids.Remove(ids.Length - 1, 1);
+                }
+            }
+            return ids;
+
+
+        }
+
+        private Smssent BuildSMSObject(MessageEntityDto messageDto)
+        {
+            var to = messageDto.ToMessageDetails.FirstOrDefault();
+            var dealerInfo = _unitOfWork.DealerInformation.GetById(to.HrRecordId);
+
+            var obj = new Smssent();
+            obj.Id = 0;
+            obj.Smstext = messageDto.SMSText;
+            obj.MobileNumber = dealerInfo.MobileNo;
+            obj.NoOfTry = 0;
+            obj.SimNumber = "0";
+            obj.RequestDateTime = DateTime.Now;
+            obj.Status = 0;
+            obj.MessageReference = messageDto.ReferenceId;
+            obj.ReplyFor = 0;
+
+
+            return obj;
+
+
+        }
+
+        internal List<MessageDetailsDto> BuildToMessageDetails(int hrRecordId)
+        {
+            var toList = new List<MessageDetailsDto>();
+
+            var to = new MessageDetailsDto
+            {
+                HrRecordId = hrRecordId,
+                DestinationType = 1,
+
+
+            };
+            toList.Add(to);
+            return toList;
+
+        }
+
+        internal List<MessageDetails> BuildToMessageDetails(List<int> hrRecordIds)
+        {
+            return hrRecordIds.Select(hrRecordId => new MessageDetails
+            {
+                HrRecordId = hrRecordId,
+                DestinationType = 1
+            }).ToList();
+        }
+
+
+    }
+}

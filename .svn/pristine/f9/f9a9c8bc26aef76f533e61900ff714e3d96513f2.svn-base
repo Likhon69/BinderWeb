@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "OrderPaymentHistorySettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Binder/OrderPaymentHistory/OrderPaymentHistoryList.js"></script>
+
+<script src="~/Binder/OrderPaymentHistory/PostSocRemarks.js"></script>
+
+<div class="container">
+
+
+    @await Html.PartialAsync("_OrderPaymentHistorySummary.cshtml")
+
+</div>
+<div id="window">
+    <div class="">
+        <div id="PaymentConfirmationDiv" class="divDetails">
+
+            <ul>
+
+                <li>
+                    <label class="lbl widthSize40_per">SOC:</label>
+                    <input id="txtSoc" name="SOC" title="" required="required" />
+
+
+                </li>
+
+
+                <li>
+                    <label class="lbl widthSize40_per">Remarks:</label>
+
+                    <textarea class="k-textbox" id="txtRemarks"></textarea>
+
+                </li>
+                <li class="accept">
+                    <button id="btnSaveOk" class="k-button k-primary" type="button">OK</button>
+
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+    </div>

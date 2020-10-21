@@ -1,0 +1,11 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/RecruitmentSource/RecruitmentSourceSummary.js"></script>
+
+<div class="leftDiv">
+    <fieldset class="k-content">
+
+        <legend class="k-fontSize[15]"> Recruitment Source Summary </legend>
+
+        <div id="RecruitmentSourceSummarydiv" class="divSummary"></div>
+    </fieldset>
+</div>

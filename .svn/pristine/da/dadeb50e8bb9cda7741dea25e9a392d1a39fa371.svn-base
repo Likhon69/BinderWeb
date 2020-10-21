@@ -1,0 +1,31 @@
+﻿using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Repository.BinderWebContracts;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderWebContracts;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderWebServices
+{
+    public class UserDetailsServices : BinderBaseServices<UserDetailsDto>, IUserDetailsServices
+    {
+        private IUserDetailsRepository _repository;
+        public UserDetailsServices(IUserDetailsRepository repository):base(repository)
+        {
+            _repository = repository;
+        }
+
+        public object Authenticate(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserDetailsDto GetUserDetails(string loginId)
+        {
+            var data = _repository.GetUserDetails(loginId);
+
+            return data;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Section/SectionDetails.js"></script>
+
+<div id="divSection" class="divDetails">
+
+
+    <div id="divSectionDetails" class="divDetails">
+
+        <ul>
+            <li>
+                <input type="hidden" id="hdnSectionId" value="0"/>
+            </li>
+            <li>
+                <label for="txtSectionCode">Section Code :</label>
+                <input type="text" id="txtSectionCode" class="k-textbox" name="SectionCode" placeholder="Insert Section code" required="required"/>
+            </li>
+            <li>
+                <label for="txtSectionName">Section Name :</label>
+                <input type="text" id="txtSectionName" class="k-textbox" name="SectionName" placeholder="Insert section name" required="required"/>
+            </li>
+            <li>
+                <label for="chkSectionIsActive">Is Active:</label>
+                <input type="checkbox" id="chkSectionIsActive" class="k-checkbox" name="Is Active"/>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="divDetails">
+        <ul>
+            <li class="centerAlign">
+                <button id="btnSaveSection" class="k-button" onclick="SectionDetailsManager.SaveSectionDetails();">Save</button>&nbsp;&nbsp;
+                <button id="btnClearSection" class="k-button" onclick="SectionDetailsHelper.clearSectionDetails();">Clear</button>&nbsp;&nbsp;
+                <button id="btnCloseSection" class="k-button" onclick="SectionDetailsHelper.clickEventForcloseSectionButton()"><span class="k-icon k-i-close"></span>Close</button>
+            </li>
+        </ul>
+    </div>
+</div>

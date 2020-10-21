@@ -1,0 +1,39 @@
+﻿using AutoMapper;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Repository.BinderWebContracts;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderWebContracts;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderWebServices
+{
+    public class PaymentServices : BinderBaseServices, IPaymentServices
+    {
+        private readonly IMapper _mapper;
+        IPaymentRepository _repository;
+        public PaymentServices(IPaymentRepository repository, IMapper mapper)
+        {
+            _mapper = mapper;
+            _repository = repository;
+        }
+
+        public PaymentOrder GetPaymentAttachmentFile(int id)
+        {
+            var data = _repository.GetById(id);
+
+            return data;
+        }
+
+        public bool PaymentPost(PaymentDto payment)
+        {
+
+            var data = _mapper.Map<PaymentOrder>(payment);
+            data.PaymentDate = DateTime.Now;
+            _repository.Add(data);
+            return _repository.SaveChanges();
+        }
+    }
+}

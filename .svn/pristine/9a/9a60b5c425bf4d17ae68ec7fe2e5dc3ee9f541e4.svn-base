@@ -1,0 +1,9 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/Discipline/DisciplineSummary.js"></script>
+<div class="leftDiv">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">Discipline Summary </legend>
+    
+    <div id="gridDiscipline"></div>
+        </fieldset>
+    <div class="clear"></div>
+</div>

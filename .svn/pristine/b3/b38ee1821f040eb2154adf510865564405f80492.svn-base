@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "BranchTypeWiseManPowerSetupSetting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/BranchTypeWiseManPowerSetup/BranchTypeWiseManPowerSetupSetting.js"></script>
+
+
+<div class="mainDiv">
+    <h1 class="k-header"> Man Power Setup</h1>
+    <div class="accept">
+        <button id="btnSetupForBranch"  type="submit" class="k-button"> Setup For Branch </button>
+        <button id="btnSetupForDivision" type="submit" class="k-button"> Setup For Division </button>
+    </div>
+    <div id="divManpowerSetupForBranch">
+        @Html.Partial("HrAdmin/BranchTypeWiseManPowerSetup/_BranchTypeWiseManPowerSetupSummary")
+    </div>
+    <div id="divManpowerSetupForDivision" class="displayNone">
+        @Html.Partial("HrAdmin/BranchTypeWiseManPowerSetup/_DivisionWiseManPowerSetupSummary")
+    </div>
+    
+    <div class="clear"></div>
+</div>
+

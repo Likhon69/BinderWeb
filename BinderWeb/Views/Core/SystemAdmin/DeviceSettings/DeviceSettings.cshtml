@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Device Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/DeviceSettings/DeviceSettings.js")
+
+<h2 class="k-header centerAlign">Device Settings</h2>
+
+<div class="mainDiv">
+    <div class="" id="divDeviceSetupInfo">
+
+    <div class="leftDiv widthSize64_per">
+         @Html.Partial("~/Views/Core/SystemAdmin/DeviceSettings/_DeviceSummary.cshtml")
+    </div>
+     
+    <div class="rightDiv widthSize34_per">
+         <div id="tabstripDeviceInfo">
+
+        <ul>
+            <li class="k-state-active">Device Setup
+            </li>
+            @*<li> Download
+            </li>*@
+        </ul>
+
+        <div>
+
+          
+            @Html.Partial("~/Views/Core/SystemAdmin/DeviceSettings/_DeviceDetails.cshtml")
+            
+            <div class="clear"></div>
+        </div>
+        <div>
+            Device Download
+        </div>
+
+    </div>
+    </div>
+    <div class="clear"></div>
+
+</div>
+</div>
+

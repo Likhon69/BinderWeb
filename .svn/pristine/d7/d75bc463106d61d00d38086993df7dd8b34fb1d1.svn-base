@@ -1,0 +1,327 @@
+﻿
+using Binder.NotificationService.Contracts;
+using Binder.NotificationService.Model;
+using BinderCore.DataServices.SystemAdmin.Contracts;
+using BinderCore.Models.SystemAdmin;
+using BinderCore.Services.Base;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models;
+using BinderWeb.Models.Auth;
+using CommonUnitOfWork;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Linq;
+using BinderUtility.Common;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+
+namespace BinderCore.Services.SystemAdmin.Services
+{
+    public class UsersService : CookieAuthenticationEvents, IUsersService, IAuthorizationRequirement
+    {
+        IUsersRepository _repository = null;
+        private readonly AppSettings _appSettings;
+        private IUnitOfWork _unitOfWork;
+        IUserNotificationService _userNotificationService;
+        IMapper _mapper;
+        public UsersService(IUsersRepository repository, IOptions<AppSettings> appSettings, IUnitOfWork unitOfWork, IUserNotificationService userNotificationService, IMapper mapper)
+        {
+            _repository = repository;
+            _appSettings = appSettings.Value;
+            _unitOfWork = unitOfWork;
+            _userNotificationService = userNotificationService;
+            _mapper = mapper;
+        }
+
+
+
+        public List<GroupMember> GetGroupMemberByUserId(int userId)
+        {
+
+            return _unitOfWork.GroupMember.Get(s => s.UserId == userId).ToList();
+        }
+
+
+
+        public Users GetUserByEmailAddress(string emailaddress)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByEmployeeId(int hrRecordId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserById(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByLoginId(string loginId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserByLoginIdForForgetPass(string loginId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Users GetUserDetailsByEmployeeId(string employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GridEntity<UsersDto> GetUserSummary(GridOptions options)
+        {
+            return _repository.GetUserSummary(options);
+        }
+
+        public string ResetPassword(int companyId, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveDataToMainTable()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SaveUser(UsersDto users)
+        {
+            var user = _mapper.Map<Users>(users);
+
+            if (user.UserId == 0)
+            {
+                user.Password = EncryptDecryptHelper.Encrypt(user.Password);
+                user.CreatedDate = DateTime.Now;
+                user.LastUpdateDate = DateTime.Now;
+                user.LastLoginDate = DateTime.Now;
+                user.IsExpired = false;
+                user.FailedLoginNo = 0;
+                user.IsFirstLoginEnable = true;
+
+                user = _unitOfWork.Users.Save(user);
+
+            }
+            else
+            {
+                var obj = _unitOfWork.Users.GetById(user.UserId);
+                obj.UserName = users.UserName;
+                obj.EmployeeId = user.EmployeeId;
+                obj.LastUpdateDate = DateTime.Now;
+                obj.LastLoginDate = DateTime.Now;
+                if (!string.IsNullOrEmpty(user.Password))
+                {
+                    obj.Password= EncryptDecryptHelper.Encrypt(users.Password);
+                }
+                _unitOfWork.Users.Update(obj);
+            }
+            var deleteGroups = _unitOfWork.GroupMember.Get(s => s.UserId == user.UserId);
+            _unitOfWork.GroupMember.Remove(deleteGroups);
+            if (users.GroupMemberList != null)
+            {
+                users.GroupMemberList.ForEach(s => s.UserId = user.UserId);
+                _unitOfWork.GroupMember.Add(users.GroupMemberList);
+
+            }
+
+            _unitOfWork.Commit();
+            return "Success";
+
+        }
+
+        public string SaveUserIdToTempTbl(string importFilePath, int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateTheme(Users user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateUser(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUserStatus(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string UpdateUserWithPassword(Users users)
+        {
+            throw new NotImplementedException();
+        }
+
+        UsersDto IUsersService.GetUserById(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<Users> _users = new List<Users>()
+        {
+            new Users{UserId = 1,UserName = "test",Password="test" }
+        };
+        public AuthorizeUser Authenticate(string LoginId, string password)
+        {
+            var encrpPass=EncryptDecryptHelper.Encrypt(password);
+            var user = _repository.Single(c => c.LoginId == LoginId && c.Password == encrpPass);
+            if (user == null)
+            {
+                return null;
+            }
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.LoginId.ToString()),
+                    new Claim(ClaimTypes.Sid, user.LoginId.ToString())
+                }),
+                
+
+                Expires = DateTime.UtcNow.AddDays(30),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authnetication")), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            IdentityModelEventSource.ShowPII = true;
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            //user.Theme = tokenHandler.WriteToken(token);
+
+            return new AuthorizeUser { Username = user.UserName, LoginId = user.LoginId, Token = tokenHandler.WriteToken(token) };
+
+        }
+
+      
+
+        public string SaveUserOTP(string loginId)
+        {
+
+            /*   var ConfirmUser = _repository.Single(c => c.LoginId == loginId);
+
+               var id = ConfirmUser.EmployeeId.Value;*/
+            var data = _unitOfWork.DealerInformation.GetDealerUsers(loginId);
+            if (data != null)
+            {
+                int validMin = 10;
+                var otp = new Random().Next(100000, 999999).ToString();
+                var otpMsg = new OtpMessageDto();
+                otpMsg.DealerId = data.DealerId;
+                otpMsg.OTP = otp;
+                otpMsg.GenerateTime = DateTime.Now;
+                //  otpMsg.GenerateTime = DateTime.Now;
+                var exOtp = _unitOfWork.UserOtp.Single(s => s.UserId == data.UserId);
+                var usetOtp = new UserOtp();
+                if (exOtp != null && exOtp.UserOtpId > 0 && exOtp.IsUsedToken == false)
+                {
+                    if (exOtp.ValidToDate > DateTime.Now)
+                    {
+                        usetOtp = exOtp;
+                        usetOtp.ValidToDate = DateTime.Now.AddMinutes(validMin);
+                    }
+                }
+                else
+                {
+
+                    usetOtp.UserId = data.UserId;
+                    usetOtp.Email = data.EmailAddress;
+                    usetOtp.Password = otp;
+                    usetOtp.GenerateTime = otpMsg.GenerateTime;
+                    usetOtp.ValidToDate = otpMsg.GenerateTime.AddMinutes(validMin);
+                    usetOtp.MobileNo = data.MobileNo;
+                    otpMsg.ValidMinutes = validMin;
+                    usetOtp = _unitOfWork.UserOtp.Save(usetOtp);
+
+                }
+
+
+
+
+
+                if (usetOtp.UserOtpId > 0)
+                {
+                    otpMsg.UserOtpId = usetOtp.UserOtpId;
+
+                    if (_userNotificationService.SentOtp(otpMsg))
+                    {
+                        usetOtp.SendingStatus = true;
+                        usetOtp.SendingTime = DateTime.Now;
+                        _unitOfWork.UserOtp.Update(usetOtp);
+                        _unitOfWork.Commit();
+
+                        return "Sucess";
+                    }
+                    else
+                    {
+                        return "Failed";
+                    }
+
+                }
+            }
+            return null;
+
+        }
+
+        public string ChangePassword(ChangePaswordModel model)
+        {
+
+            var user = _unitOfWork.Users.Single(s => s.LoginId == model.LoginId);
+            if (user != null)
+            {
+                int dealerId = user.EmployeeId ?? 0;
+                var userOtp = _unitOfWork.UserOtp.Single(s => s.UserId == user.UserId&& s.Password== model.Token && s.IsUsedToken==false);
+                if (userOtp != null)
+                {
+                    if (userOtp.ValidToDate >= DateTime.Now)
+                    {
+                        var hashPass = EncryptDecryptHelper.Encrypt(model.NewPassword);
+
+                        var objUser = _unitOfWork.Users.GetById(userOtp.UserId);
+                        objUser.Password = hashPass;
+                        objUser.LastUpdateDate = DateTime.Now;
+                        objUser.FailedLoginNo = 0;
+                        objUser.IsExpired = false;
+                        objUser.LastLoginDate = DateTime.Now;
+                        _unitOfWork.Users.Update(objUser);
+
+
+                        userOtp.IsUsedToken = true;
+                        _unitOfWork.UserOtp.Update(userOtp);
+                        _unitOfWork.Commit();
+                        _userNotificationService.SendPasswordChangedAcknowledge(userOtp, dealerId);
+                        return "Success";
+                    }
+                    else
+                        throw new Exception("Token has been expired");
+                }
+            }
+            else
+            {
+                throw new Exception("Token already used");
+            }
+            return null;
+        }
+
+        public List<Groups> GetGroups()
+        {
+            return _unitOfWork.Group.GetAll().ToList();
+        }
+    }
+}

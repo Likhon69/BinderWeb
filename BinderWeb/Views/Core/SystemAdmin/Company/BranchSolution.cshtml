@@ -1,0 +1,19 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Company/BranchSolution.js")
+<div >
+
+    <button id="btnAddBranchSol" class="k-button"><span class="k-icon k-i-plus"></span>Add New Branch/Location</button>
+
+    <div class="clear"></div>
+    <div id="divgridBranchSolution"></div>
+
+    <div class="clear"></div>
+
+
+    <div id="branchDiv" class="displayNone">
+        @Html.Partial("~/Views/Core/HrAdmin/Branch/_BranchDetails.cshtml")
+        @*<div class="clear"></div>*@
+        @Html.Partial("~/Views/Core/HrAdmin/Branch/_BranchSummary.cshtml")
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="clear"></div>

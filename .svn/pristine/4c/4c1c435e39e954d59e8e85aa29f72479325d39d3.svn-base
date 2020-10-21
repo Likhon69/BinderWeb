@@ -1,0 +1,15 @@
+﻿ 
+    <div class="leftDiv">
+        <div class="k-block">
+
+            <h3 class="k-header"> Dealers Summary</h3>
+
+            <div id="DealerSummaryDiv" >
+
+
+
+            </div>
+        </div>
+
+
+    </div>

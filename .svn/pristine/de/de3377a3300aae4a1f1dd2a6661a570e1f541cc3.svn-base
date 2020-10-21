@@ -1,0 +1,19 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Group/AccessControlPermision.js")
+
+<div id="divMenuPermission" class="fieldDiv menuPermission leftAlign">
+    
+    <div class="permissionHeaderDiv k-header">
+        <h3 class="permissionHeader">Access Permission</h3>
+    </div>
+    
+    <div id="accessControlContent" class="divDetails menuContent">
+        <ul>
+            <li>
+                <div id="checkboxAccess">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

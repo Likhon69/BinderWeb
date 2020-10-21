@@ -1,0 +1,100 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/DottedLineEmailConfig/DottedLineEmailConfigDetails.js")
+
+
+<div class="k-block">
+    <h2 class="k-header centerAlign">Dotted Line Email Configuration Setup</h2>
+
+
+    <div class="leftDiv">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">Existing Status for <span id="spEmpName"></span></h2>
+            <div id="gridDottedLineExistingStatus"></div>
+        </div>
+    </div>
+
+    <div class="rightDiv">
+        <div class="k-block">
+            <h2 class="k-header centerAlign">New Setup</h2>
+            <div id="divDottedLineEmailConfig">
+
+                <div class="divDetails">
+                    <ul>
+                        <li>
+                            <input type="hidden" id="hdDottedLineConfigurationId" value="0" />
+                            @*
+                                <label for="cmbModuleName" class="lbl widthSize20_per">Module Name:</label>
+                                <input id="cmbModuleName" value="" />*@
+                        </li>
+                        <li>
+                            <label for="EmployeeId" class="lbl">Employee ID :</label>
+                            <input type="hidden" id="hdnHrRecordId" value="0" />
+                            <input type="text" id="txtEmployeeId" name="EmployeeId" class="k-textbox" placeholder="Enter a Employee Id" required />
+
+                            <input type="text" id="txtEmployeeName" name="EmployeeName" class="k-textbox" placeholder="Employee Name" disabled="disabled" />
+                        </li>
+                        <li>
+                            <label for="cmbSendType" class="lbl ">Send Type :</label>
+                            <input id="cmbSendType" />
+
+                            <button id="btnRemoveAll" class="k-button" type="button">Remove All</button>
+
+                            <label class="lbl ">Is Active: </label>
+                            <input type="checkbox" id="chkIsActive" checked="checked" />
+                        </li>
+                        <li class="accept">
+                            <button id="btnSave" class="k-button" type="button">Save</button>
+                            &nbsp;&nbsp;
+                            <button id="btnClearAll" class="k-button" type="button">Clear</button>
+                            &nbsp;&nbsp;
+                            <button id="btnCloseDottedLineSettings" class="k-button" type="button">Close</button>
+                        </li>
+                        <li class="status"></li>
+                    </ul>
+                </div>
+
+                <div id="gridDottedLineEmailConfig"></div>
+
+            </div>
+        </div>
+
+        <div id="windPeerGroup" class="displayNone ">
+
+            <ul>
+                <li>
+                    <div>
+                        <label class="lbl widthSize10_per rightAlign">Employee ID :</label>
+                        <input type="text" id="txtPeerEmployeeId" class="k-textbox" placeholder="Enter a Employee Id" required title="Please enter a Employee Id" />
+                        <input type="text" id="txtPeerEmployeeName" class="k-textbox" placeholder="Employee Name" disabled="disabled" />
+                        <input type="hidden" id="hdnPeerHrRecordId" value="" />
+
+                        <button id="btnAddPeerEmployee" class="k-button" type="button">Add Employee To Peer</button>
+                    </div>
+
+                </li>
+
+            </ul>
+
+            <div id="gridPeerGroupEmployee"></div>
+
+        </div>
+
+
+        <div id="windCompanyLocation" class="displayNone ">
+            <div class="divDetails centerAlign">
+                <ul>
+                    <li>
+                        <label class="lbl widthSize30_per" style="font-weight: bold">Send as : <span id="spSendAs"></span> </label>&nbsp;
+                        <label class="lbl widthSize60_per" style="font-weight: bold">Notification Type : <span id="spNotificationType"></span></label>
+                        <button id="btnCloseLocationWindow" class="k-button rightAlign">Close</button>
+                    </li>
+                </ul>
+            </div>
+
+            <br />
+
+            <div id="gridCompany"></div>
+
+        </div>
+    </div>
+
+</div>

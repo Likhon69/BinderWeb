@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Certificate Type Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/CertificateType/CertificateTypeSettings.js")
+
+<div class="mainDiv">
+   
+     @Html.Partial("HrAdmin/CertificateType/_CertificateTypeSummary")
+    @Html.Partial("HrAdmin/CertificateType/_CertificateTypeDetails")
+<div class="clear"></div>
+</div>
+

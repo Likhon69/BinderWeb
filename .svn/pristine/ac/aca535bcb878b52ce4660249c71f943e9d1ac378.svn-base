@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "OrderPaymentSummary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <script src="~/Binder/OrderPaymentHistory/OrderPaymentHistoryList.js"></script>
+
+<div class="">
+    <fieldset class="k-content">
+
+        <legend class="k-fontSize[15]"> Order And Payment History</legend>
+
+        <div id="GetOrderPaymentHistoryList" class="divSummary">
+
+
+
+        </div>
+    </fieldset>
+
+
+</div>>
+

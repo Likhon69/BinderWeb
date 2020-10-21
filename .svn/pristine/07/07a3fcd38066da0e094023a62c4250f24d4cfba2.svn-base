@@ -1,0 +1,78 @@
+﻿using AutoMapper;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderContractsWeb;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderServicesWeb
+{
+    public class AddDateProductPriceApproveServices : BinderBaseServices, IAddDateProductPriceApproveServices
+    {
+        private IAddDateProductPriceApproveRepository _repository;
+        private IAddDateProductPriceRepository _repositoryForProductTemp;
+        private IAddProductPriceHistoryRepository _repositoryForProductPriceHistory;
+        IMapper _mapper;
+        public AddDateProductPriceApproveServices(IAddDateProductPriceApproveRepository repository, IAddDateProductPriceRepository repositoryForProductTemp, IMapper mapper, IAddProductPriceHistoryRepository repositoryForProductPriceHistory)
+        {
+            _repository = repository;
+            _repositoryForProductTemp = repositoryForProductTemp;
+            _mapper = mapper;
+            _repositoryForProductPriceHistory = repositoryForProductPriceHistory;
+        }
+
+
+
+        public bool AddProductPriceApprove(List<int> listProduct)
+        {
+            var data = _repository.DateProductPriceApprove(listProduct);
+
+            if (data != null)
+            {
+                foreach (var item in data)
+                {
+                    //var removeData = _mapper.Map<ProductPriceTemp>(item);
+                    var apPro = _repository.Single(c => c.PricingDate.Equals(item.PricingDate));
+
+                    if (apPro != null)
+                    {
+                        var histry = _mapper.Map<ProductPriceHistory>(apPro);
+                        histry.ProductPriceId = 0;
+                        _repositoryForProductPriceHistory.Add(histry);
+
+                        apPro.FirstSlotPrice = item.FirstSlotPrice;
+                        apPro.SecondSlotPrice = item.SecondSlotPrice;
+                        apPro.ProductName = item.ProductName;
+                        apPro.PricingDate = item.PricingDate;
+                        // context.ProductPrice.Update(apPro);
+                        _repository.Update(apPro);
+                        
+
+
+
+                    }
+                    else
+                    {
+                        var newItem = _mapper.Map<ProductPrice>(item);
+                        newItem.ProductPriceId = 0;
+
+                        _repository.Add(newItem);
+
+                    }
+
+                    _repositoryForProductTemp.Remove(item.ProductPriceId);
+                }
+
+            }
+
+            //  var data2 = _repository.DeleteProductPriceTemp(listProduct);
+
+            _repositoryForProductPriceHistory.SaveChanges();
+            _repositoryForProductTemp.SaveChanges();
+            return _repository.SaveChanges();
+        }
+    }
+}

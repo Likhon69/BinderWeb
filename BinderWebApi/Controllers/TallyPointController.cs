@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BinderUtility;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Services.BinderContractsWeb;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers
+{
+ 
+ 
+    public class TallyPointController : BaseApiController
+    {
+        private ITallySearchServices _tallySearchServices;
+
+        public TallyPointController(ITallySearchServices tallySearchServices)
+        {
+            _tallySearchServices = tallySearchServices;
+        }
+      [HttpPost]
+      public IActionResult SearchSoc(SocDto Soc)
+      {
+            return Ok(_tallySearchServices.GetTallySearch(Soc));
+      }
+      [HttpPost]
+      public IActionResult PostQuantity(TallyPointDto tally)
+      {
+            return Ok(_tallySearchServices.PostQuantity(tally));
+      }
+
+        [HttpPost]
+        public IActionResult GetTallySummary(GridOptions options)
+        {
+            return Ok(_tallySearchServices.GetTallySummary(options));
+        }
+
+    }
+}

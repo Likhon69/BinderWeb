@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Employee CardId Change";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/EmployeeCardIdChange/EmployeeCardIdChange.js"></script>
+
+<div id="divEmployeeInfoDetails">
+    <h2 class="k-header centerAlign">Attendance Card No Change</h2>
+    <div class="leftDiv">
+        <fieldset>
+            <legend>Current Position</legend>
+            @Html.Partial("../HumanResource/TransferPromotion/CurrentEmployment")
+        </fieldset>
+    </div>
+    <div class="rightDiv">
+        <fieldset>
+            <legend>Card Info</legend>
+            <div class="divDetails">
+                <ul>
+                    <li>
+                        <label for="ExistingCardId" class="lbl widthSize30_per">Old Attendance Card No:</label>
+                        <input type="text" name="ExistingCardId" class="k-textbox" id="txtExistingAttendanceCardNo" disabled="disabled"/>
+                    </li>
+                    <li>
+                        <label for="New Card No" class="lbl widthSize30_per" style="font-weight: bold">New Attendance Card No:</label>
+                        <input type="text" name="NewAttendanceCardNo" class="k-textbox" id="txtNewAttendanceCardNo" placeHolder="Enter New Attendance Card No" required="required"/>
+                    </li>
+                    <li class="centerAlign">
+                        <button type="button" id="btnUpadateCardNo" class="k-button" value="Update">Update</button>&nbsp;&nbsp;
+                        <button type="button" id="btnClearCardNo" class="k-button" value="Save">Clear</button>&nbsp;&nbsp;
+                    </li>
+                </ul>
+            </div>
+        </fieldset>
+    </div>
+</div>
+

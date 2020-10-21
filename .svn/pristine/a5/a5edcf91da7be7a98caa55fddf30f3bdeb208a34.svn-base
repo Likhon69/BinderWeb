@@ -1,0 +1,9 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Division/DivisionSummary.js"></script>
+
+    <div class="">
+        <div id="gridDivisionSummary">
+        </div>
+    </div>
+
+

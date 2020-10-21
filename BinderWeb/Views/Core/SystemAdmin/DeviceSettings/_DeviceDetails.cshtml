@@ -1,0 +1,103 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/DeviceSettings/DeviceDetails.js")
+
+<div class="">
+    <div id="deviceDetailsDiv" class="divDetails">
+      
+       @* <fieldset class="k-content">
+            <legend class="k-fontSize[15]">Device Details</legend>*@
+        
+        <ul>
+            <li>
+                <input type="hidden" id="hdnDeviceSetupId" value="0" />
+                <label for="CompanyName" class="required lbl widthSize20_per">Company Name:<span class="redstart">*</span></label>
+                <input id="cmbCompanyName" name="CompanyName" required validationmessage="Please Select Company" />
+            </li>
+            <li>
+                <label for="LocationName" class="lbl widthSize20_per">Location:</label>
+                <input id="cmbLocationName" name="LocationName" />
+            </li>
+             <li>
+                <label for="DeviceId" class="lbl widthSize20_per">Device Id:</label>
+                <input type="text" id="txtDeviceId" maxlength="100" name="DeviceId" class="k-textbox" />@* pattern="[a-zA-Z0-9 ]+"*@
+            </li>
+            <li>
+                <label for="DeviceType" class="lbl widthSize20_per">Device Type:</label>
+                <input  id="txtDeviceType" maxlength="100" name="DeviceType" />
+            </li>
+            <li>
+                <label for="DeviceModel" class="lbl widthSize20_per">Device Model:</label>
+                <input type="text" id="txtDeviceModle" class="k-textbox" name="DeviceModel" />
+            </li>
+            <li>
+                <label for="Manufacturer" class="lbl widthSize20_per">Manufacturer:<span class="redstart">*</span></label>
+                <input type="text" id="txtManufacturer" class="k-textbox" name="Manufacturer" validationmessage="Please Insert Manufacturer" />
+            </li>
+            <li>
+                <label for="DeviceDescription" class="lbl lblTextArea widthSize20_per">Device Description:</label>
+                <textarea id="txtDeviceDesc" maxlength="1000" name="DeviceDescription" class="k-textbox"></textarea>
+            </li>
+          
+           
+            <li>
+                <label for="ConnectionType" class="lbl widthSize20_per">Connection Type:<span class="redstart">*</span></label>
+                <input id="cmbConnectionType" name="ConnectionType" required />
+            </li>
+            <li>
+                <label for="ServiceType" class="lbl widthSize20_per">Service Type:<span class="redstart">*</span></label>
+                <input id="cmbServiceType" name="ServiceType" required />
+            </li>
+
+              <li id="liIpAddress">
+                <label for="ServerOrIp" class="lbl widthSize20_per" id="lblIpAddress">Data Source/IP:<span class="redstart">*</span></label>
+                  <input id="txtServerOrIpAddress" name="ServerOrIp" class="k-textbox" required maxlength="100" />
+            </li>
+            <li id="liTclPort">
+                <label for="DevicePort" class="lbl widthSize20_per">TCP Port:</label>
+                <input type="text" id="txtDevicePort" name="DevicePort" class="k-textbox" />
+            </li>
+
+             <li id="liCOMPort" hidden="hidden">
+                <label for="ComPort" class="lbl widthSize20_per">COM Port:</label>
+                <input  id="txtComPort"  name="ComPort" class="k-textbox" />
+            </li>
+             
+            <li id="liCatalogName" hidden="hidden">
+                <label for="CatalogName" class="lbl widthSize20_per" hidden="hidden">Catalog Name:</label>
+                <input type="text" id="txtCatalogName" name="CatalogName" class="k-textbox" maxlength="50" />
+            </li>
+
+            <li>
+                <label for="DeviceUser" class="lbl widthSize20_per">User Id:</label>
+                <input type="text" id="txtDeviceUser" name="DeviceUser" class="k-textbox" maxlength="10" />
+            </li>
+            <li>
+                <label for="DevicePassword" class="required lbl widthSize20_per">Password:</label>
+                <input id="txtDevicePassword" name="DevicePassword" class="k-textbox" maxlength="50" type="password" />
+            </li>
+
+
+            <li>
+                <label for="IsThereSingleDevice" class="required lbl widthSize20_per">Is There Single Device:</label> @*<span class="redstart">*</span>*@
+                <input type="checkbox" id="chkIsThereSingleDevice" name="IsThereSingleDevice" class="k-checkbox" />
+
+            </li>
+           
+            <li>
+                 <label for="IsActive" class="lbl widthSize20_per">Is Active:</label>
+                <input type="checkbox" id="chkIsActive" name="IsActive" class="k-checkbox" />
+            </li>
+
+            <li class="accept">
+                <button id="btnSaveDeviceInfo" class="k-button" type="submit" >Save</button>
+                &nbsp;&nbsp;
+                <button id="btnClearAll" class="k-button" onclick="DeviceDetailsHelper.ClearDeviceDetailsForm()">Clear</button>
+            </li>
+            <li class="status"></li>
+        </ul>
+           @* </fieldset>*@
+    </div>
+
+
+
+
+</div>

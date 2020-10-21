@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Sim Number Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/SimNumberSettings/SimNumberSettings.js"></script>
+<div id="divSimNumberSettings" class="divDetails">
+    <div>
+        <div class="leftDiv">
+            <fieldset>
+                <legend>Sim Number Summary</legend>
+                @Html.Partial("HrAdmin/SimNumberSettings/SimNumberSummary")
+            </fieldset>
+        </div>
+
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Sim Number Details</legend>
+                @Html.Partial("HrAdmin/SimNumberSettings/SimNumberDetails")
+            </fieldset>
+        </div>
+    </div>
+   
+</div>
+<div class="clear"></div>

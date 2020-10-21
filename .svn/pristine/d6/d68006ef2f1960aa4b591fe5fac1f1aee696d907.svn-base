@@ -1,0 +1,28 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/AccessControl/AccessControlDetails.js")
+
+
+<div class="rightDiv">
+    <div id="accessControlDetailsDiv" class="divDetails">
+        <fieldset class="k-content">
+            <legend class="k-fontSize[15]">Access Control Details</legend>
+      
+        
+        <ul>
+            <li>
+                <input type="hidden" id="hdAccessControlId" value="0" />
+                <label for="AccessControlName" class="required lbl widthSize20_per">Access Name:<span class="redstart">*</span></label>
+                <input type="text" id="txtAccessControlName" name="AccessControlName" class="k-textbox" maxlength="50" placeholder="Access Control name" required validationmessage="Please enter Access Control Name" />
+            </li>
+
+            <li class="accept">
+                <button id="btnSave" class="k-button" type="submit" onclick="accessControlDetailsManager.SaveAccessControlInformation()">Save</button>
+                &nbsp;&nbsp;
+                <button id="btnClearAll" class="k-button" onclick="accessControlDetailsHelper.clearAccessControlForm()">Clear</button>
+            </li>
+            <li class="status"></li>
+        </ul>
+              </fieldset>
+    </div>
+
+</div>

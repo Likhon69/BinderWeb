@@ -1,0 +1,42 @@
+﻿
+using BinderCore.DataServices.Base;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderCore.Services.Base
+{
+    public class CoreBaseServices<T> : ICoreBaseServices<T> where T : class
+    {
+        private ICoreBaseRepository<T> _binderBaseRepository;
+        public CoreBaseServices(ICoreBaseRepository<T> binderBaseRepository)
+        {
+            _binderBaseRepository = binderBaseRepository;
+        }
+        public bool Add(T entity)
+        {
+            return _binderBaseRepository.Add(entity);
+        }
+
+        public ICollection<T> GetAll()
+        {
+            return _binderBaseRepository.GetAll();
+        }
+
+        public T GetById(int id)
+        {
+            return _binderBaseRepository.GetById(id);
+        }
+
+        public bool Remove(T entity)
+        {
+            return _binderBaseRepository.Remove(entity);
+
+        }
+
+        public bool Update(T entity)
+        {
+            return _binderBaseRepository.Update(entity);
+        }
+    }
+}

@@ -1,0 +1,11 @@
+F:\Binder\BinderCore.Models\bin\Release\netcoreapp3.0\BinderCore.Models.deps.json
+F:\Binder\BinderCore.Models\bin\Release\netcoreapp3.0\BinderCore.Models.dll
+F:\Binder\BinderCore.Models\bin\Release\netcoreapp3.0\BinderCore.Models.pdb
+F:\Binder\BinderCore.Models\obj\Release\netcoreapp3.0\BinderCore.Models.csprojAssemblyReference.cache
+F:\Binder\BinderCore.Models\obj\Release\netcoreapp3.0\BinderCore.Models.AssemblyInfoInputs.cache
+F:\Binder\BinderCore.Models\obj\Release\netcoreapp3.0\BinderCore.Models.AssemblyInfo.cs
+F:\Binder\BinderCore.Models\obj\Release\netcoreapp3.0\BinderCore.Models.dll
+F:\Binder\BinderCore.Models\obj\Release\netcoreapp3.0\BinderCore.Models.pdb
+F:\Binder\BinderCore.Models\bin\Release\netcoreapp3.0\BinderWeb.DatabaseContext.dll
+F:\Binder\BinderCore.Models\bin\Release\netcoreapp3.0\BinderWeb.DatabaseContext.pdb
+F:\Binder\BinderCore.Models\obj\Release\netcoreapp3.0\BinderCore.Models.csproj.CopyComplete

@@ -1,0 +1,26 @@
+﻿using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Repository.BinderWebContracts;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderWebContracts;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderWebServices
+{
+    public class OrderHistoryServices:BinderBaseServices<OrderHistoryDto>,IOrderHistoryServices
+    {
+        private readonly IOrderHistoryRepository _repository;
+        public OrderHistoryServices(IOrderHistoryRepository repository):base(repository)
+        {
+            _repository = repository;
+        }
+
+        public ICollection<OrderHistoryDto> GetOrderHistory(string loginId)
+        {
+            var data = _repository.GetOrderHistory(loginId);
+
+            return data;
+        }
+    }
+}

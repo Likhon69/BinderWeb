@@ -1,0 +1,312 @@
+﻿          <Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Core\HrAdmin\**" />
+    <Compile Remove="Views\Core\SystemAdmin\AccessControl\**" />
+    <Compile Remove="Views\Core\SystemAdmin\AccessRestriction\**" />
+    <Compile Remove="Views\Core\SystemAdmin\Company\**" />
+    <Compile Remove="Views\Core\SystemAdmin\DeviceSettings\**" />
+    <Compile Remove="Views\Core\SystemAdmin\DottedLineEmailConfig\**" />
+    <Compile Remove="Views\Core\SystemAdmin\DottedLineGroupConfig\**" />
+    <Compile Remove="Views\Core\SystemAdmin\Group\**" />
+    <Compile Remove="Views\Core\SystemAdmin\HrisSettings\**" />
+    <Compile Remove="Views\Core\SystemAdmin\Menu\**" />
+    <Compile Remove="Views\Core\SystemAdmin\Module\**" />
+    <Compile Remove="Views\Core\SystemAdmin\Status\**" />
+    <Compile Remove="Views\Core\SystemAdmin\SystemSettings\**" />
+    <Compile Remove="Views\Core\SystemAdmin\UserIdChange\**" />
+    <Content Remove="Views\Core\HrAdmin\**" />
+    <Content Remove="Views\Core\SystemAdmin\AccessControl\**" />
+    <Content Remove="Views\Core\SystemAdmin\AccessRestriction\**" />
+    <Content Remove="Views\Core\SystemAdmin\Company\**" />
+    <Content Remove="Views\Core\SystemAdmin\DeviceSettings\**" />
+    <Content Remove="Views\Core\SystemAdmin\DottedLineEmailConfig\**" />
+    <Content Remove="Views\Core\SystemAdmin\DottedLineGroupConfig\**" />
+    <Content Remove="Views\Core\SystemAdmin\Group\**" />
+    <Content Remove="Views\Core\SystemAdmin\HrisSettings\**" />
+    <Content Remove="Views\Core\SystemAdmin\Menu\**" />
+    <Content Remove="Views\Core\SystemAdmin\Module\**" />
+    <Content Remove="Views\Core\SystemAdmin\Status\**" />
+    <Content Remove="Views\Core\SystemAdmin\SystemSettings\**" />
+    <Content Remove="Views\Core\SystemAdmin\UserIdChange\**" />
+    <EmbeddedResource Remove="Views\Core\HrAdmin\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\AccessControl\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\AccessRestriction\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\Company\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\DeviceSettings\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\DottedLineEmailConfig\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\DottedLineGroupConfig\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\Group\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\HrisSettings\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\Menu\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\Module\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\Status\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\SystemSettings\**" />
+    <EmbeddedResource Remove="Views\Core\SystemAdmin\UserIdChange\**" />
+    <None Remove="Views\Core\HrAdmin\**" />
+    <None Remove="Views\Core\SystemAdmin\AccessControl\**" />
+    <None Remove="Views\Core\SystemAdmin\AccessRestriction\**" />
+    <None Remove="Views\Core\SystemAdmin\Company\**" />
+    <None Remove="Views\Core\SystemAdmin\DeviceSettings\**" />
+    <None Remove="Views\Core\SystemAdmin\DottedLineEmailConfig\**" />
+    <None Remove="Views\Core\SystemAdmin\DottedLineGroupConfig\**" />
+    <None Remove="Views\Core\SystemAdmin\Group\**" />
+    <None Remove="Views\Core\SystemAdmin\HrisSettings\**" />
+    <None Remove="Views\Core\SystemAdmin\Menu\**" />
+    <None Remove="Views\Core\SystemAdmin\Module\**" />
+    <None Remove="Views\Core\SystemAdmin\Status\**" />
+    <None Remove="Views\Core\SystemAdmin\SystemSettings\**" />
+    <None Remove="Views\Core\SystemAdmin\UserIdChange\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\Common\ApproverRecomendar.js" />
+    <None Include="wwwroot\js\Common\AssemblyWiseFieldRename.js" />
+    <None Include="wwwroot\js\Common\AzBlockUI.js" />
+    <None Include="wwwroot\js\Common\common.js" />
+    <None Include="wwwroot\js\Common\CommonChartConfig.js" />
+    <None Include="wwwroot\js\Common\CommonMessage.js" />
+    <None Include="wwwroot\js\Common\date.js" />
+    <None Include="wwwroot\js\Common\EmpressCommon.js" />
+    <None Include="wwwroot\js\Common\FileBrower.js" />
+    <None Include="wwwroot\js\Common\GlobalMyLeaveStatus.js" />
+    <None Include="wwwroot\js\Common\header.js" />
+    <None Include="wwwroot\js\Common\Kendo.Common.Control.js" />
+    <None Include="wwwroot\js\Common\Kendo.Common.DataSource.js" />
+    <None Include="wwwroot\js\Common\postify.js" />
+    <None Include="wwwroot\js\Common\Themes.js" />
+    <None Include="wwwroot\js\Core\AboutUs\AboutUs.js" />
+    <None Include="wwwroot\js\Core\Dashboard\ApprovalRequest.js" />
+    <None Include="wwwroot\js\Core\Dashboard\ConveyanceStatus.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\AttendanceRegularization.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\Dashboard2.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\EmployeeServiceRequest.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\EmployeeWellcomeWithSub.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\EmployeeWishList.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\LeaveStatus.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\MovementPending.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\MyAttendance.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\OfficialAnnouncement.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\PayslipAndTax.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\RosterAndOTAllocation.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\TimeSheetStatus.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Dashboard2\UpcomingHolidays.js" />
+    <None Include="wwwroot\js\Core\Dashboard\HolidayChart.js" />
+    <None Include="wwwroot\js\Core\Dashboard\LeaveStatus.js" />
+    <None Include="wwwroot\js\Core\Dashboard\MessageDetails.js" />
+    <None Include="wwwroot\js\Core\Dashboard\MessageReplay.js" />
+    <None Include="wwwroot\js\Core\Dashboard\MyAttendance.js" />
+    <None Include="wwwroot\js\Core\Dashboard\MyLogHourThisMonth.js" />
+    <None Include="wwwroot\js\Core\Dashboard\NewsHeadline.js" />
+    <None Include="wwwroot\js\Core\Dashboard\OfficeTimeWithClock.js" />
+    <None Include="wwwroot\js\Core\Dashboard\PendingApproval.js" />
+    <None Include="wwwroot\js\Core\Dashboard\RecomandationRequest.js" />
+    <None Include="wwwroot\js\Core\Dashboard\Recruitment.js" />
+    <None Include="wwwroot\js\Core\Dashboard\TodaysAttendance.js" />
+    <None Include="wwwroot\js\Core\Dashboard\ToDo.js" />
+    <None Include="wwwroot\js\Core\Dashboard\TrainingList.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\AttendenceRemarksSettings\AttendenceRemarksDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\AttendenceRemarksSettings\AttendenceRemarksSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\AttendenceRemarksSettings\AttendenceRemarksSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BoardInstitute\BoardInstituteDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BoardInstitute\BoardInstituteSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BoardInstitute\BoardInstituteSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchManagerSetting\BranchManagerDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchManagerSetting\BranchManagerSetting.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchManagerSetting\BranchManagerSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchTypeWiseManPowerSetup\BranchTypeWiseManPowerSetupSetting.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchTypeWiseManPowerSetup\BranchTypeWiseManPowerSetupSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchTypeWiseManPowerSetup\BranchTypeWiseManPowerSetupSummaryForDivision.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchTypeWithBranchMapping\BranchTypeChargeSummaryGrid.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchTypeWithBranchMapping\BranchTypeWithBranchMappingSetting.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchTypeWithBranchMapping\_BranchTypeWithBranchMappingDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\BranchTypeWithBranchMapping\_BranchTypeWithBranchMappingSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Branch\BranchDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Branch\BranchSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Branch\BranchSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\CertificateType\CertificateTypeDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\CertificateType\CertificateTypeSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\CertificateType\CertificateTypeSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Client\client.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\CostCentre\AccountHeadMappingWithCostCenter.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\CostCentre\CostCentreDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\CostCentre\CostCentreSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\CostCentre\CostCentreSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\DegreeType\DegreeTypeDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\DegreeType\DegreeTypeSetup.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\DegreeType\DegreeTypeSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Department\DepartmentDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Department\DepartmentSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Department\DepartmentSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Designation\DesignationDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Designation\DesignationLinked.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Designation\DesignationSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Designation\DesignationSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Discipline\DisciplineDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Discipline\DisciplineSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Discipline\DisciplineSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\DivisionManager\DivisionManagerDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\DivisionManager\DivisionManagerSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\DivisionManager\DivisionManagerSummery.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Division\DivisionDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Division\DivisionSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Division\DivisionSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\EmailConfiguration\EmailContentSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\EmailNotificationConfig\EmailNotificationConfigSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\EmployeeCardIdChange\EmployeeCardIdChange.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\EmployeeTabPermission\EmployeeTabPermission.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\ExtraCurriculumActivities\ExtraCurriculumActivitiesSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Facility\FacilityDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Facility\FacilitySettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Facility\FacilitySummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\GradeType\GradeTypeDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\GradeType\GradeTypeSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\GradeType\GradeTypeSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\HospitalInformation\HospitalInformationDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\HospitalInformation\HospitalInformationSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\HospitalInformation\HospitalInformationSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Language\LanguageSetting.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Language\_LanguageDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Language\_LanguageSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\NatureOfAction\Disciplinary_NatureOfAction.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\NatureOfAction\NatureOfAction.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\PSOLocation\PSOLocationDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\PSOLocation\PSOLocationSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\PSOLocation\PSOLocationSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\PunishmentSettings\PunishmentSettingDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\PunishmentSettings\PunishmentSettingSetup.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RecruitmentSource\RecruitmentSourceDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RecruitmentSource\RecruitmentSourceSetting.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RecruitmentSource\RecruitmentSourceSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RecruitmentType\RecruitmentTypeDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RecruitmentType\RecruitmentTypeSetting.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RecruitmentType\RecruitmentTypeSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RSMRegion\RSMRegionDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RSMRegion\RSMRegionSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\RSMRegion\RSMRegionSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Section\SectionDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Section\SectionSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\Section\SectionSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\SimNumberSettings\SimNumberDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\SimNumberSettings\SimNumberSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\SimNumberSettings\SimNumberSummary.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\UserOtpView\UserOtpViewDetails.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\UserOtpView\UserOtpViewSettings.js" />
+    <None Include="wwwroot\js\Core\HrAdmin\UserOtpView\UserOtpViewSummary.js" />
+    <None Include="wwwroot\js\Core\Layout\Layout.js" />
+    <None Include="wwwroot\js\Core\Login\Login.js" />
+    <None Include="wwwroot\js\Core\Login\Menu.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessControl\AccessControlDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessControl\AccessControlSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessControl\AccessControlSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestriction.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionBranch.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionCompany.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionCostCenter.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionDepartment.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionDivision.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionFacility.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionFunction.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionGrid.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionParam.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionRsmRegion.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\AccessRestriction\AccessRestrictionSection.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\BranchSolution.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\Company.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\CompanyDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\CompanySummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\DepartmentSolution.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\DesignationSolution.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\DivisionSolution.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\FacilitySolution.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\HierarchyCompanyLocationDepartment.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Company\SectionSolution.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DeviceSettings\DeviceDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DeviceSettings\DeviceSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DeviceSettings\DeviceSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DottedLineEmailConfig\DottedLineEmailConfigDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DottedLineEmailConfig\DottedLineEmailConfigSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DottedLineEmailConfig\DottedLineEmailConfigSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DottedLineEmailConfig\DottedLineGroupSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DottedLineGroupConfig\DottedLineGroup.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DottedLineGroupConfig\DottedLineGroupConfigSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\DottedLineGroupConfig\DottedLineMemberSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\AccessControlPermision.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\ActionPermision.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\GroupDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\GroupInfo.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\GroupPermision.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\GroupSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\GroupSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\MenuPermision.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\ReportPermission.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Group\StatePermision.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\HrisSettings\HirsDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\HrisSettings\HirsSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Menu\MenuDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Menu\MenuInformation.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Menu\MenuSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Menu\MenuSorting.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Menu\MenuSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Module\ModuleDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Module\ModuleSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Module\ModuleSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\SystemSettings\HrPolicy.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\SystemSettings\LoginRulePolicy.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\SystemSettings\SystemSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\SystemSettings\ThemeLanguage.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\UserIdChange\UserIdChange.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Users\GroupMembership.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Users\UserDetails.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Users\UserInfo.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Users\UserSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Users\UserSummary.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\Users\UserUpload.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\WorkFlow\ActionDetail.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\WorkFlow\StateDetail.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\WorkFlow\WorkFlowSettings.js" />
+    <None Include="wwwroot\js\Core\SystemAdmin\WorkFlow\WorkFlowSummary.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BinderCore.Services\BinderCore.Services.csproj" />
+    <ProjectReference Include="..\BinderWeb.Models\BinderWeb.Models.csproj" />
+    <ProjectReference Include="..\BinderWeb.Services\BinderWeb.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Users\UserSettings.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Core\SystemAdmin\Users\" />
+  </ItemGroup>
+
+</Project>

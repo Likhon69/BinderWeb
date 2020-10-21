@@ -1,0 +1,10 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/GradeType/GradeTypeSummary.js"></script>
+
+
+<div class="divDetails">
+    <div id="gridGradeTypeSummary">
+
+    </div>
+
+
+</div>

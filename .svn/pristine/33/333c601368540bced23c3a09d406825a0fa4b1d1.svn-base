@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Discipline Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/eAzolution/Core/HrAdmin/BoardInstitute/BoardInstituteSettings.js"></script>
+
+<div class="mainDiv">
+
+    @Html.Partial("HrAdmin/BoardInstitute/_BoardInstituteDetails")
+    @Html.Partial("HrAdmin/BoardInstitute/_BoardInstituteSummary")
+    <div class="clear"></div>
+</div>
+
+

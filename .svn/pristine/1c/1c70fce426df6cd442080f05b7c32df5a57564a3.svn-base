@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderCore.Models.Message
+{
+    public class MessageEntityDto
+    {
+        public int MessageId { get; set; }
+        public int ReferenceId { get; set; }
+        public int ReferenceType { get; set; }
+        public int ModuleId { get; set; }
+        public int MenuId { get; set; }
+
+        public int FromHrRecordId { get; set; }
+        public List<MessageDetailsDto> ToMessageDetails { get; set; }
+        public List<MessageDetailsDto> CcMessageDetails { get; set; }
+
+        //public int ToUserId { get; set; }
+        public DateTime MessagingDate { get; set; }
+        public DateTime? ArchiveTime { get; set; }
+
+
+        public string MessageDetails { get; set; }
+        public bool IsArchive { get; set; }
+        public string MessageSubject { get; set; }
+
+        public string RedirectLink { get; set; }
+
+        public bool IsDelivered { get; set; }
+
+        public int EmailTitleId { get; set; }
+
+        public DateTime ReferenceDate { get; set; }
+        public int EmailNotificationTypeId { get; set; }
+
+        public bool IsSentWebNotification { get; set; }
+
+        public bool IsProcessed { get; set; }
+
+        public int CompanyId { get; set; }
+        public int BranchId { get; set; }
+
+        public int NotificationOrder { get; set; }
+        public string Attachment { get; set; }
+        public string SMSText { get; set; }
+        public string NotificationText { get; set; }
+
+    }
+}

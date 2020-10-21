@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Services.BinderContractsWeb;
+using BinderWebApi.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
+
+namespace BinderWebApi.Controllers
+{
+   
+    public class DealerController : BaseApiController
+    {
+        private IDealerInformationServices _dealerInformationServices;
+        private IDealerTypeServices _dealerTypeServices;
+        private IHostEnvironment _env;
+        private IMapper _mapper;
+        public DealerController(IDealerInformationServices dealerInformationServices, IDealerTypeServices dealerTypeServices, IHostEnvironment env, IMapper mapper)
+        {
+            _dealerInformationServices = dealerInformationServices;
+            _dealerTypeServices = dealerTypeServices;
+            _env = env;
+            _mapper = mapper;
+        }
+        
+
+        [HttpPost]
+        public IActionResult AddDealerInformtion(DealerInformation entity)
+        {
+          
+            //var data = _mapper.Map<DealerInformation>(entity);
+            return Ok(_dealerInformationServices.AddDealerInformation(entity));
+        }
+
+        [HttpGet]
+        public IActionResult GetDealerType()
+        {
+            return Ok(_dealerTypeServices.GetDealerType());
+        }
+
+        [HttpPost]
+        public IActionResult GetDealerInfo(GridOptions options)
+        {
+            return Ok(_dealerInformationServices.GetDealerInfo(options));
+        }
+    }
+}

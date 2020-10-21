@@ -1,0 +1,8 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/HospitalInformation/HospitalInformationSummary.js")
+<div>
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">Hospital Information Summary</legend>
+        <div id="gridHospitalInformationSummary"></div>
+    </fieldset>
+
+</div>

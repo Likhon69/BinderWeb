@@ -1,0 +1,57 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Company/FacilitySolution.js")
+
+<div class="">
+    <button id="btnAddFacilitySol" class="k-button"><span class="k-icon k-i-plus"></span>Add New Facility</button>
+
+    <div id="FacilityDiv" class="displayNone">
+        <input type="hidden" id="hdnFacilitySectionId" value="0"/>
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Facility Details</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Facility/FacilityDetails.cshtml")
+            </fieldset>
+        </div>
+
+        <div class="leftDiv">
+            <fieldset>
+                <legend>Facility Summary</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Facility/FacilitySummary.cshtml")
+            </fieldset>
+        </div>
+    </div>
+
+
+    <div id="SectionDiv" class="displayNone">
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Section Details</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Section/SectionDetails.cshtml")
+            </fieldset>
+        </div>
+
+        <div class="leftDiv">
+            <fieldset>
+                <legend>Section Summary</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Section/SectionSummary.cshtml")
+            </fieldset>
+        </div>
+    </div>
+
+    <div style="display: none" id="divFacilityToSectionMap">
+        <button id="btnAddSectionSol" class="k-button">Add New Section</button>
+        <br/>
+        <div id="divgridFacilityToSectionMapSolution"></div>
+
+        <div class="divDetails">
+            <ul>
+                <li class="centerAlign">
+                    <button id="btnSaveFacilityToSectionMap" class="k-button" onclick=" FacilitySolutionManager.SaveFacilitySectionMap(); ">Save</button>&nbsp; &nbsp;
+                    <button id="btnClearFacilityToSection" class="k-button" onclick=" FacilitySolutionHelper.closeFacilitySectionPopUp(); ">Close</button>&nbsp; &nbsp;
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="divgridFacilitySolution"></div>
+</div>
+

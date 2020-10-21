@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Branch Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="mainDiv">
+    <h1 class="k-header">Branch/Location Settings</h1>
+    @Html.Partial("HrAdmin/Branch/_BranchSummary")
+    @Html.Partial("HrAdmin/Branch/_BranchDetails")
+
+    <div class="clear"></div>
+</div>

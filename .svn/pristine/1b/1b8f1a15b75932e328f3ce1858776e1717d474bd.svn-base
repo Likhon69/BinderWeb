@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace BinderWeb.DatabaseContext.Models
+{
+    public partial class ProductInformation
+    {
+        public int ProductId { get; set; }
+        public string ProductCode { get; set; }
+        public int? UnitId { get; set; }
+        public int? Status { get; set; }
+        public string ProductName { get; set; }
+    }
+}

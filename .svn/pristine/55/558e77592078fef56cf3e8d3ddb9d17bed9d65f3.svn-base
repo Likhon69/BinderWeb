@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "User Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/Core/SystemAdmin/Users/UserSettings.js"></script>
+<script src="~/js/Core/SystemAdmin/Users/UserSummary.js"></script>
+<script src="~/js/Core/SystemAdmin/Users/UserInfo.js"></script>
+<script src="~/js/Core/SystemAdmin/Users/GroupMembership.js"></script>
+<script src="~/js/Core/SystemAdmin/Users/UserDetails.js"></script>
+<script src="~/js/Core/SystemAdmin/Users/UserUpload.js"></script>
+
+
+<div class="mainDiv">
+
+    <div class="k-header">User Settings</div>
+    @Html.Partial("SystemAdmin/Users/_UserUpload")
+    <div class="clear"></div>
+
+    @Html.Partial("SystemAdmin/Users/_UserSummary")
+    @Html.Partial("SystemAdmin/Users/_UserDetails")
+    <div class="clear"></div>
+</div>
+

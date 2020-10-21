@@ -1,0 +1,10 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/BranchTypeWiseManPowerSetup/BranchTypeWiseManPowerSetupSummaryForDivision.js"></script>
+
+<div>
+    <fieldset class="k-content">
+        <h1 class="k-header"> Division Wise Man Power Setup </h1>
+        <div><button id="btnSaveManPowerSetupForDivision" class="k-button" type="submit"><span class="k-icon k-i-save"></span> Update </button></div>
+        <div id="divDivisionWiseManPowerSetupSummary"></div>
+    </fieldset>
+    <div class="clear"></div> 
+</div>

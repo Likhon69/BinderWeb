@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Extra Curriculum Activities Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/ExtraCurriculumActivities/ExtraCurriculumActivitiesSettings.js")
+
+<div class="mainDiv">
+    <div id="divExtraCurriculumActivitiesDetails" class="divDetails rightDiv">
+         <fieldset class="k-content">
+            <legend class="k-fontSize[15]">Extra Curriculum Activities Details</legend>
+      
+        
+        <ul>
+            <li>
+                <input type="hidden" id="hdExtraCirculamActivitiesId" value="0" />
+                <label for="ActivitiesName" class="required lbl widthSize20_per">Activities Type Name:<span class="redstart">*</span></label>
+                <input type="text" id="txtActivitiesName" name="ActivitiesName" class="k-textbox" maxlength="50" placeholder="Activities Name" required validationmessage="Please enter Activities Name" />
+            </li>
+
+            <li>
+            <label for="IsActive" class="lbl widthSize20_per">Is Active:</label>
+            <input type="checkbox" id="chkIsActive" name="IsActive" class="chkBox" />
+        </li>
+
+             <li class="accept">
+                    <button id="btnSave" class="k-button" type="button">Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button" type="button">Clear</button>
+                
+                </li>
+            <li class="status"></li>
+        </ul>
+              </fieldset>
+        
+        
+        
+
+    </div>
+    
+    <div id="ExtraCurriculumActivitiesSummaryGrid" class="leftDiv"></div>
+    <div class="clear"></div>
+</div>

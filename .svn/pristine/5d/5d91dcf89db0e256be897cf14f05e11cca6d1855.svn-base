@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using BinderCore.Models.SystemAdmin;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.MobileApiDTO;
+
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers.MobileApi
+{
+
+    public class UsersController : BaseApiController
+    {
+
+
+        private IUsersService _usersService;
+        public UsersController(IUsersService usersService)
+        {
+
+            _usersService = usersService;
+        }
+        public GridEntity<UsersDto> GetUserSummary(GridOptions options)
+        {
+            return _usersService.GetUserSummary(options);
+        }
+
+    }
+}

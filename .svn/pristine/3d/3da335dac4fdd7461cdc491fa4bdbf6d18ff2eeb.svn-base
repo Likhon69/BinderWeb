@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Attendence Remarks Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/AttendenceRemarksSettings/AttendenceRemarksSettings.js"></script>
+<div id="divAttendenceRemarksSettings" class="divDetails">
+    <div>
+        <div class="leftDiv">
+            <fieldset>
+                <legend>Attendence Remarks Summary</legend>
+                @Html.Partial("HrAdmin/AttendenceRemarksSettings/AttendenceRemarksSummary")
+            </fieldset>
+        </div>
+
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Attendence Remarks Details</legend>
+                @Html.Partial("HrAdmin/AttendenceRemarksSettings/AttendenceRemarksDetails")
+            </fieldset>
+        </div>
+    </div>
+   
+</div>
+<div class="clear"></div>

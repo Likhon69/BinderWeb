@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<script src="~/Binder/Product/ProductInfoDetails.js"></script>
+
+<!-- Default form login -->
+<div id="ProductInformationDiv" class="container">
+    <form class="form-horizontal" action="/action_page.php">
+        <div class="form-group ">
+            <label class="control-label col-sm-4" for="email">Product Name:</label>
+            <div class="col-sm-8">
+                <input type="text" class=" k-textbox" id="txtProductName" name="ProductName" placeholder="Enter Product Name" required="required" />
+            </div>
+        </div>
+        <div class="form-group  mb-lg-4 ">
+            <label class="control-label col-sm-4" for="pwd">Product Code:</label>
+            <div class="col-sm-8">
+                <input type="text" class="k-textbox" id="txtProductCode" name="ProductCode" placeholder="Enter Product Name" required="required" />
+            </div>
+        </div>
+        <div class="form-group ">
+            <label class="control-label col-sm-4" for="pwd">Unit:</label>
+            <div class="col-sm-8">
+                <input id="txtProductUnitName" class=" k-textbox" required title="Please enter valid Product Unit Name" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" id="btnSave" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+
+    </form>
+    </div>
+    <!-- Default form login -->

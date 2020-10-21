@@ -1,0 +1,10 @@
+F:\Binder\BinderWeb.DatabaseContext\bin\Release\netcoreapp3.0\BinderWeb.DatabaseContext.deps.json
+F:\Binder\BinderWeb.DatabaseContext\bin\Release\netcoreapp3.0\BinderWeb.DatabaseContext.runtimeconfig.json
+F:\Binder\BinderWeb.DatabaseContext\bin\Release\netcoreapp3.0\BinderWeb.DatabaseContext.runtimeconfig.dev.json
+F:\Binder\BinderWeb.DatabaseContext\bin\Release\netcoreapp3.0\BinderWeb.DatabaseContext.dll
+F:\Binder\BinderWeb.DatabaseContext\bin\Release\netcoreapp3.0\BinderWeb.DatabaseContext.pdb
+F:\Binder\BinderWeb.DatabaseContext\obj\Release\netcoreapp3.0\BinderWeb.DatabaseContext.csprojAssemblyReference.cache
+F:\Binder\BinderWeb.DatabaseContext\obj\Release\netcoreapp3.0\BinderWeb.DatabaseContext.AssemblyInfoInputs.cache
+F:\Binder\BinderWeb.DatabaseContext\obj\Release\netcoreapp3.0\BinderWeb.DatabaseContext.AssemblyInfo.cs
+F:\Binder\BinderWeb.DatabaseContext\obj\Release\netcoreapp3.0\BinderWeb.DatabaseContext.dll
+F:\Binder\BinderWeb.DatabaseContext\obj\Release\netcoreapp3.0\BinderWeb.DatabaseContext.pdb

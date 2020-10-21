@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Services.BinderContractsWeb;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers
+{
+
+    public class DateProductPriceApproveUnApproveController : BaseApiController
+    {
+
+        private readonly IDateProductPriceApproveUnApproveServices _dateProductPriceApproveUnApproveServices;
+        private readonly IAddDateProductPriceApproveServices _addDateProductPriceApproveServices;
+        private IUsersService _userService;
+        public DateProductPriceApproveUnApproveController(IDateProductPriceApproveUnApproveServices dateProductPriceApproveUnApproveServices, IAddDateProductPriceApproveServices addDateProductPriceApproveServices, IUsersService userService)
+        {
+            _dateProductPriceApproveUnApproveServices = dateProductPriceApproveUnApproveServices;
+            _addDateProductPriceApproveServices = addDateProductPriceApproveServices;
+            _userService = userService;
+        }
+       [HttpPost]
+        public IActionResult DateProductPriceSearch(ProductPriceParam param)
+        {
+
+
+            return Ok(_dateProductPriceApproveUnApproveServices.DateProductPriceSearch(param));
+        }
+
+        [HttpPost]
+        public IActionResult AddDateProductPriceApprove(List<int> listProduct)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var id = User.Identity.Name;
+                var user = _userService.GetUserByLoginId(id);
+                return Ok(_addDateProductPriceApproveServices.AddProductPriceApprove(listProduct, user));
+
+            }
+            return BadRequest();
+
+
+        }
+    }
+}

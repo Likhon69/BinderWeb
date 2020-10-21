@@ -1,0 +1,32 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+    <div class="">
+        <fieldset class="k-content">
+
+            <legend class="k-fontSize[15]"> Order And Payment History</legend>
+
+            <div id="OrderNoSearchDiv" class="divDetails">
+
+
+
+                <div class="input-group mb-2 mr-sm-2">
+
+                    <input type="text" class="k-textbox" id="searchSoc" placeholder="Search SOC">
+                </div>
+
+
+                <button type="button" id="btnSearch" class="k-button k-primary mb-2">Search</button>
+
+
+            </div>
+            <div id="GetOrderPaymentHistoryList" class="divSummary">
+
+
+
+            </div>
+        </fieldset>
+
+
+    </div>

@@ -1,0 +1,33 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/CertificateType/CertificateTypeDetails.js")
+
+<div class="rightDiv">
+    <div id="certificateTypeDetailsDiv" class="divDetails">
+        <fieldset class="k-content">
+            <legend class="k-fontSize[15]">Certificate Type Details</legend>
+
+            <ul>
+                <li>
+                    <input type="hidden" id="hdCertificateTypeId" value="0" />
+                    <label for="CertificateTypeName" class="required lbl widthSize25_per">Certificate Name/Title:<span class="redstart">*</span></label>
+                    <input type="text" id="txtCertificateTypeName" name="CertificateTypeName" class="k-textbox" maxlength="150" placeholder="Certificate Type Name" required validationmessage="Please enter Certificate Type Name" />
+                </li>
+                <li>
+                    <label for="DegreeType" class="lbl widthSize25_per">Degree Type:</label>
+                    <input id="cmbDegreeType" name="DegreeType" required validationmessage="Please enter Degree Type Name" />
+                    <button id="btnAddNewDegreeType" class="k-button" type="button"> + </button>
+                </li>
+                <li>
+                    <label for="IsActive" class="lbl widthSize25_per">Is Active:</label>
+                    <input type="checkbox" id="txtIsActive" name="IsActive" class="k-checkbox" />
+                </li>
+                <li class="accept" style="margin-left: 15px;">
+                    <button id="btnSave" class="k-button" type="submit" onclick="certificateTypeDetailsManager.SaveCertificateTypeInformation()">Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAll" class="k-button" onclick="certificateTypeDetailsHelper.clearCertificateTypeForm()">Clear All</button>
+                </li>
+                <li class="status"></li>
+            </ul>
+        </fieldset>
+    </div>
+</div>
+@Html.Partial("~/Views/Core/HrAdmin/DegreeType/DegreeTypeSetup.cshtml")

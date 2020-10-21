@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Section Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/Section/SectionSettings.js"></script>
+<div id="divSectionSettings" class="divDetails">
+    <div>
+        <div class="leftDiv">
+            <fieldset>
+                <legend>Section Summary</legend>
+                @Html.Partial("HrAdmin/Section/SectionSummary")
+            </fieldset>
+        </div>
+
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Section Details</legend>
+                @Html.Partial("HrAdmin/Section/SectionDetails")
+            </fieldset>
+        </div>
+    </div>
+   
+</div>
+<div class="clear"></div>

@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Services.BinderContractsWeb;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers
+{
+
+    public class ProductPriceController : BaseApiController
+    {
+
+        private readonly IDateProductPriceServices _dateProductPriceServices;
+        private readonly IAddDateProductPriceServices _addDateProductPriceServices;
+        private readonly IProductPriceServices _productPriceServices;
+        private IMapper _mapper;
+        public ProductPriceController(IDateProductPriceServices dateProductPriceServices, IAddDateProductPriceServices addDateProductPriceServices, IMapper mapper, IProductPriceServices productPriceServices)
+        {
+            _dateProductPriceServices = dateProductPriceServices;
+            _addDateProductPriceServices = addDateProductPriceServices;
+            _mapper = mapper;
+            _productPriceServices = productPriceServices;
+        }
+
+        [HttpPost]
+        public IActionResult GenerateProductPrice(ProductPriceParam param)
+        {
+            return Ok(_dateProductPriceServices.GenerateProductPrice(param));
+
+        }
+
+        [HttpPost]
+        public IActionResult AddDateProductPrice(ProductPriceTempParamDto tempProduct)
+        {
+            var tmpProd = _mapper.Map<List<ProductPriceTemp>>(tempProduct.productPriceTempVms);
+
+            return Ok(_addDateProductPriceServices.AddDateProductPrice(tmpProd, tempProduct.param));
+        }
+
+        [HttpPost]
+        public  IActionResult GetProductPriceList(GridOptions options)
+        {
+            return Ok(_productPriceServices.GetProductPriceList(options));
+        }
+    }
+}

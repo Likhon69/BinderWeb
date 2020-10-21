@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using BinderWeb.Models;
+
+namespace BinderWeb.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet]
+        public IActionResult GetOtp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Sendotp()
+        {
+            string res = "";
+          /*  string num = "0123456789";
+            int len = num.Length;
+            string otp = string.Empty;
+            int otpDigit = 6;
+            //string finalDigit;
+            int getIndex;
+            *//*for(int i = 0;i < otpDigit; i++)
+            {
+                *//* do
+                 {
+                     getIndex = new Random().Next(0, len);
+                     finalDigit = num.ToCharArray()[getIndex].ToString();
+                 } while (otp.IndexOf(finalDigit) !=-1);
+                 otp +=finalDigit;*//*
+                getIndex = new Random().Next(0, len);
+                res += getIndex.ToString();
+               
+            }*//*
+            //res = otp;*/
+            res = new Random().Next(100000, 999999).ToString();
+            return View(res);
+        }
+    }
+}

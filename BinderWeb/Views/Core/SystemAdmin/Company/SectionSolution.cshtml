@@ -1,0 +1,37 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/SystemAdmin/Company/SectionSolution.js"></script>
+
+<div class="divDetails" id="divDeptSectionDetails">
+    <input type="hidden" id="hdnDepartmentSectionId" value="0" />
+    <div id="SectionDiv" class="displayNone">
+        <div class="rightDiv">
+            <fieldset>
+                <legend>Section Details</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Section/SectionDetails.cshtml")
+            </fieldset>
+        </div>
+
+        <div class="leftDiv">
+            <fieldset>
+                <legend>Section Summary</legend>
+                @Html.Partial("~/Views/Core/HrAdmin/Section/SectionSummary.cshtml")
+            </fieldset>
+        </div>
+    </div>
+
+    <div id="divDeptToSectionMap">
+        @*<button id="btnAddDeptSectionSol" class="k-button">Add New Section</button>*@
+        <div id="divgridDeptToSectionMapSolution"></div>
+
+        <div class="divDetails">
+            <ul>
+                <li class="centerAlign">
+                    <button id="btnSaveDeptToSectionMap" class="k-button" onclick=" SectionSolutionManager.SaveDepartmentSectionMap(); ">Save</button>&nbsp; &nbsp;
+                    <button id="btnClearDeptToSection" class="k-button" onclick=" SectionSolutionHelper.closeDeptSectionPopUp(); ">Close</button>&nbsp; &nbsp;
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>

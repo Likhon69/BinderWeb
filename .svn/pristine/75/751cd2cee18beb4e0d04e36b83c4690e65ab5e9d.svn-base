@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BinderUtility\BinderUtility.csproj" />
+    <ProjectReference Include="..\BinderWeb.DatabaseContext\BinderWeb.DatabaseContext.csproj" />
+    <ProjectReference Include="..\BinderWeb.Models\BinderWeb.Models.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "UserOtpViewSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/UserOtpView/UserOtpViewSettings.js"></script>
+<div class="mainDiv">
+    <h2 class="k-header">User OTP View </h2>\
+    <div id="searchemployeediv">
+        <input type="hidden" id="hdnHrRecordId" />
+        <input id="hdnUserOtpId" type="hidden" />
+        <label for="EmployeeId" class="lbl widthSize20_per">Employee ID/Name/Mobile No/Email Id :</label>
+        <input type="text" name="SearchEmployee" class="k-textbox " id="txtSearchEmployee" />
+        <button type="button" id="btnSearch" class="k-button" value=""><span class="k-icon k-i-search"></span></button>
+    </div>
+    <div>
+        
+        @Html.Partial("~/Views/Core/HrAdmin/UserOtpView/UserOtpViewSummary.cshtml")
+        <div class="clear"></div>
+
+    </div>
+   
+</div>

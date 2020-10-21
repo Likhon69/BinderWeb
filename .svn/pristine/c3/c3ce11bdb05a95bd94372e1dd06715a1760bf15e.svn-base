@@ -1,0 +1,23 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+
+    "SqlConnectionString": "User ID=sa;password=az@2010SE;Initial Catalog=BinderDB;Data Source=192.168.1.210\\SQL2012;Persist Security Info=False;Connection Timeout=1000;"
+  },
+  "AppConfiguration": {
+    "DataBaseType": "SQL"
+
+  },
+  "AppSettings": {
+    "Secret": "BINDER IS SALES APP FOR HEIDELBERG CEMENT AND DEVELOPED BY AZOLUTION",
+    "Issuer": "https://localhost:2738/",
+    "Audiance": "https://localhost:2738/"
+  }
+}

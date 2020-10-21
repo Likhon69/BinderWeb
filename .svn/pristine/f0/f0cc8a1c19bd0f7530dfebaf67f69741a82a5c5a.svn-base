@@ -1,0 +1,84 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/Branch/BranchDetails.js")
+
+<div class="rightDiv widthSize44_per">
+    <fieldset class="k-block">
+        <legend class="k-header">
+            Branch/Location Details
+        </legend>
+
+        <div id="branchDetailsDiv" class="divDetails">
+
+            <ul>
+                <li>
+                    <label for="BranchCode" class="lbl widthSize30_per">Branch/Location Code:<span class="redstart">*</span></label>
+                    <input type="hidden" id="hdnBranchId" value="0" />
+                    <input id="txtBranchCode" name="BranchCode" maxlength="7" class="k-textbox" placeholder="Branch/Location Code" required validationmessage="Please enter valid Branch/Location Code" />
+                </li>
+                <li>
+                    <label for="BranchName" class="lbl widthSize30_per">Branch/Location Name:<span class="redstart">*</span></label>
+                    <input type="text" id="txtBranchName" name="BranchName" maxlength="100" class="k-textbox" placeholder="Branch/Location Name" required validationmessage="Please enter valid Branch/Location Name" />
+                </li>
+
+                <li>
+                    <label for="BranchDescription" class="lbl widthSize30_per">Branch/Location Description:</label>
+                    <textarea type="address" id="txtBranchDescription" maxlength="2000" name="BranchDescription" style="width: 17.4em" class="k-textbox"></textarea>
+                </li>
+                <li>
+                    <label for="BranchAddress" class="lbl widthSize30_per">Branch/Location Address:</label>
+                    <textarea type="address" id="txtBranchAddress" maxlength="2000" name="BranchAddress" style="width: 17.4em" class="k-textbox"></textarea>
+                </li>
+
+                <li>
+                    <label for="Division" class="lbl widthSize30_per">Division:</label>
+                    <input type="Division" id="cmbDivision" name="Division" title="Please Input Division" ></input>
+                </li>
+
+                <li>
+                    <label class="lbl widthSize30_per">Region:</label>
+                    <input id="cmbRegion" title="Please Input Region" name="Region" />
+
+                </li>
+                <li>
+                    <label class="lbl widthSize30_per">Area:</label>
+                    <input id="cmbArea"  title="Please Input Area" name="Area" />
+
+                </li>
+
+
+                <li>
+                    <label for="HeadOffice" class="lbl widthSize30_per">Head Office:</label>
+                    <input type="checkbox" id="chkHeadOffice" name="HeadOffice" class="k-checkbox" />
+                </li>
+
+
+                <li id="liContraEntryApplicable">
+                    <label for="ContraEntryApplicable" class="lbl widthSize30_per">Is Contract Entry Applicable:</label>
+                    <input type="checkbox" id="chkContraEntryApplicable" name="ContraEntryApplicable" class="chkBox"/>
+                </li>
+                <li id="liDebitAccHead" style="display: none">
+                    <label for="DebitAccHead" class="lbl widthSize30_per">Debit Acc Head:</label>
+                    <input type="text" id="cmbDebitAccHead" name="DebitAccHead" maxlength="100" placeholder="Debit Account Head"  />
+                </li>
+
+                <li id="liCreditAccHead" style="display: none">
+                    <label for="CreditAccHead" class="lbl widthSize30_per">Credit Acc Head:</label>
+                    <input type="text" id="cmbCreditAccHead" name="CreditAccHead" maxlength="100" placeholder="Credit Account Head" />
+                </li>
+
+                <li>
+                    <label for="IsActive" class="lbl widthSize30_per">Is Active:</label>
+                    <input type="checkbox" id="chkIsActiveBranch" name="IsActive" class="chkBox" />
+                </li>
+
+
+                <li class="accept">
+                    <button id="btnSaveBranch" class="k-button" type="submit" onclick="branchDetailsManager.SaveBranchInformation()"><span class="k-icon k-i-tick"></span>Save</button>
+                    &nbsp;&nbsp;
+                    <button id="btnClearAllBranch" class="k-button" onclick="branchDetailsHelper.clearBranchForm()">Clear</button>
+                </li>
+                <li class="status"></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </fieldset>
+</div>

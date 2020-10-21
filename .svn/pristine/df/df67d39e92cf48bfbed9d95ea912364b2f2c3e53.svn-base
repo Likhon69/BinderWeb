@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Cost Centre Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/CostCentre/CostCentreSettings.js")
+
+
+<div id="divFunction" class="mainDiv">
+    @*<div class="divDetails">
+        
+
+    <h1 class="k-header">Cost Centre Settings</h1>
+        <div class="leftDiv" style="width: 30%">
+            <fieldset>
+                <legend>Organogram</legend>
+                @Html.Partial("../HumanResource/Organogram/OrganogramTree")
+            </fieldset>
+        </div>
+        </div>*@
+    @*<div class="rightDiv" style="width: 65%">
+        @Html.Partial("HrAdmin/CostCentre/_CostCentreSummary")
+    </div>*@
+    <div class="divDetails">
+        @Html.Partial("HrAdmin/CostCentre/_CostCentreSummary")
+    </div>
+    
+    <div id="CostcentreDetailsPopupWindow" class="displayNone divDetails">
+        @Html.Partial("HrAdmin/CostCentre/_CostCentreDetails")
+    </div>
+    <div id="CostcentreDetailsAccountHeadPopupWindow" class="displayNone divDetails">
+        @Html.Partial("HrAdmin/CostCentre/_AccountHeadMappingWithCostCenter")
+    </div>
+
+        <div class="clear"></div>
+        
+    
+</div>

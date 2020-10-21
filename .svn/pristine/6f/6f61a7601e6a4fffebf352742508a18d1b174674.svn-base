@@ -1,0 +1,199 @@
+﻿using AutoMapper;
+using Binder.NotificationService.Base;
+using Binder.NotificationService.Contracts;
+using BinderCore.DataServices.Contracts.Notification;
+using BinderCore.Models.Message;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using CommonUnitOfWork;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Binder.NotificationService.Services
+{
+    public class OrderNotificationService : BaseNotification, IOrderNotificationService
+    {
+        IEmailContentRepository _contentRepository;
+
+        public OrderNotificationService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+        {
+        }
+
+        //public OrderNotificationService(ISmsRepository smsRepository, IEmailRepository emailRepository, IEmailContentRepository contentRepository) : base(smsRepository, emailRepository)
+        //{
+        //    _contentRepository = contentRepository;
+        //}
+
+        public bool SendPaymentConfirmationNotificationToDealer(PaymentMessageVm payment)
+        {
+            var message = BuildPaymentConfirmationMessage(payment);
+            return base.SentMessage(message);
+        }
+
+        public bool SendPaymentNotificationToAdmin(PaymentMessageVm payment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SendPaymentVarificationFailedNotificationToDealer(PaymentMessageVm payment)
+        {
+            var message = BuildPaymentVerificationAdminMessage(payment);
+            return base.SentMessage(message);
+        }
+
+        public bool SendPaymentVarificationNotificationToDealer(PaymentMessageVm payment)
+        {
+            var message = BuildPaymentVerificationMessage(payment);
+            return base.SentMessage(message);
+
+        }
+
+        public bool SentOrderConfirmationNotificationToDealer(OrderMessageVm order)
+        {
+            var message = BuildOrderConfirmationMessage(order);
+            return base.SentMessage(message);
+
+        }
+
+        internal MessageEntityDto BuildOrderConfirmationMessage(OrderMessageVm order)
+        {
+            MessageEntityDto message = null;
+            int titleId = 101;
+
+
+            EmailContent emailContent = _contentRepository.Single(s => s.EmailTitleId == titleId);
+
+            if (emailContent.EmailBody != null)
+            {
+                //DealerName={0}, Order No={1}
+
+
+                message = new MessageEntityDto();
+
+                message.FromHrRecordId = 1;
+                message.ToMessageDetails = base.BuildToMessageDetails(order.UserId);
+                //message.CcMessageDetails = BuildCcMessageDetails();
+                message.MessageSubject = string.Format(emailContent.EmailSubject);
+                message.MessageDetails = string.Format(emailContent.EmailBody, order.DealerName, order.OrderNo);
+                message.SMSText = string.Format(emailContent.Smsbody, order.DealerName, order.OrderNo);
+                message.NotificationText = string.Format(emailContent.NotifcationBody, order.DealerName, order.OrderNo);
+                message.MessagingDate = DateTime.Now;
+                message.ReferenceId = order.OrderId;
+                message.ReferenceType = 1;
+                //  message.MenuId = _messageService.MenuId;
+                message.ModuleId = 1;
+                message.RedirectLink = "";
+                message.ReferenceDate = order.OrderDate;
+                message.EmailTitleId = emailContent.EmailContentId;
+                message.EmailNotificationTypeId = 1;
+            }
+            return message;
+        }
+        
+        internal MessageEntityDto BuildPaymentVerificationMessage(PaymentMessageVm payment)
+        {
+            MessageEntityDto message = null;
+            int titleId = 301;
+
+            EmailContent emailContent = _contentRepository.Single(c => c.EmailTitleId == titleId);
+            if (emailContent.EmailBody != null)
+            {
+                message = new MessageEntityDto();
+
+                message.FromHrRecordId = 1;
+                message.ToMessageDetails = base.BuildToMessageDetails(payment.UserId);
+                message.MessageSubject = string.Format(emailContent.EmailSubject);
+                message.MessageDetails = string.Format(emailContent.EmailBody, payment.DealerName, payment.OrderId);
+                message.SMSText = string.Format(emailContent.Smsbody, payment.DealerName, payment.OrderId);
+                message.NotificationText = string.Format(emailContent.NotifcationBody, payment.OrderId);
+                message.MessagingDate = DateTime.Now;
+                message.ReferenceId = payment.OrderId;
+                message.ReferenceType = 1;
+                message.RedirectLink = "";
+                message.ReferenceDate = payment.OrderDate;
+                message.EmailTitleId = emailContent.EmailContentId;
+                message.EmailNotificationTypeId = 1;
+            }
+            return message;
+        }
+
+        internal MessageEntityDto BuildPaymentConfirmationMessage(PaymentMessageVm payment)
+        {
+            MessageEntityDto message = null;
+            int titleId = 302;
+            EmailContent emailContent = _contentRepository.Single(c => c.EmailTitleId == titleId);
+            if (emailContent.EmailBody != null)
+            {
+                message = new MessageEntityDto();
+
+                message.FromHrRecordId = 1;
+                message.ToMessageDetails = base.BuildToMessageDetails(payment.UserId);
+                message.MessageSubject = string.Format(emailContent.EmailSubject);
+                message.MessageDetails = string.Format(emailContent.EmailBody, payment.DealerName, payment.OrderId);
+                message.SMSText = string.Format(emailContent.Smsbody, payment.DealerName, payment.OrderId);
+                message.NotificationText = string.Format(emailContent.NotifcationBody, payment.OrderId);
+                message.MessagingDate = DateTime.Now;
+                message.ReferenceId = payment.OrderId;
+                message.ReferenceType = 1;
+                message.RedirectLink = "";
+                message.ReferenceDate = payment.OrderDate;
+                message.EmailTitleId = emailContent.EmailContentId;
+                message.EmailNotificationTypeId = 1;
+            }
+            return message;
+        }
+
+        internal MessageEntityDto BuildPaymentVerificationAdminMessage(PaymentMessageVm payment)
+        {
+            MessageEntityDto message = null;
+            int titleId = 303;
+            EmailContent emailContent = _contentRepository.Single(c => c.EmailTitleId == titleId);
+            if (emailContent.EmailBody != null)
+            {
+                message = new MessageEntityDto();
+
+                message.FromHrRecordId = 1;
+                message.ToMessageDetails = base.BuildToMessageDetails(payment.UserId);
+                message.MessageSubject = string.Format(emailContent.EmailSubject);
+                message.MessageDetails = string.Format(emailContent.EmailBody);
+                message.SMSText = string.Format(emailContent.Smsbody);
+                message.NotificationText = string.Format(emailContent.NotifcationBody);
+                message.MessagingDate = DateTime.Now;
+                message.ReferenceId = payment.OrderId;
+                message.ReferenceType = 1;
+                message.RedirectLink = "";
+                message.ReferenceDate = payment.OrderDate;
+                message.EmailTitleId = emailContent.EmailContentId;
+                message.EmailNotificationTypeId = 1;
+            }
+            return message;
+        }
+        internal MessageEntityDto BuildPaymentVerificationFailedMessage(PaymentMessageVm payment)
+        {
+            MessageEntityDto message = null;
+            int titleId = 304;
+
+            EmailContent emailContent = _contentRepository.Single(c => c.EmailTitleId == titleId);
+            if (emailContent.EmailBody != null)
+            {
+                message = new MessageEntityDto();
+
+                message.FromHrRecordId = 1;
+                message.ToMessageDetails = base.BuildToMessageDetails(payment.UserId);
+                message.MessageSubject = string.Format(emailContent.EmailSubject);
+                message.MessageDetails = string.Format(emailContent.EmailBody, payment.DealerName, payment.OrderId);
+                message.SMSText = string.Format(emailContent.Smsbody, payment.DealerName, payment.OrderId);
+                message.NotificationText = string.Format(emailContent.NotifcationBody);
+                message.MessagingDate = DateTime.Now;
+                message.ReferenceId = payment.OrderId;
+                message.ReferenceType = 1;
+                message.RedirectLink = "";
+                message.ReferenceDate = payment.OrderDate;
+                message.EmailTitleId = emailContent.EmailContentId;
+                message.EmailNotificationTypeId = 1;
+            }
+            return message;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+﻿@{
+    ViewBag.Title = "DisciplinaryAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DisciplinaryAction</h2>

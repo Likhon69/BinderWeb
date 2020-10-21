@@ -1,0 +1,84 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/Company/CompanyDetails.js")
+<div class="">
+    <div id="companyDetailsDiv" class="divDetails">
+      
+        <fieldset class="k-block">
+            <legend class="k-header">
+                SBU Details
+            </legend>
+        
+        <ul>
+            <li>
+                <input type="hidden" id="hfCompanyId" value="0" />
+                <label for="CompanyName" class="required lbl widthSize20_per">SBU/Company Name:<span class="redstart">*</span></label>
+                <input type="text" id="txtCompanyName" name="CompanyName" maxlength="50" class="k-textbox"  placeholder="SBU/Company name" required validationmessage="Please enter valid SBU/Company name" />
+            </li>
+            <li>
+                <label for="SbuCode" class="required lbl widthSize20_per">SBU/Company Code:<span class="redstart">*</span></label>
+                <input type="text" id="txtSbuCode" name="SbuCode" maxlength="50" class="k-textbox"  placeholder="SBU/Company Code" required validationmessage="Please enter valid SBU/Company Code" />
+            </li>
+            <li>
+                <label for="cmbMotherCompany" class="lbl widthSize20_per">Mother Company:</label>
+                <input id="cmbMotherCompany" value="" />
+            </li>
+            <li>
+                <label for="txtAddress" class="lbl lblTextArea widthSize20_per">Address:</label>
+                <textarea id="txtAddress" maxlength="1000" class=""></textarea>
+            </li>
+            @*<li>
+                <label for="txtPhone" class="required lbl widthSize20_per">Phone</label>
+                <input type="tel" id="txtPhone" name="txtPhone" class="k-textbox txt" pattern="\d{10}" placeholder="Please enter a ten digit phone number" required
+                    validationmessage="Please enter a ten digit phone number" />
+            </li>*@
+            <li>
+                <label for="txtPhone" class="lbl widthSize20_per">Phone:</label>
+                <input type="text" id="txtPhone" name="txtPhone" class="k-textbox"  /> @*pattern="\d{10}"  validationmessage="Please enter a ten digit phone number"*@
+            </li>
+            <li>
+                <label for="Fax" class="lbl widthSize20_per">Fax:</label>
+                <input type="text" id="txtFax" maxlength="100" name="Fax" class="k-textbox" />@* pattern="[a-zA-Z0-9 ]+"*@
+            </li>
+            <li>
+                <label for="txtEmail" class="required lbl widthSize20_per">Email:<span class="redstart">*</span></label>
+                <input type="email" id="txtEmail" name="Email" maxlength="100" class="k-textbox txt" placeholder="e.g. myname@example.net" required data-email-msg="Email format is not valid" />
+            </li>
+            <li>
+                <label for="txtPrimaryContact" class="lbl widthSize20_per">Primary Contact:</label>
+                <input type="text" id="txtPrimaryContact" pattern="[a-zA-Z0-9 ]+" maxlength="50" name="PrimaryContact" class="k-textbox txt" />
+            </li>
+            <li>
+                <label for="ExpenseGL" class="lbl widthSize20_per">Expense GL:</label>
+                <input type="text" id="txtExpenseGL" maxlength="100" name="ExpenseGL" class="k-textbox" />@* pattern="[a-zA-Z0-9 ]+"*@
+            </li>
+            <li>
+                <label for="ddlFiscalYearStart" class="required lbl widthSize20_per">Fiscal Year Start:<span class="redstart">*</span></label>
+                <input id="ddlFiscalYearStart" required validationmessage ="Please Select Fiscal Year" />
+            </li>
+            <li>
+                <label for="fBannerFileUploade" class="lbl widthSize20_per floatLeft">SBU Banner:</label>
+                <input type="hidden" id="hfFullLogoPath" value="" />
+                <div class="floatLeft widthSize70_per">
+                    <input name="files" id="files" type="file" />
+                </div>
+                <div class="clear"></div> 
+            </li>
+            <li>
+                <label for="fBannerFileUploadeForReport" class="lbl widthSize20_per floatLeft">Report Logo (<span style="color:red">Only .bmp file is allowed</span>):</label>
+                <input type="hidden" id="hfFullLogoPathForReport" value="" />
+                <div class="floatLeft widthSize70_per">
+                    <input name="reportFiles" id="reportFiles" type="file" />
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li>
+                 <label for="IsActive" class="lbl widthSize20_per">Is Active:</label>
+                <input type="checkbox" id="chkIsActive" name="IsActive" class="k-checkbox" />
+            </li>
+        </ul>
+            </fieldset>
+    </div>
+
+
+
+
+</div>

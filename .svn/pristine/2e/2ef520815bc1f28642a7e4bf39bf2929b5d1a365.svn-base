@@ -1,0 +1,87 @@
+﻿using AutoMapper;
+using Binder.NotificationService.Base;
+using Binder.NotificationService.Contracts;
+using BinderCore.DataServices.Contracts.Notification;
+using BinderCore.Models.Message;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using CommonUnitOfWork;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Binder.NotificationService.Services
+{
+    public class OrderNotificationService : BaseNotification, IOrderNotificationService
+    {
+        IEmailContentRepository _contentRepository;
+
+        public OrderNotificationService(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+        {
+        }
+
+        //public OrderNotificationService(ISmsRepository smsRepository, IEmailRepository emailRepository, IEmailContentRepository contentRepository) : base(smsRepository, emailRepository)
+        //{
+        //    _contentRepository = contentRepository;
+        //}
+
+        public bool SendPaymentConfirmationNotificationToDealer(OrderMessageVm order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SendPaymentNotificationToAdmin(OrderMessageVm order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SendPaymentVarificationFailedNotificationToDealer(OrderMessageVm order)
+        {
+            throw new NotImplementedException();
+        }
+
+      
+
+        public bool SentOrderConfirmationNotificationToDealer(OrderMessageVm order)
+        {
+            var message = BuildOrderConfirmationMessage(order);
+            return base.SentMessage(message);
+             
+        }
+
+        internal MessageEntityDto BuildOrderConfirmationMessage(OrderMessageVm order)
+        {
+            MessageEntityDto message = null;
+            EmailContent emailContent = null;
+            int nextApproverId = 0;
+            int emailContentId = 0;
+
+
+            emailContent = _contentRepository.GetById(emailContentId);
+
+            if (emailContent.EmailBody != null)
+            {
+
+                string body = string.Format(emailContent.EmailBody, order.OrderNo);
+
+                message = new MessageEntityDto();
+
+                message.FromHrRecordId = 1;
+                message.ToMessageDetails = base.BuildToMessageDetails(order.UserId);
+                //message.CcMessageDetails = BuildCcMessageDetails();
+                message.MessageSubject = string.Format(emailContent.EmailSubject);
+                message.MessageDetails = body;
+                message.MessagingDate = DateTime.Now;
+                message.ReferenceId = order.OrderId;
+                message.ReferenceType = 1;
+                //  message.MenuId = _messageService.MenuId;
+                message.ModuleId = 1;
+                message.RedirectLink = "";
+                message.ReferenceDate = order.OrderDate;
+                message.EmailTitleId = emailContent.EmailContentId;
+                message.EmailNotificationTypeId = 1;
+            }
+            return message;
+        }
+    }
+}

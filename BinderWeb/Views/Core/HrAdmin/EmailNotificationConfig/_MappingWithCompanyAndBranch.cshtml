@@ -1,0 +1,42 @@
+﻿
+<div>
+    <button id="btnSaveMapping" class="k-button btn-large centerAlign">Save</button>
+    <input type="hidden" id="hdnNotificationTypeId" />
+    <input type="hidden" id="hdnEmailNotificationConfigId" />
+    <div>
+        <div class="leftDiv">
+            <div class="k-block">
+                <h2 class="k-header centerAlign">Notification Enable for Location</h2>
+
+
+                <div id="gridCompanyForMapping"></div>
+
+            </div>
+        </div>
+
+        <div class="rightDiv">
+            <div class="k-block">
+                <h2 class="k-header centerAlign">Exception List</h2>
+                <div class="divDetails">
+                    <ul>
+                        <li>
+                            <label class="lbl widthSize15_per">Employee Id :</label>
+                            <input type="text" id="txtEmployeeId" class="k-textbox" placeholder="Employee Id" />
+                            <button id="btnSearchEmployeeId" class="k-button "><span class="k-icon k-i-search"></span></button>
+                            <button id="btnAddExceptionList" class="k-button">Add</button>
+                        </li>
+                        <li id="liEmpDetails" class="displayNone">
+                            <input type="hidden" id="hdnHrRecordId" />
+                            <label class="lbl">Name : </label><span id="lblEmployeeName" class="widthSize50_per"></span>&nbsp;&nbsp;&nbsp;
+                            <label id="lbl">Location : </label><span id="lblLocation" class="widthSize50_per"></span>
+                        </li>
+                    </ul>
+                </div>
+                <br />
+                <div id="gridEmployeeExceptionList"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

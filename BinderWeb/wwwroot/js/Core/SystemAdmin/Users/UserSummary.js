@@ -1,0 +1,195 @@
+﻿var userSummaryManager = {
+
+    gridDataSource: function (companyId) {
+        var gridDataSource = new kendo.data.DataSource({
+            type: "json",
+            serverPaging: true,
+
+            serverSorting: true,
+
+            serverFiltering: true,
+
+            allowUnsort: true,
+
+            pageSize: 10,
+
+            transport: {
+                read: {
+                    url: coreApi + '/Users/GetUserSummary/?access_token=' + sessionStorage.getItem("token"),
+
+                    type: "POST",
+
+                    dataType: "json",
+
+                    contentType: "application/json; charset=utf-8"
+                },
+                //update: {
+                //    url: '../Users/GetUserSummary/?companyID=' + companyId,
+                //    dataType: "json"
+                //},
+
+                parameterMap: function (options) {
+
+                    return JSON.stringify(options);
+
+                }
+            },
+            schema: { data: "Items", total: "TotalCount" }
+        });
+        return gridDataSource;
+    },
+
+    ResetPassword: function () {
+        //var jsonParam = 'companyId=' + companyId + "&userId=" + userId;
+        var serviceUrl = coreApi + "/Users/SendOtp/";
+        AjaxManager.SendJson(serviceUrl, jsonParam, onSuccess, onFailed);
+        function onSuccess(jsonData) {
+
+            if (jsonData == "Success") {
+                Message.Success("User password has reset and sent to employee Email Address or SMS");
+            }
+            else {
+                alert(jsonData);
+            }
+        }
+
+        function onFailed(error) {
+            window.alert(error.statusText);
+        }
+    },
+
+    GetMotherCompany: function () {
+        var objCompany = "";
+        var jsonParam = "";
+        var serviceUrl = "../Company/GetMotherCompany/";
+        AjaxManager.GetJsonResult(serviceUrl, jsonParam, false, false, onSuccess, onFailed);
+
+        function onSuccess(jsonData) {
+            objCompany = jsonData;
+        }
+        function onFailed(error) {
+            window.alert(error.statusText);
+        }
+        return objCompany;
+    }
+};
+
+var userSummaryHelper = {
+    GenerateUserSummaryGrid: function (companyId) {
+        if (companyId == "") {
+            companyId = 0;
+        }
+        $("#gridUser").kendoGrid({
+            dataSource: userSummaryManager.gridDataSource(companyId),
+            pageable: {
+                refresh: true,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true
+            },
+            xheight: 450,
+            filterable: true,
+            sortable: true,
+            columns: userSummaryHelper.GenerateUsersColumns(),
+            editable: false,
+            navigatable: true,
+            selectable: "row"
+        });
+    },
+
+    GenerateUsersColumns: function () {
+        debugger;
+        return columns = [
+            
+            { field: "EmployeeId", title: "Employee Id", width: 50 },//EmployeeId in Employement
+            { field: "UserName", title: "User Name", width: 90, hidden: true },
+            { field: "LoginId", title: "Login ID", width: 70 },
+            { field: "DealerName", title: "Dealer Name", width: 50 },
+           
+           
+            { field: "IsActive", title: "Is Active", width: 35, template: "#= IsActive ? 'Active' : 'Inactive' #" },
+            { field: "ResetPassword", title: "Reset Password", filterable: false, width: 70, template: '<input type="button" class="k-button" value="Reset Password" onClick="userSummaryHelper.clickEventForResetPassword()" />', sortable: false },
+       
+            { field: "Edit", title: "Edit", filterable: false, width: 45, template: '<input type="button" class="k-button" value="Edit" id="btnEdit" onClick="userSummaryHelper.clickEventForEditButton()"  />', sortable: false }
+        ];
+    },
+
+    clickEventForResetPassword: function () {
+        //$('#btnResetPassword').click(function () {
+        //    var entityGrid = $("#gridUser").data("kendoGrid");
+
+        //    var selectedItem = entityGrid.dataItem(entityGrid.select());
+
+        //    userSummaryHelper.resetPassword(selectedItem);
+
+        //});
+
+        var entityGrid = $("#gridUser").data("kendoGrid");
+
+        var selectedItem = entityGrid.dataItem(entityGrid.select());
+        if (selectedItem != null) {
+            Message.Confirm("Are you sure you want to reset password", function () {
+                userSummaryHelper.resetPassword(selectedItem);
+            })
+
+
+        }
+    },
+
+    clickEventForEditButton: function () {
+
+
+        var entityGrid = $("#gridUser").data("kendoGrid");
+
+        var selectedItem = entityGrid.dataItem(entityGrid.select());
+
+        UserDetailsHelper.populateUserInformationDetails(selectedItem);
+
+        groupMembershipHelper.populateGroupMember(selectedItem);
+    },
+
+    resetPassword: function (items) {
+
+
+        userSummaryManager.ResetPassword(items);
+    },
+
+    clickEventForEditUser: function () {
+        $('#gridUser table tr').dblclick(function () {
+            var entityGrid = $("#gridUser").data("kendoGrid");
+
+            var selectedItem = entityGrid.dataItem(entityGrid.select());
+
+            UserDetailsHelper.populateUserInformationDetails(selectedItem);
+
+            groupMembershipHelper.populateGroupMember(selectedItem);
+
+        });
+    },
+
+    GenerateMotherCompanyCombo: function () {
+        var objCompany = new Object();
+        objCompany = userSummaryManager.GetMotherCompany();
+
+        $("#cmbCompanyNameForSummary").kendoComboBox({
+            placeholder: "Select Company...",
+            dataTextField: "CompanyName",
+            dataValueField: "CompanyId",
+            dataSource: objCompany
+        });
+        if (CurrentUser != null) {
+            var cmbComp = $("#cmbCompanyNameForSummary").data("kendoComboBox");
+            //cmbComp.value(CurrentUser.CompanyId);
+        }
+    },
+
+    CompanyIndexChangeEvent: function (e) {
+        var companyData = $("#cmbCompanyNameForSummary").data("kendoComboBox");
+        var companyId = companyData.value();
+        $("#gridUser").empty();
+        $("#gridUser").kendoGrid();
+        userSummaryHelper.GenerateUserSummaryGrid(companyId);
+
+    },
+
+};

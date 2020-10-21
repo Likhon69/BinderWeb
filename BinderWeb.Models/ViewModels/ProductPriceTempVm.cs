@@ -1,0 +1,21 @@
+﻿using BinderWeb.DatabaseContext.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Models.ViewModels
+{
+    public class ProductPriceTempVm
+    {
+        public int ProductPriceId { get; set; }
+        public string ProductName { get; set; }
+        public int? ProductId { get; set; }
+        public DateTime? PricingDate { get; set; }
+        public int? CreateBy { get; set; }
+        public DateTime? CreateDate { get; set; }
+        public int? StateId { get; set; }
+        public decimal? FirstSlotPrice { get; set; }
+        public decimal? SecondSlotPrice { get; set; }
+
+    }
+}

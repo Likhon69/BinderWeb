@@ -1,0 +1,9 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/DegreeType/DegreeTypeSetup.js")
+<div id="popupDegreeTypeSetup" style="display:none">
+    <div class="leftDiv">
+                @Html.Partial("~/Views/Core/HrAdmin/DegreeType/_DegreeTypeSummary.cshtml")
+    </div>
+    <div class="rightDiv">
+                @Html.Partial("~/Views/Core/HrAdmin/DegreeType/_DegreeTypeDetails.cshtml")
+    </div>
+</div>

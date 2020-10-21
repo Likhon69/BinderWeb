@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Dotted Line Email Configuration Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/DottedLineEmailConfig/DottedLineEmailConfigSettings.js")
+
+<div class="mainDiv">
+    <div id="divDottedLineEmailConfigEmployeeSummary" class=" k-block">
+        <h1 class="k-header" style="text-align: center">Dotted Line Email Configuration Employee Summary</h1>
+        @Html.Partial("SystemAdmin/DottedLineEmailConfig/DottedLineEmailConfigSummary")
+    </div>
+    <div id="divDottedLineEmailConfigEmployeeDetails" style="display:none" >
+      
+        @Html.Partial("SystemAdmin/DottedLineEmailConfig/_DottedLineEmailConfigDetails")
+    </div>
+    <div class="clear"></div>
+</div>

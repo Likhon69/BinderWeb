@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "AddProductInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Binder/Product/ProductInfoSettings.js"></script>
+<script src="~/Binder/Product/ProductInfoDetails.js"></script>
+
+<script src="~/Binder/Product/ProductInfoSummery.js"></script>
+
+<div class="mainDiv">
+    <h2 class="text-info">Add New Products</h2>
+    @await Html.PartialAsync("~/Views/ProductInformation/_ProductsinfoDetails.cshtml")
+    @await Html.PartialAsync("~/Views/ProductInformation/_ProductsinfoSummery.cshtml")
+
+    <div class="clear"></div>
+</div>
+
+
+

@@ -1,0 +1,68 @@
+﻿using BinderUtility.Common;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models;
+using BinderWeb.Models.Auth;
+using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Repository.BinderWebContracts;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderWebContracts;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+
+namespace BinderWeb.Services.BinderWebServices
+{
+    public class UserDetailsServices : BinderBaseServices, IUserDetailsServices
+    {
+        private IUserDetailsRepository _repository;
+        private readonly AppSettings _appSettings;
+        public UserDetailsServices(IUserDetailsRepository repository, IOptions<AppSettings> appSettings)
+        {
+            _repository = repository;
+            _appSettings = appSettings.Value;
+        }
+
+        public AuthorizeUser Authenticate(string loginId, string password)
+        {
+            var data = _repository.GetUserDetails(loginId);
+            if (data != null)
+            {
+                var newPass = EncryptDecryptHelper.Encrypt(password);
+                var user = _repository.Single(s => s.UserId == data.UserId && s.Password == newPass);
+                if (user != null)
+                {
+
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+                    var tokenDescriptor = new SecurityTokenDescriptor
+                    {
+                        Subject = new ClaimsIdentity(new Claim[]
+                        {
+                    new Claim(ClaimTypes.Name, user.LoginId.ToString())  ,
+                    new Claim(ClaimTypes.Sid, user.LoginId.ToString())
+
+                        }),
+                        Expires = DateTime.UtcNow.AddDays(30),
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                    };
+                    var token = tokenHandler.CreateToken(tokenDescriptor);
+                    //  user.Token = tokenHandler.WriteToken(token);
+
+                    return new AuthorizeUser { Username = user.UserName, LoginId = user.LoginId, Token = tokenHandler.WriteToken(token), IsFirstLogin = user.IsFirstLoginEnable ?? true };
+                }
+            }
+            return null;
+        }
+
+        public UserDetailsDto GetUserDetails(string loginId)
+        {
+            var data = _repository.GetUserDetails(loginId);
+
+            return data;
+        }
+    }
+}

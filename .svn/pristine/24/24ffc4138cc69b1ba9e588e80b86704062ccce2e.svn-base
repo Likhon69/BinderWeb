@@ -1,0 +1,28 @@
+﻿<script src="~/Scripts/eAzolution/Core/HrAdmin/PunishmentSettings/PunishmentSettingDetails.js"></script>
+
+<div id="divPunishmentSettingDetails" class="divDetails">
+    <div class="k-block">
+        <ul>
+            <input type="hidden" id="hdnPunishmentSettingDetailsId" />
+            <li>
+                <label for="PunishmentAccHead" class="lbl">Punishment Account Head:</label>
+                <input id="cmbPunishmentAccHead" name="PunishmentAccHead" validationmessage="Please Select Punishment Account Head" placeholder="select Punishment Head"/>
+            </li>
+            <li>
+                <label for="PunishmentWithAccHead" class="lbl">Punishment With Account Head:</label>
+                <input id="cmbPunishmentWithAccHead" name="PunishmentWithAccHead" validationmessage="Please Select Punishment With Account Head" placeholder="select Punishment Account Head" />
+            </li>
+        </ul>
+    </div>
+    @*<div class="clear"></div>*@
+
+    <div id="" class="divDetails">
+        <ul>
+            <li class="centerAlign">
+                <button id="btnSavePunishmentSettingDetails" class="k-button">Save</button>&nbsp; &nbsp; 
+            </li>
+        </ul>
+    </div>
+
+
+</div>

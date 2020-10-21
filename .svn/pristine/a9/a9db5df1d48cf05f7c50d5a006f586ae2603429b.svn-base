@@ -1,0 +1,78 @@
+﻿<script src="~/Scripts/eAzolution/Core/SystemAdmin/HrisSettings/HirsDetails.js"></script>
+
+<div id="divHrisSettingsDetails" class="divDetails">
+    <div class="k-block">
+        <ul>
+            
+            <li>
+                <input type="hidden" id="hdnHrisSettingsId" /> 
+                <label for="IsOnlyActiveEmployeeLoad" class="lbl">Is Only Active Employee Load ? :</label>
+                <input type="checkbox" id="chkOnlyActiveEmployeeLoad" name="IsOnlyActiveEmployeeLoad" />
+            </li>
+            <li>
+                <label for="ManualEmployeeOrder" class="lbl">Manual Employee Order :</label>
+                <input type="checkbox" id="chkManualEmployeeOrder" name="ManualEmployeeOrder" />
+            </li>
+            <li id="liSql" style="display: none;">
+                <label for="EmployeeOrderSQL" class="lbl">Employee Order SQL:</label>
+                <textarea type="address" id="txtEmployeeOrderSQL" maxlength="1000" name="EmployeeOrderSQL" style="width: 37.4em !important" class="k-textbox"></textarea>
+            </li>
+            <li> 
+                <label for="FieldForceSalaryEnable" class="lbl">Is Field Force Salary Enable ? :</label>
+                <input type="checkbox" id="chkFieldForceSalaryEnable" name="FieldForceSalaryEnable" />
+            </li> 
+            <li> 
+                <label for="MultipleSalaryAccount" class="lbl">Multiple Salary Account Applicable ? :</label>
+                <input type="checkbox" id="chkMultipleSalaryAccount" name="MultipleSalaryAccount" />
+            </li> 
+            <li> 
+                <label for="MobileBillCalculationTotal" class="lbl">Is MobileBill Calculation Total ? :</label>
+                <input type="checkbox" id="chkMobileBillCalculationTotal" name="MobileBillCalculationTotal" />
+            </li> 
+            <li> 
+                <label for="WFBalanceCheckingApplicable" class="lbl">Is WF Balance Checking Applicable ? :</label>
+                <input type="checkbox" id="chkWFBalanceCheckingApplicable" name="WFBalanceCheckingApplicable" />
+            </li> 
+            <li> 
+                <label for="MultipleLoanApplicable" class="lbl">Is Multiple Loan Applicable ? :</label>
+                <input type="checkbox" id="chkMultipleLoanApplicable" name="MultipleLoanApplicable" />
+            </li>
+            <li>
+                <label for="FielForceShowByDefault" class="lbl">Is Field Force Show By Default ? :</label>
+                <input type="checkbox" id="chkFieldForceShowByDefault" name="FielForceShowByDefault" />
+            </li>
+            <li>
+                <label for="FielForceShowByDefault" class="lbl">Is Extra Monthly Attendance Status Active ? :</label>
+                <input type="checkbox" id="chkExtraMonthlyAttendanceStatus" name="FielForceShowByDefault" />
+            </li> 
+            <li>
+                <label for="chkIsDynamicEducationActive" class="lbl">Is Dynamic Education for Personal Management ? :</label>
+                <input type="checkbox" id="chkIsDynamicEducationActive" name="FielForceShowByDefault" />
+            </li>
+            <li>
+                <label for="chkIsAccessResActive" class="lbl">Is Access Restriction Active for Appraisal ? :</label>
+                <input type="checkbox" id="chkIsAccessResForAppraisal" name="chkIsAccessResActive" />
+            </li>
+            <li>
+                <label for="chkDuplicateEmployeeUploadCheking" class="lbl">Is Duplicate Employee Upload Cheking? :</label>
+                <input type="checkbox" id="chkIsDuplicateEmployeeUploadCheking" name="chkDuplicateEmployeeUploadCheking" />
+            </li>
+            <li>
+                <label for="LeaveApplicationAutoprocessDaysAfter" class="lbl">Leave Auto process Days After (In Days):</label>
+                <input type="number" id="txtLeaveApplicationAutoprocessDaysAfter" name="LeaveApplicationAutoprocessDaysAfter" min="0" max="365" />
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+
+    <div id="" class="divDetails">
+        <ul>
+            <li class="centerAlign">
+                <button id="btnSaveHrisSettings" class="k-button">Save</button>&nbsp; &nbsp;
+                <button id="btnClearHrisSettings" class="k-button">Clear</button>&nbsp; &nbsp;
+            </li>
+        </ul>
+    </div>
+
+
+</div>

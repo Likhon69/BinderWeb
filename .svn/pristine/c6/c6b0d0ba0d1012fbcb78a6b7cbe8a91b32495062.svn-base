@@ -1,0 +1,43 @@
+﻿using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.MobileApiDTO;
+using BinderWeb.Repository.Base;
+using BinderWeb.Repository.BinderWebContracts;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Repository.BinderWebRepositories
+{
+    public class OrderHistoryRepository : BinderBaseRepository<OrderHistoryDto>, IOrderHistoryRepository
+    {
+
+
+        ICommonConnection _connection;
+        public OrderHistoryRepository(DbContext db,ICommonConnection connection):base(db)
+        {
+            _connection = connection;
+        }
+
+
+        public BinderDBContext context
+        {
+            get { return (BinderDBContext)_db; }
+
+        }
+        public ICollection<OrderHistoryDto> GetOrderHistory(string loginId)
+        {
+            string query = string.Format(@"Select DealerId,PickupDate,case when ProductOrder.SloteId=1 then cast(cast(PricingSlote.FromTime as time)as varchar)+'-'+cast(cast(PricingSlote.ToTime as time)as varchar) end as  TimeSlote,UnitPrice,Quantity,TotalPrice
+            ,Branch.BRANCHNAME as PickupPoint,ProductName,OrderDate,OrderId,
+            OrderNo,'' as StateName,SOC from ProductOrder
+            inner join PricingSlote on PricingSlote.SloteId=ProductOrder.SloteId
+            inner join ProductInformation prd on prd.ProductId=ProductOrder.ProductId
+            inner join Branch   on Branch.BRANCHID=ProductOrder.LocationId
+            inner join Users on Users.EmployeeId=ProductOrder.DealerId
+            where Users.LoginId='{0}'
+            order by ProductOrder.Orderdate desc", loginId);
+            return new Data<OrderHistoryDto>(_connection).DataSource(query);
+        }
+    }
+}

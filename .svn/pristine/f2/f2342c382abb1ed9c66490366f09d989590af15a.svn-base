@@ -1,0 +1,152 @@
+﻿var UserDetailsManager = {
+    AddUserDeatails: function () {
+        debugger;
+        if (UserDetailsHelper.ValidateUser()) {
+            var objUsers = UserDetailsHelper.CreateUserObj();
+            var objUsersInfo = objUsers;
+            var jsonParam = objUsersInfo;
+            var serviceUrl = coreApi + "/Users/AddUsersInformtion";
+            AjaxManager.Post(serviceUrl, jsonParam, function (response) {
+                if (response == "Success") {
+                    Message.Success("Save Successfully");
+
+
+                } else {
+                    Message.Warning(response);
+                }
+            }, function (error) {
+
+            });
+        }
+    }
+};
+
+var UserDetailsHelper = {
+    DealerTypeNameCombo: function () {
+
+        var objUnit = AjaxManager.GetDataSource(coreApi + "/Users/GetDealer");
+        $("#cmbDealer").kendoComboBox({
+            placeholder: "Select Dealer Name",
+            dataTextField: "DealerName",
+            dataValueField: "DealerId",
+            dataSource: objUnit,
+            filter: "contains",
+            suggest: true,
+            change: function () {
+                var val = this.value();
+                //UnitNameCombo(val);
+            }
+        });
+
+    },
+
+    CreateUserObj: function () {
+        debugger;
+        var objUser = new Object();
+        objUser.UserId = $("#hdnUserId").val();
+        //objUser.CompanyId = $("#cmbCompanyNameDetails").val();
+        objUser.LoginId = $("#txtLoginId").val();
+        objUser.UserName = $("#txtUserName").val();
+        //objUser.EmailAddress = $("#txtEmail").val();
+        objUser.EmployeeId = $("#cmbDealer").val();
+        objUser.Password = $("#txtNewPassword").val();
+        //objUser.IMEI = $("#txtIMEI").val();
+
+        objUser.Employee_Id = $("#cmbDealer").data("kendoComboBox").dataItem().EmployeeId;
+
+        //objUser.DefaultDashboard = $("#ddlDefaultDashboard").data('kendoDropDownList').value();
+        if ($("#chkIsActive").is(':checked') == true) {
+            objUser.IsActive = true;
+        }
+        else {
+            objUser.IsActive = false;
+        }
+
+        /*    if ($("#chkAccessAllSbu").is(':checked') == true) {
+                objUser.AccessParentCompany = 1;
+            }
+            else {
+                objUser.AccessParentCompany = 0;
+            }*/
+        return objUser;
+    },
+
+    ValidateUser: function () {
+        var data = [];
+        debugger;
+        var validator = $("#divUserInfo").kendoValidator().data("kendoValidator"),
+            status = $(".status");
+        if (validator.validate()) {
+            status.text("").addClass("valid");
+            /*   var companyId = $("#cmbCompanyNameDetails").val();
+               var comboboxforCompany = $("#cmbCompanyNameDetails").data("kendoComboBox");
+               var companyName = comboboxforCompany.text();
+               if (companyId == companyName) {
+                   status.text("Oops! Company Name is invalid.").addClass("invalid");
+                   $("#cmbCompanyName").val("");
+                   userInfoHelper.GenerateMotherCompanyCombo();
+                   return false;
+               }*/
+
+            var userId = $("#hdnUserId").val();
+            if (userId == "0") {
+                if ($("#txtNewPassword").val() == "") {
+                    status.text("Oops! Please Insert Password.").addClass("invalid");
+                    $("#txtNewPassword").val("");
+                    return false;
+                }
+                if ($("#txtConfirmPassword").val() == "") {
+                    status.text("Oops! Please Insert Confirm Password.").addClass("invalid");
+                    $("#txtConfirmPassword").val("");
+                    return false;
+                }
+                if ($("#txtNewPassword").val() != $("#txtConfirmPassword").val()) {
+                    status.text("Oops! Password and Confirm password not match.").addClass("invalid");
+                    $("#txtNewPassword").val("");
+                    $("#txtConfirmPassword").val("");
+                    return false;
+                }
+            }
+
+            var employeeId = $("#cmbDealer").val();
+            var comboboxfoDealer = $("#cmbDealer").data("kendoComboBox");
+            var dealerName = comboboxfoDealer.text();
+            if (employeeId == dealerName) {
+                status.text("Oops! Dealer Name is invalid.").addClass("invalid");
+                $("#cmbDealer").val("");
+                //userInfoHelper.GetEmployeeByCompanyId(companyId);
+                return false;
+            }
+
+            return true;
+        } else {
+            status.text("Oops! There is invalid data in the form.").addClass("invalid");
+            return false;
+        }
+    },
+    createTab: function () {
+        $("#tabstrip").kendoTabStrip({});
+    },
+    populateUserInformationDetails: function (objUser) {
+
+        $("#hdnUserId").val(objUser.UserId);
+        $("#txtLoginId").val(objUser.LoginId);
+        $("#txtUserName").val(objUser.UserName);
+        $("#txtNewPassword").val(objUser.Password);
+
+        /*   $("#txtDealerCode").val(objDealers.DealerCode);
+   
+           $("#FileAttachment").val(objDealers.Agrementfile);*/
+
+        $("#cmbDealer").data("kendoComboBox").value(objUser.EmployeeId);
+        //$("#lnkAttachment").attr("href", objDealers.Agrementfile);
+        /* if (objProducts.IsActive == 1) {
+           $("#chkIsActive").prop('checked', 'checked');
+       } else {
+           $("#chkIsActive").removeProp('checked', 'checked');
+       }*/
+
+
+        UserDetailsHelper.DealerTypeNameCombo(objUser.CompanyId, objUser.BranchId, objUser.DepartmentId);
+    }
+}

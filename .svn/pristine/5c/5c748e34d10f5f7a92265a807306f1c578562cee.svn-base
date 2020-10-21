@@ -1,0 +1,12 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/AccessRestriction/AccessRestrictionCompany.js")
+@*<div class="divDetails">
+    <ul>
+        <li>
+            <label for="Company" class="lbl widthSize25_per">Company</label>
+            <input type="text" name="Company" id="cmbCompany" />
+        </li>
+    </ul>
+</div>*@
+
+<div id="gridCompany"></div>

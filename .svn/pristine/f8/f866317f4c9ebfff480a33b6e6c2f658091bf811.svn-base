@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Binder Web</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="~/lib/kendoui_commercial/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/lib/kendoui_commercial/styles/kendo.material.green.css" rel="stylesheet" />
+    <link href="~/css/Core.css" rel="stylesheet" />
+    <link href="~/css/Common.css" rel="stylesheet" />
+    <link href="~/css/Header_Heidelberg.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+    <script src="~/lib/kendoui_commercial/js/jquery.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/kendoui_commercial/js/kendo.all.min.js"></script>
+    <script src="~/lib/jquery/linq.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" src="~/js/Common/common.js"></script>
+    <script type="text/javascript" src="~/js/Common/EmpressCommon.js"></script>
+    <script src="~/js/MessageBox/js/noty/jquery.noty.js"></script>
+    <script src="~/js/MessageBox/js/noty/layouts/center.js"></script>
+    <script src="~/js/MessageBox/js/noty/themes/default.js"></script>
+    <script type="text/javascript" src="~/js/Common/CommonMessage.js"></script>
+    <script src="~/Core/Login/Menu.js"></script>
+
+
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">*@
+
+    <!--Fontawesome CDN-->
+    @* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">*@
+
+    <!--Custom styles-->
+
+
+
+</head>
+
+<body class="k-content" oncontextmenu="return false" id="mainView">
+    <header>
+        <div id="header">
+
+            <div class="Headercontainer" id="headerLogo">
+
+                <div class="HeaderLeft">
+                    @*<img src="../../Images/Logo/Empress.png" class="img-responsive " alt="Null">*@
+               
+               
+
+                </div>
+                <div class="HeaderMiddle profilePicMargin">
+
+                    <a href="#">
+                        <img class="img-responsive circleImage" id="profilePicture" alt="" />
+                    </a>
+                    @* <div id="onlineStatus" class="online-sign-Profile" style="display:none"></div>*@
+
+
+                <div id="divWelcome" class="welcomeLabel">
+                    <label id="lblWelcome" style="color: white">Welcome</label>
+                    @*<label id="lblWelcome" >Welcome</label>*@
+                    @*<a href="#" title="LogOff" id="btnLogOff" onclick="mnManager.Logoff()" style="color: white">|  </a>@
+                    @*<a href="#" title="LogOff" id="btnLogOff" onclick="mnManager.Logoff()">|  @lockTitle</a>*@
+                </div>
+                </div>
+                <div class="HeaderRight" style="margin-top:1%">
+                    @*<span class="HeaderRightSpan">OCULUS</span>*@
+
+                    @*<img src="../Images/Logo/Empress.png" style=" " class="img-responsive productImage" alt="Null" />*@
+
+                    @*<div>
+            <div id="vrs" class="AssemblyVersion">@objAssembly.AssemblyVersion</div>
+        </div>*@
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </header>
+    <div class=" ">
+        <ul id="menu">
+        </ul>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - Binder Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            mnHelper.GetMenuInformation();
+        })
+    </script>
+</body>
+</html>
+<style>
+    #mainView {
+        font-family: 'Neo Sans Std';
+    }
+
+    #toolbarViewerLeft .toolbar {
+        display: none !important;
+    }
+
+    #toolbarViewerRight .toolbar {
+        display: none;
+    }
+
+    #toolbarViewerMiddle #toolbarViewer {
+        display: none;
+    }
+</style>

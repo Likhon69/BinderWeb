@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "DealerInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Binder/Dealer/DealerDetails.js"></script>
+<script src="~/Binder/Dealer/DealerSettings.js"></script>
+<script src="~/Binder/Dealer/DealerSummary.js"></script>
+
+<div class="mainDiv">
+    <h2 class="text-info">Add New Dealer</h2>
+    @await Html.PartialAsync("~/Views/DealerInformation/_DealerDetails.cshtml")
+    @await Html.PartialAsync("~/Views/DealerInformation/_DealerSummary.cshtml")
+
+    <div class="clear"></div>
+</div>
+

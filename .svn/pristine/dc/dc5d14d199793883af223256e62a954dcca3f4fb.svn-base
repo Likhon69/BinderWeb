@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Models.MobileApiDTO
+{
+    public class ProductPriceDto
+    {
+      //  public int ProductPriceId { get; set; }
+        public DateTime PricingDate { get; set; }
+        public decimal FirstSlotePrice { get; set; }
+        public decimal SecondSlotePrice { get; set; }
+        public int ProductId { get; set; }
+    }
+}

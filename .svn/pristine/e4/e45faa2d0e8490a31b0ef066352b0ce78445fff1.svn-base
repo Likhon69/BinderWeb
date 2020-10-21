@@ -1,0 +1,20 @@
+﻿using BinderCore.DataServices.Base;
+using BinderCore.DataServices.Contracts.SystemAdmin;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderCore.DataServices.Repositories.SystemAdmin
+{
+    public class GroupRepository:CoreBaseRepository<Groups>,IGroupRepository
+    {
+        private ICommonConnection _connection;
+        public GroupRepository(DbContext db, ICommonConnection connection) :base(db)
+        {
+            _connection = connection;
+        }
+    }
+}

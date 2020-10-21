@@ -1,0 +1,36 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/AttendenceRemarksSettings/AttendenceRemarksDetails.js"></script>
+
+<div id="divAttendenceRemarks" class="divDetails">
+
+    <div id="divAttendenceRemarksDetails" class="divDetails">
+
+        <ul>
+            <li>
+                <input type="hidden" id="hdnAttendenceRemarksId" value="0" />
+            </li>
+            <li>
+                <label for="AttendenceRemarksCode">Remarks Code :</label>
+                <input type="text" id="txtAttendenceRemarksCode" class="k-textbox" name="AttendenceRemarksCode" placeholder="Insert Attendence Remarks code" required="required" />
+            </li>
+            <li>
+                <label for="AttendenceRemarksName">Remarks Name :</label>
+                <input type="text" id="txtAttendenceRemarksName" class="k-textbox" name="AttendenceRemarksName" placeholder="Insert Attendence Remarks name" required="required" />
+            </li>
+            <li>
+                <label for="chkAttendenceRemarksIsActive">Is Active:</label>
+                <input type="checkbox" id="chkAttendenceRemarksIsActive" class="k-checkbox" name="Is Active" />
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="divDetails">
+        <ul>
+            <li class="centerAlign">
+                <button id="btnSaveAttendenceRemarks" class="k-button" onclick="AttendenceRemarksDetailsManager.SaveAttendenceRemarksDetails();">Save</button>&nbsp;&nbsp;
+                <button id="btnClearAttendenceRemarks" class="k-button" onclick="AttendenceRemarksDetailsHelper.clearAttendenceRemarksDetails();">Clear</button>&nbsp;&nbsp;
+            </li>
+        </ul>
+    </div>
+</div>

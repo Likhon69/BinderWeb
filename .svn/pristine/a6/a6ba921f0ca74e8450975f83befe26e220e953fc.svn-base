@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Grade Type Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/GradeType/GradeTypeSettings.js"></script>
+
+<div class="divDetails" id="divGradeTypeDetails">
+    
+    <div class="rightDiv widthSize42_per">
+        <fieldset>
+            <legend>Grade Type Details</legend>
+            @Html.Partial("HrAdmin/GradeType/GradeTypeDetails")
+        </fieldset>
+    </div>
+
+    <div class="leftDiv widthSize42_per">
+        <fieldset>
+            <legend>Grade Type Summary</legend>
+            @Html.Partial("HrAdmin/GradeType/GradeTypeSummary")
+        </fieldset>
+    </div>
+</div>
+
+<div class="clear"></div>

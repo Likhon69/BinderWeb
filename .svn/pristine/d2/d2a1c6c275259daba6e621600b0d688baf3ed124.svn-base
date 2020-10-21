@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace BinderWeb.DatabaseContext.Entities
+{
+    public partial class Branch
+    {
+        public Branch()
+        {
+            DealerWithLocationMapping = new HashSet<DealerWithLocationMapping>();
+        }
+
+        public int BranchId { get; set; }
+        public string BranchCode { get; set; }
+        public string BranchName { get; set; }
+        public string BranchDescription { get; set; }
+        public int? IsCostCentre { get; set; }
+        public int? IsActive { get; set; }
+        public int? DebitAccountHead { get; set; }
+        public int? CreditAccountHead { get; set; }
+        public int? ContraEntryApplicable { get; set; }
+        public string BranchAddress { get; set; }
+
+        public virtual ICollection<DealerWithLocationMapping> DealerWithLocationMapping { get; set; }
+    }
+}

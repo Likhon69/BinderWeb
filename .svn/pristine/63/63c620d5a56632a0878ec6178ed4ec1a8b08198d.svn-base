@@ -1,0 +1,15 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/CostCentre/AccountHeadMappingWithCostCenter.js")
+
+
+<div class="divDetails">
+    <ul>
+        <li>
+            <label class="lbl widthSize70_per"><span id="lblCostCenterName" style="font-size: 16px; font-weight: bold"></span></label>
+            <input type="button" id="btnApplyAccountHead" class="k-button" value="Apply Account Head" />
+            <input type="hidden" id="hdnCostCenterForAccountHeadMap" value="0" />
+        </li>
+    </ul>
+</div>
+
+<legend>Account Head Information</legend>
+<div id="treeviewAccountHead"></div>

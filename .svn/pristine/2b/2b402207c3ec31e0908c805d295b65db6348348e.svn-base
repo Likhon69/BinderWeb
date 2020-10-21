@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Employee Tab Permission";
+}
+<script src="~/Scripts/eAzolution/Core/HrAdmin/EmployeeTabPermission/EmployeeTabPermission.js"></script>
+<br/>
+<br />
+<br />
+
+<div class="k-block widthSize90_per divCenter">
+    <h2 class="k-header">Employee Tab Permission</h2>
+    <div class="leftDiv">
+        <label class="lbl">Group:</label>
+        <input id="cmbGroup"/>
+        <button type="button" id="btnLoad" class="k-button">Load</button>
+         
+    </div>
+    <div class="rightDiv rightAlign">
+        <button type="button" id="btnSaveTabPermission" class="k-button" >Save Changes</button>
+    </div>
+    <div class="clear"></div>
+    <div>
+        <div id="gridTabPermission"></div>
+    </div>
+
+</div>

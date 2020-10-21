@@ -1,0 +1,35 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/SystemAdmin/DottedLineGroupConfig/DottedLineGroup.js"></script>
+
+<div id="divTheme">
+    <div class="divDetails">
+        <ul>
+            <li>
+                <label for="GroupName" class="lbl widthSize9_per leftAlign">Group Name:<span class="redstart">*</span></label>
+                <input type="hidden" id="hdnGroupId" value="0"/>
+                 <input type="text"  id="txtGroupName" name="txtGroupName" />
+                           <button id="btnDottedLineGroup" class="k-button" onclick="dottedLineGroupConfigSettingsManager.openDottedLineGroupAddPopup()">
+                 <span class="k-icon k-i-plus"></span>
+                   
+                </button>
+                 @*<button id="btnDottedLineGroupUpdate" class="k-button" onclick="dottedLineGroupHelper.clickEventForDottedLineGroupEditButton()">Update Group</button>*@
+            </li>
+          
+        </ul>
+
+        
+    </div>
+    <br>
+    <div>
+                        <ul id="liIdentityPanelEmployeeOfGroup">
+                            <li>
+                                <b> Employee History of Group</b>
+                                
+                                    <div id="gvEmployeeDetailsOfGroup"></div>
+                                
+                            </li>
+                        </ul>
+                   
+                </div>
+
+</div>

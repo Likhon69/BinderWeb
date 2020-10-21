@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "PunishmentSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/eAzolution/Core/HrAdmin/PunishmentSettings/PunishmentSettingSetup.js"></script>
+
+<h2 class="k-header centerAlign">Punishment Settings</h2>
+
+<div id="divPunishmentSetting">
+
+    @Html.Partial("../Core/HrAdmin/PunishmentSettings/_PunishmentSettingDetails")
+
+</div>

@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+    <div id="datePickerDiv" class="container">
+
+        <form class="form-inline">
+            <label class="sr-only" for="inlineFormInputName2">Name</label>
+            <div class="input-group mb-2 mr-sm-2">
+
+                <input type="datetime" class="form-control" id="datepickerFrom" placeholder="From">
+            </div>
+
+            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+
+                <input type="datetime" class="form-control" id="datepickerTo" placeholder="To">
+            </div>
+
+            <div class="input-group mb-2 mr-sm-2">
+
+                <input type="number" class="form-control" id="firstSlotPrice" placeholder="First Slot Price">
+            </div>
+            <div class="input-group mb-2 mr-sm-2">
+
+                <input type="number" class="form-control" id="secondSlotPrice" placeholder="Second Slot Price">
+            </div>
+
+            <button type="button" id="btnGenerate" class="btn btn-primary mb-2">Generate</button>
+        </form>
+        <div id="DateProductPriceGridDiv">
+
+        </div>
+        <button id="btnSave" class="k-button center" type="submit">Submit</button>
+    </div>
+
+   

@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Models.MobileApiDTO
+{
+    public class OrderRequestDto
+    {
+        public int DealerId { get; set; }
+        public DateTime PickupDate { get; set; }
+        public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int LocationId { get; set; }
+        public int ProductId { get; set; }
+        public int SlotId { get; set; }
+        public int BagTypeId { get; set; }
+        public int ProductPriceId { get; set; }
+
+
+
+
+
+    }
+}

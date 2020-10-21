@@ -1,0 +1,12 @@
+﻿
+@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/AccessControl/AccessControlSummary.js")
+
+
+<div class="leftDiv">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">Access Control Summary </legend>
+    
+    <div id="gridAccessControl"></div>
+        </fieldset>
+    <div class="clear"></div>
+</div>

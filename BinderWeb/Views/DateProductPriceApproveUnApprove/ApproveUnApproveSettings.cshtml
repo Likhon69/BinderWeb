@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "ApproveUnApproveSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <script src="~/Binder/DateProductPriceApproveUnApprove/DateProductPriceSearch.js"></script>
+
+    <script src="~/Binder/DateProductPriceApproveUnApprove/DateProductPriceApproveUnApproveGrid.js"></script>
+
+    <script src="~/Binder/DateProductPriceApproveUnApprove/AddDateProductPriceApprove.js"></script>
+
+
+<div class="container">
+
+    @await Html.PartialAsync("~/Views/DateProductPriceApproveUnApprove/_DateProductPriceApproveUnApprove.cshtml")
+
+</div>

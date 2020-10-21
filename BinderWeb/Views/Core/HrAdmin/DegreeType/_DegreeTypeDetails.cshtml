@@ -1,0 +1,26 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/HrAdmin/DegreeType/DegreeTypeDetails.js") 
+<div id="DegreeTypeDetailsContainer" class="divDetails">
+    <fieldset class="k-content">
+        <legend class="k-fontSize[15]">Degree Type Details</legend>
+        <ul>
+            <li>
+                <input type="hidden" id="hdnDegreeTypeId" value="0" />
+                <label for="DegreeType" class="required lbl widthSize30_per">Degree Type Text:</label>
+                <input type="text" id="DegreeType" name="DegreeType" class="k-textbox" maxlength="100" placeholder="Subsidiary type text" required validationmessage="Please enter Code" />
+            </li>
+            <li>
+                <label for="IsActive" class="lbl widthSize20_per">Is Active:</label>
+                <input type="checkbox" id="chkIsDegreeTypeActive" name="IsActive" checked class="k-checkbox" />
+            </li>
+            <li class="accept">
+                <button id="btnDegreeTypeSave" class="k-button" type="button">Save</button>
+                <button id="btnDegreeClear" class="k-button" type="button">Clear</button>
+                &nbsp;&nbsp;
+                <button id="popUpbtnClose" class="k-button" type="button">Close</button>
+            </li>
+            <li class="status"></li>
+        </ul>
+        <div class="clear"></div>
+    </fieldset>
+</div>
+

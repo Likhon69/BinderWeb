@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    <script src="~/Core/Menu/MenuInformation.js"></script>
+
+
+<div class="">
+    <div id="tabstrip">
+        <ul>
+            <li class="k-state-active">
+                Menu Settings
+            </li>
+            <li>
+                Menu Sorting
+            </li>
+        </ul>
+        <div>
+
+            @await Html.PartialAsync("~/Views/Menu/_MenuSummary.cshtml")
+            @await Html.PartialAsync("~/Views/Menu/_MenuDetails.cshtml")
+
+            <div class="clear"></div>
+
+        </div>
+        <div>
+            @await Html.PartialAsync("~/Views/Menu/_MenuDetails.cshtml")
+            <div class="clear"></div>
+        </div>
+
+
+    </div>
+</div>

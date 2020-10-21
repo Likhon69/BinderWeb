@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderWeb.Models.Auth;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWeb.Controllers
+{
+    public class AccountController : Controller
+    {
+        private IUsersService _usersService;
+        public AccountController(IUsersService usersService)
+        {
+            _usersService = usersService;
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult SignOut()
+        {
+            HttpContext.SignOutAsync();
+            return View("login");
+
+        }
+
+        [HttpPost]
+        public IActionResult Authenticate([FromBody]AuthenticateModel model)
+        {
+
+            var user = _usersService.Authenticate(model.LoginId, model.Password);
+
+            //var cookie = HttpContext.Session;
+
+
+           var loginClaims = new List<Claim>()
+           {
+                new Claim(ClaimTypes.Name, user.LoginId.ToString()),
+               new Claim(ClaimTypes.Sid, user.LoginId.ToString())
+           };
+
+            var loginIdentity = new ClaimsIdentity(loginClaims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var userPrincipal = new ClaimsPrincipal(new[] { loginIdentity });
+
+            HttpContext.SignInAsync(userPrincipal);
+
+            if (user == null)
+            {
+                return BadRequest(new { message = "Username or password is incorrect" });
+            }
+            else
+            {
+                var result = user;
+
+               return Ok(result);
+            }
+            
+
+        }
+
+
+    }
+}

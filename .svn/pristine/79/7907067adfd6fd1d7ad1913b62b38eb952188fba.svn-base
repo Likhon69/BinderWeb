@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "RecruitmentTypeSetting";
+}
+
+<script src="~/Scripts/eAzolution/Core/HrAdmin/RecruitmentType/RecruitmentTypeSetting.js"></script>
+<div class="mainDiv">
+    <h2 class="k-header">Recruitment Type Setting</h2>
+    @Html.Partial("~/Views/Core/HrAdmin/RecruitmentType/RecruitmentTypeDetails.cshtml")
+    @Html.Partial("~/Views/Core/HrAdmin/RecruitmentType/RecruitmentTypeSummary.cshtml")
+    <div class="clear"></div>
+</div>

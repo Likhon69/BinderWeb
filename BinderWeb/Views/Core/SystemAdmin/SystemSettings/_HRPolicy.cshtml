@@ -1,0 +1,154 @@
+﻿@Scripts.Render("~/Scripts/eAzolution/Core/SystemAdmin/SystemSettings/HrPolicy.js")
+
+<div id="divLoginRule">
+    <div class="divDetails">
+        <ul>
+
+            <li>
+                <label for="IsWebLoginEnable" class="lbl">Is Web Login Enable ?:</label>
+                <input type="checkbox" id="chkIsWebLoginEnable" name="IsWebLoginEnable" />
+            </li>
+
+            <li>
+                <label for="DeleteApproveLeaveUponPunch" class="lbl">Delete Approve Leave Upon Punch ?:</label>
+                <input type="checkbox" id="chkDeleteApproveLeaveUponPunch" name="DeleteApproveLeaveUponPunch" />
+            </li>
+            <li>
+                <label for="DeleteLateUponAttendanceApproval" class="lbl">Delete Late Upon Attendance Approval:</label>
+                <input type="checkbox" id="chkDeleteLateUponAttendanceApproval" name="DeleteLateUponAttendanceApproval" />
+            </li>
+            <li>
+                <label for="IsOtLimitApplicable" class="lbl">Is OT Limit Applicable:</label>
+                <input type="checkbox" id="chkIsOtLimitApplicable" name="IsOtLimitApplicable" />
+            </li>
+            <li>
+                <label for="IsSingleBranchApplicable" class="lbl">Is Single Branch Applicable:</label>
+                <input type="checkbox" id="chkIsSingleBranchApplicable" name="IsSingleBranchApplicable" />
+            </li>
+            <li>
+                <label for="CheckPreviousAbsenteeism" class="lbl">Check Previous Absenteeism:</label>
+                <input type="checkbox" id="chkCheckPreviousAbsenteeism" name="CheckPreviousAbsenteeism" />
+            </li>
+            <li>
+                <label for="CheckApproverSettings" class="lbl">Check Approver Settings:</label>
+                <input type="checkbox" id="chkCheckApproverSettings" name="CheckApproverSettings" />
+            </li>
+            <li>
+                <label for="BypassDefaultStateForSameBoss" class="lbl">Bypass Default State For Same Boss:</label>
+                <input type="checkbox" id="chkBypassDefaultStateForSameBoss" name="BypassDefaultStateForSameBoss" />
+            </li>
+            <li>
+                <label for="DefaultLateDeductionDaysFirstTime" class="lbl">Default Late Deduction Days 1st Time:</label>
+                <input type="number" id="txtDefaultLateDeductionDaysFirstTime" name="DefaultLateDeductionDaysFirstTime" min="1" max="50" />
+            </li>
+            <li>
+                <label for="DefaultLateDeductionDays" class="lbl">Default Late Deduction Days:</label>
+                <input type="number" id="txtDefaultLateDeductionDays" name="DefaultLateDeductionDays" min="1" max="50" />
+            </li>
+            <li>
+                <label for="txtDefaultLateDeductionDaysNext" class="lbl">Default Late Deduction Days Next(-):</label>
+                <input type="number" id="txtDefaultLateDeductionDaysNext" name="DefaultLateDeductionDaysNext" min="0" max="50" />
+            </li>
+            <li>
+                <label for="DefaultEarlyExitDeductionDays" class="lbl">Default Early Exit Deduction Days:</label>
+                <input type="number" id="txtDefaultEarlyExitDeductionDays" name="DefaultEarlyExitDeductionDays" min="0" max="50" />
+            </li>
+            <li>
+                <label for="IsOTCalculateForSalary" class="lbl">Is OT Calculate For Salary:</label>
+                <input type="checkbox" id="chkIsOTCalculateForSalary" name="IsOTCalculateForSalary" />
+            </li>
+            <li>
+                <label for="IsEmployeeIdAutoGenereted" class="lbl">Is EmployeeId Auto Generated:</label>
+                <input type="checkbox" id="chkIsEmployeeIdAutoGenereted" name="IsEmployeeIdAutoGenereted" />
+            </li>
+            <li>
+                <label for="IsGradeWiseLeave" class="lbl">Is Grade Wise Leave:</label>
+                <input type="checkbox" id="chkIsGradeWiseLeave" name="IsGradeWiseLeave" />
+            </li>
+
+            <li>
+                <label for="EnableMultiplePolicyForSameLeaveType" class="lbl">Enable Multiple Policy For Same Leave Type:</label>
+                <input type="checkbox" id="chkEnableMultiplePolicyForSameLeaveType" name="EnableMultiplePolicyForSameLeaveType" />
+            </li>
+            <li>
+                <label for="IsAbsenteeismMarge" class="lbl">Is Absenteeism Marge:</label>
+                <input type="checkbox" id="chkIsAbsenteeismMarge" name="IsAbsenteeismMarge" />
+            </li>
+            <li>
+                <label for="IsTotalBillingApplicable" class="lbl">Is Total Billing Applicable:</label>
+                <input type="checkbox" id="chkIsTotalBillingApplicable" name="IsTotalBillingApplicable" />
+            </li>
+            <li>
+                <label for="chkEnableApproverCheckingWhileApplication" class="lbl">Enable Approver Checking While Application:</label>
+                <input type="checkbox" id="chkEnableApproverCheckingWhileApplication" name="chkEnableApproverCheckingWhileApplication" />
+            </li>
+            <li>
+                <label for="chkEnableDelayOnShiftInGraceTime" class="lbl">Enable Delay On Shif-in Grace Time:</label>
+                <input type="checkbox" id="chkEnableDelayOnShiftInGraceTime" name="chkEnableDelayOnShiftInGraceTime" />
+            </li>
+
+            <li>
+                <label for="chkEnableLateAfterShiftInGraceTime" class="lbl">Enable Late After Shift-in Grace Time :</label>
+                <input type="checkbox" id="chkEnableLateAfterShiftInGraceTime" name="chkEnableLateAfterShiftInGraceTime" />
+            </li>
+            <li id="liEnableCustomStatusAfterShiftInGraceTime" style="display:none">
+                <label for="chkEnableCustomStatusAfterShiftInGraceTime" class="lbl">Enable Custom Status After Shift-in Grace Time :</label>
+                <input type="checkbox" id="chkEnableCustomStatusAfterShiftInGraceTime" name="chkEnableCustomStatusAfterShiftInGraceTime" />
+            </li>
+            <li id="liCustomStatusForAfterShiftinGraceTime" style="display:none">
+                <label for="txtCustomStatusForAfterShiftinGraceTime" class="lbl">Custom Status For After Shift-in Grace Time:</label>
+                @*<input type="text" class="k-textbox" id="txtCustomStatusForAfterShiftinGraceTime" name="Custom Status For After Shift-in Grace Time" />*@
+                <input type="text" name="CustomStatusForAfterShiftinGraceTime" class="k-textbox" id="txtCustomStatusForAfterShiftinGraceTime" />
+            </li>
+            <li>
+                <label for="chkEnableEarlyExitBeforeShiftOutGraceTime" class="lbl">Enable Early Exit Before Shift-Out Grace Time:</label>
+                <input type="checkbox" id="chkEnableEarlyExitBeforeShiftOutGraceTime" name="chkEnableLate" />
+            </li>
+
+            <li>
+                <label for="chkEnableAbsentAfterLateTime" class="lbl">Enable Absent After Late Time:</label>
+                <input type="checkbox" id="chkEnableAbsentAfterLateTime" name="chkEnableAbsentAfterLateTime" />
+            </li>
+            <li>
+                <label for="txtLateTime" class="lbl">Late Time (in Minutes):</label>
+                <input type="number" id="txtLateTime" name="txtLateTime" min="0" max="450" />
+            </li>
+
+            <li>
+                <label for="txtEarlyExitTime" class="lbl">Early Exit Time (in Minutes):</label>
+                <input type="number" id="txtEarlyExitTime" name="txtEarlyExitTime" min="0" max="450" />
+            </li>
+            <li>
+                <label for="chkEnableAbsentBeforeEarlyExitTime" class="lbl">Enable Absent Before Early Exit Time:</label>
+                <input type="checkbox" id="chkEnableAbsentBeforeEarlyExitTime" name="chkEnableAbsentBeforeEarlyExitTime" />
+            </li>
+            <li>
+                <label for="chkEnableAbsentForNoOutPunch" class="lbl">Enable Absent For No Out Punch:</label>
+                <input type="checkbox" id="chkEnableAbsentForNoOutPunch" name="chkEnableAbsentForNoOutPunch" />
+            </li>
+            <li>
+                <label for="chkEnableCustomStatusOutPunch" class="lbl">Enable Custom Status For No Out Punch:</label>
+                <input type="checkbox" id="chkEnableCustomStatusOutPunch" name="chkEnableCustomStatusOutPunch" />
+            </li>
+            <li id="liCustomStatusForNoOutPunch" style="display:none">
+                <label for="txtCustomStatusForNoOutPunch" class="lbl">Custom Status For No Out Punch:</label>
+                <input type="text" class="k-textbox" id="txtCustomStatusForNoOutPunch" name="txtEarlyExitTime" />
+            </li>
+            <li>
+                <label for="AttendanceRegulariseDays" class="lbl">Regularise Attendance Within(In Days):</label>
+                <input type="number" id="txtAttendanceRegulariseDays" name="AttendanceRegulariseDays" min="0" max="365" />
+            </li>
+            
+            <li id="liShortLeaveSlot">
+                @*1=FirstSlot, 2=LastSlot, 3=BothSlot*@
+                <label for="rdoShortLeaveSlot" class="lbl widthSize16_per">Short Leave Slot:</label>
+                <input type="radio" name="rdoShortLeaveSlot" id="rdoFirstSlot" value="1" />First Slot
+                <input type="radio" name="rdoShortLeaveSlot" id="rdoLastSlot" value="2" />Last Slot 
+                <input type="radio" name="rdoShortLeaveSlot" id="rdoBoth" value="3" checked="checked" />Both Slot
+            </li>
+            
+            
+
+        </ul>
+    </div>
+</div>

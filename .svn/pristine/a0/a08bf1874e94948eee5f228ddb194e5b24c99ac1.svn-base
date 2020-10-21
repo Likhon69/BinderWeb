@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "TallySettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script src="~/Binder/TallyPoint/TallyDetails.js"></script>
+
+<script src="~/Binder/TallyPoint/TallySettings.js"></script>
+
+<script src="~/Binder/TallyPoint/TallyConfirmationDetails.js"></script>
+
+<script src="~/Binder/TallyPoint/TallySummary.js"></script>
+
+
+<div class="container">
+
+
+    @await Html.PartialAsync("_TallyDetails.cshtml")
+
+</div>
+
+
+<div id="window">
+    <div class="rightDiv">
+        <div id="TallyConfirmationDiv" class="divDetails">
+
+            <ul>
+
+                <li>
+                    <label class="lbl widthSize40_per">Delivered Quantity:</label>
+                    <input id="txtQuantity" name="Quantity" title="" required="required" />
+
+
+                </li>
+
+
+                <li>
+                    <label class="lbl widthSize40_per">Remarks:</label>
+
+                    <textarea class="k-textbox" id="txtRemarks"></textarea>
+
+                </li>
+                <li class="accept">
+                    <button id="btnSaveOk" class="k-button k-primary" type="button">OK</button>
+                   
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+    <div class="leftDiv">
+        <div class="k-block">
+
+            <h3 class="k-header"> Tally Summary</h3>
+
+            <div id="TallySummaryDiv" class="divSummary">
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+

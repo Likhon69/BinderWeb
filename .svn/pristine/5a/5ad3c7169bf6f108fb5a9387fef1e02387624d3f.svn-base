@@ -1,0 +1,30 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/GradeType/GradeTypeDetails.js"></script>
+
+<div id="divGradeTypeDetails" class="divDetails">
+
+    <ul>
+        <li>
+            <input type="hidden" id="hdnGradeTypeId" value="0"/>
+
+            <label class="widthSize18_per">Grade Type Name:</label>
+            <input type="text" id="txtGradeTypeName" name="GradeTypeName" class="k-textbox" placeholder="Grade Type Name" required="required" />
+        </li>
+
+        <li>
+            <label>Is Active:</label>
+            <input type="checkbox" id="chkGradeTypeIsActive" name="IsActive" class="k-checkbox"/>
+        </li>
+    </ul>
+</div>
+
+<div id="" class="divDetails">
+    <ul>
+        <li class="centerAlign">
+
+            <button id="btnSaveGradeType" class="k-button" onclick="GradeTypeDetailsManager.SaveGradeType();">Save</button>&nbsp; &nbsp;
+            <button id="btnClearGradeType" class="k-button" onclick="GradeTypeDetailsHelper.clearGradeType();">Clear</button>&nbsp; &nbsp;
+             <button id="btnClose" onclick=" GradeTypeDetailsHelper.clickEventForcloseGradeTypeButton(); " class="k-button">Close</button>
+        </li>
+    </ul>
+</div>

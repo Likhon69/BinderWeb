@@ -1,0 +1,42 @@
+﻿@*<script src="~/Scripts/eAzolution/Core/SystemAdmin/DottedLineGroupConfig/DottedLineGroup.js"></script>*@
+
+<div id="divAddDottedLineNewGroup">
+    <div class="divDetails" >
+        <ul>
+             <li>
+            <input id="hdnDottedLineGroupId" type="hidden" />
+        </li>
+
+            <li>
+                <label for="GroupNameText" class="lbl widthSize9_per leftAlign" required="required">Group Name:<span class="redstart">*</span></label>
+              
+                 <input type="text" class="k-textbox" id="txtGroupNameText" name="txtGroupNameText" />
+                 
+            </li>
+            <li>
+                <label for="Description" class="lbl widthSize9_per leftAlign" required="required">Description:</label>
+                <textarea id="tareaDescription" class="k-textbox" cols="23"></textarea>
+            </li>
+            <li>
+                <label for="Language" class="lbl widthSize9_per leftAlign">Is Active:</label>
+                <input type="checkbox" id="chkDottedLineGroupIsActive" name="IsActive" class="k-checkbox" />
+            </li>
+
+             <div id="gvGroup"></div>
+
+            <li class="accept">
+                        <button id="btnGroupSave" class="k-button" type="submit">Save</button> &nbsp;&nbsp;
+                        <button id="btnGroupClear" class="k-button">Clear</button>
+                         <button id="btnGroupClose" class="k-button">Close</button>
+                    </li>
+                    <li class="status">
+                    </li>
+        </ul>
+    </div>
+
+   
+
+        
+                                
+   
+</div>

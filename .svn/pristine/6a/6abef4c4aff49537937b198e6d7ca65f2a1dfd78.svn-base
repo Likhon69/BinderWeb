@@ -1,0 +1,9 @@
+﻿
+<script src="~/Scripts/eAzolution/Core/HrAdmin/SimNumberSettings/SimNumberSummary.js"></script>
+
+
+    <div class="divDetails">
+        
+            <div id="gridSimNumberSummary"></div>
+        
+    </div>

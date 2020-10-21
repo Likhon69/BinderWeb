@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BinderWeb.Services.BinderWebContracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers
+{
+ 
+    public class UnitController : BaseApiController
+    {
+        private IUnitServices _unitServices;
+        public UnitController(IUnitServices unitSerices)
+        {
+            _unitServices = unitSerices;
+        }
+      [HttpGet]
+      public IActionResult GetUnits()
+        {
+            var data = _unitServices.GetUnits();
+            return Ok(data);
+        }
+    }
+}

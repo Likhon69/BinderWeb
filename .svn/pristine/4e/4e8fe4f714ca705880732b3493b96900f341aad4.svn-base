@@ -1,0 +1,28 @@
+﻿using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.ViewModels;
+using BinderWeb.Repository.BinderContractsWeb;
+using BinderWeb.Services.Base;
+using BinderWeb.Services.BinderContractsWeb;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BinderWeb.Services.BinderServicesWeb
+{
+    public class LocationServices : BinderBaseServices, ILocationServices
+    {
+        private ILocationRepository _repository;
+        public LocationServices(ILocationRepository repository)
+        {
+            _repository = repository;
+        }
+
+         
+
+        public GridEntity<BranchDto> GetLocation(GridOptions options)
+        {
+            return _repository.GetLocation(options);
+        }
+    }
+}

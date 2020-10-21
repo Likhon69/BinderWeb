@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using AutoMapper;
+using BinderCore.Models.SystemAdmin;
+using BinderCore.Services.SystemAdmin.Contracts;
+using BinderUtility;
+using BinderWeb.DatabaseContext.Entities;
+using BinderWeb.Models.Auth;
+using BinderWeb.Models.MobileApiDTO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BinderWebApi.Controllers.MobileApi
+{
+
+    public class UsersController : BaseApiController
+    {
+
+
+        private IUsersService _usersService;
+        public UsersController(IUsersService usersService)
+        {
+
+            _usersService = usersService;
+        }
+
+        [HttpPost]
+        public GridEntity<UsersDto> GetUserSummary(GridOptions options)
+        {
+            return _usersService.GetUserSummary(options);
+        }
+
+        [AllowAnonymous]
+        [ProducesResponseType(typeof(AuthorizeUser), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+       
+        [HttpPost]
+        public IActionResult Authenticate([FromBody]AuthenticateModel model)
+        {
+            
+            var user = _usersService.Authenticate(model.LoginId, model.Password);
+           
+
+            if (user == null)
+            {
+                return BadRequest(new { message = "Username or password is incorrect" });
+            }
+            else
+            {
+                var result = user;
+
+                return Ok(result);
+            }
+
+           
+        }
+
+    }
+}
